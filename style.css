@@ -25,17 +25,6 @@ body {
   padding: 60px 20px 100px;
 }
 
-.curve-divider {
-  position: absolute;
-  bottom: -1px;
-  left: 0;
-  width: 100%;
-  height: 80px;
-  background: url('images/curve.svg') center bottom no-repeat;
-  background-size: cover;
-  z-index: 1;
-}
-
 
 
 header h1 {
