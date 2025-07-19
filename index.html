@@ -156,68 +156,113 @@
 
 
   <div class="container">
-    <section>
-      <h2>Experience</h2>
-      <div class="card">
-        <h3>PhD Candidate - Universitat de València</h3>
-        <p class="date">Sep 2022 – Present</p>
-        <ul>
-          <li>Remote sensing research on wheat yield and climate risk.</li>
-          <li>Lead data fusion from Sentinel-1/2 & PlanetScope.</li>
-          <li>Team member in ESA’s CHIME & Sen2Like missions.</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>CSO - AgroSpace SPA</h3>
-        <p class="date">2021 – Present</p>
-        <ul>
-          <li>Develop AI/ML tools for water and food security.</li>
-          <li>Winner of $5M AIM for Climate Challenge (COP28).</li>
-        </ul>
-      </div>
-    </section>
+<section>
+  <h2>Experience</h2>
+  <div id="experience-list"></div>
+</section>
 
-    <section>
-      <h2>Projects</h2>
-      <div class="card">
-        <h3>TrankET: AI-based water recovery system in tailings</h3>
-        <p class="date">2023 – Ongoing</p>
-        <p>Combines BRDF-corrected satellite imagery and ML to monitor tailing ponds for water reuse and contamination risk.</p>
-      </div>
-      <div class="card">
-        <h3>Yield Transferability Study (Sentinel 1–2)</h3>
-        <p class="date">2024</p>
-        <p>Assessing robustness of SAR-optical fusion for regional wheat/barley yield prediction across seasons in Spain.</p>
-      </div>
-    </section>
 
-    <section>
-      <h2>Skills</h2>
-      <div class="card">
-        <ul>
-          <li><strong>Remote Sensing:</strong> Expert in Earth observation data processing.</li>
-          <li><strong>Python & ML:</strong> Proficient in AI/ML/DL for geospatial applications.</li>
-          <li><strong>Cloud & DB:</strong> GCP, SQL, NoSQL.</li>
-          <li><strong>UAV:</strong> Pilot & data analyst.</li>
-          <li><strong>Languages:</strong> Spanish (Native), English (C1), Italian (B2), Korean (A2)</li>
-        </ul>
-      </div>
-    </section>
+<section>
+  <h2>Projects</h2>
+  <div id="project-list"></div>
+</section>
 
-    <section>
-      <h2>Links</h2>
-      <div class="card">
-        <ul>
-          <li><a href="https://scholar.google.com/citations?user=your-google-scholar-id" target="_blank">Google Scholar</a></li>
-          <li><a href="https://orcid.org/0000-0003-0609-9649" target="_blank">ORCID</a></li>
-          <li><a href="https://sciprofiles.com/profile/MolettoLobos" target="_blank">Sciprofile</a></li>
-        </ul>
-      </div>
-    </section>
+
+<section>
+  <h2>Skills</h2>
+  <div id="skills-list"></div>
+</section>
+
+<section>
+  <h2>Links</h2>
+  <div id="links-list"></div>
+</section>
+
   </div>
 
   <footer>
     <p>&copy; 2025 Italo Moletto Lobos — Remote Sensing & AI</p>
   </footer>
+<script>
+  fetch('projects.json')
+    .then(response => response.json())
+    .then(data => {
+      const container = document.getElementById('project-list');
+      data.forEach(project => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+          <h3>${project.title}</h3>
+          <p class="date">${project.date}</p>
+          <p>${project.description}</p>
+        `;
+        container.appendChild(card);
+      });
+    })
+    .catch(err => {
+      console.error('Error loading projects:', err);
+    });
+</script>
+
+<script>
+  fetch('experience.json')
+    .then(response => response.json())
+    .then(data => {
+      const container = document.getElementById('experience-list');
+      data.forEach(role => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        const items = role.items.map(item => `<li>${item}</li>`).join('');
+        card.innerHTML = `
+          <h3>${role.title}</h3>
+          <p class="date">${role.date}</p>
+          <ul>${items}</ul>
+        `;
+        container.appendChild(card);
+      });
+    })
+    .catch(err => {
+      console.error('Error loading experience:', err);
+    });
+</script>
+
+<script>
+// Skills
+fetch('skills.json')
+  .then(response => response.json())
+  .then(data => {
+    const container = document.getElementById('skills-list');
+    const card = document.createElement('div');
+    card.className = 'card';
+    let html = '';
+    if (data.technical) {
+      html += '<h3>Technical Skills:</h3><ul>';
+      data.technical.forEach(skill => html += `<li>${skill}</li>`);
+      html += '</ul>';
+    }
+    if (data.languages) {
+      html += '<h3>Languages:</h3><ul>';
+      data.languages.forEach(lang => html += `<li>${lang}</li>`);
+      html += '</ul>';
+    }
+    card.innerHTML = html;
+    container.appendChild(card);
+  });
+
+// Links
+fetch('links.json')
+  .then(response => response.json())
+  .then(data => {
+    const container = document.getElementById('links-list');
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = '<ul>' +
+      data.map(link => `<li><a href="${link.url}" target="_blank">${link.label}</a></li>`).join('') +
+      '</ul>';
+    container.appendChild(card);
+  });
+</script>
+
+
 </body>
 </html>
