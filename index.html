@@ -5,264 +5,137 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Italo Moletto Lobos - CV</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-bUG1z28JZmJk..." crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <style>
-    :root {
-      --primary: #2c3e50;
-      --accent: #3498db;
-      --bg: #f5f7fa;
-      --text: #2c2c2c;
-      --card-bg: #ffffff;
-      --shadow: 0 4px 10px rgba(0,0,0,0.08);
-      --radius: 12px;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
-      margin: 0;
-      padding: 0;
-    }
-
-    header {
-      background: linear-gradient(90deg, #1a1a1a, var(--primary));
-      color: white;
-      text-align: center;
-      padding: 60px 20px 40px;
-      position: relative;
-    }
-
-    .profile-pic {
-      width: 140px;
-      height: 140px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 5px solid white;
-      position: absolute;
-      bottom: -70px;
-      left: 50%;
-      transform: translateX(-50%);
-      box-shadow: var(--shadow);
-    }
-
-    header h1 {
-      font-size: 2.8em;
-      margin-bottom: 10px;
-    }
-
-    header p {
-      font-size: 1.2em;
-      opacity: 0.85;
-    }
-
-    .contact-info {
-      margin-top: 25px;
-      font-size: 0.95em;
-    }
-
-    .contact-info span, .contact-info a {
-      margin: 0 12px;
-      color: white;
-      text-decoration: none;
-    }
-
-    .container {
-      max-width: 1000px;
-      margin: 100px auto 0;
-      padding: 40px 20px;
-    }
-
-    section {
-      margin-bottom: 60px;
-    }
-
-    h2 {
-      font-size: 1.8em;
-      border-left: 5px solid var(--accent);
-      padding-left: 15px;
-      margin-bottom: 25px;
-      color: var(--primary);
-    }
-
-    .card {
-      background-color: var(--card-bg);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 25px 30px;
-      margin-bottom: 25px;
-    }
-
-    .card h3 {
-      margin-top: 0;
-      font-size: 1.3em;
-      color: var(--text);
-    }
-
-    .date {
-      font-size: 0.9em;
-      color: #777;
-      margin-bottom: 10px;
-    }
-
-    ul {
-      padding-left: 20px;
-    }
-
-    ul li {
-      margin-bottom: 8px;
-    }
-
-    a {
-      color: var(--accent);
-    }
-
-    footer {
-      background-color: var(--primary);
-      color: white;
-      text-align: center;
-      padding: 30px 0;
-      font-size: 0.9em;
-    }
-
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 2em;
-      }
-      .contact-info span, .contact-info a {
-        display: block;
-        margin: 5px 0;
-      }
-      .profile-pic {
-        width: 100px;
-        height: 100px;
-        bottom: -50px;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
 </head>
 <body>
-<header>
-  <h1>Italo Moletto Lobos</h1>
-  <p>PhD in Remote Sensing | AI & Climate Risk | Earth Observation</p>
-  <div class="contact-info">
-    ...
+  <header id="header"></header>
+
+  <div class="profile-wrapper">
+    <img class="profile-pic" src="your-photo.jpg" alt="Italo Moletto" />
   </div>
-</header>
-
-<div class="profile-wrapper">
-  <img class="profile-pic" src="ae8a0483-8dbe-4bb7-bd95-659a7f398d69.png" alt="Italo Moletto" />
-</div>
-
 
   <div class="container">
-<section>
-  <h2>Experience</h2>
-  <div id="experience-list"></div>
-</section>
+    <section>
+      <h2>Experience</h2>
+      <div id="experience-list"></div>
+    </section>
 
+    <section>
+      <h2>Projects</h2>
+      <div id="project-list"></div>
+    </section>
 
-<section>
-  <h2>Projects</h2>
-  <div id="project-list"></div>
-</section>
+    <section>
+      <h2>Skills</h2>
+      <div id="skills-list"></div>
+    </section>
 
+    <section>
+      <h2>Links</h2>
+      <div id="links-list"></div>
+    </section>
 
-<section>
-  <h2>Skills</h2>
-  <div id="skills-list"></div>
-</section>
-
-<section>
-  <h2>Links</h2>
-  <div id="links-list"></div>
-</section>
-
+    <section class="personal-data">
+      <h2>Personal Data</h2>
+      <p>Nationality: Chilean/Italian</p>
+      <p>Born date: December 9th, 1992</p>
+      <p>Address: Calle de Luis Oliag Numero 3, Piso 2, Puerta 4, 46006, Valencia.</p>
+    </section>
   </div>
 
   <footer>
     <p>&copy; 2025 Italo Moletto Lobos — Remote Sensing & AI</p>
   </footer>
-<script>
-  fetch('projects.json')
-    .then(response => response.json())
-    .then(data => {
-      const container = document.getElementById('project-list');
-      data.forEach(project => {
+
+  <script>
+    // Header
+    fetch('header.json')
+      .then(response => response.json())
+      .then(data => {
+        const header = document.getElementById('header');
+        const phones = data.phones.join(' / ');
+        const emails = data.emails.join(' / ');
+        header.innerHTML = `
+          <h1>${data.name}</h1>
+          <p>${data.subtitle}</p>
+          <div class="contact-info">
+            <span><i class="fas fa-phone"></i> ${phones}</span>
+            <span><i class="fas fa-envelope"></i> ${emails}</span>
+            <a href="${data.linkedin}" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+          </div>
+        `;
+      });
+
+    // Experience
+    fetch('experience.json')
+      .then(response => response.json())
+      .then(data => {
+        const container = document.getElementById('experience-list');
+        data.forEach(role => {
+          const card = document.createElement('div');
+          card.className = 'card';
+          const items = role.items.map(item => `<li>${item}</li>`).join('');
+          card.innerHTML = `
+            <h3>${role.title}</h3>
+            <p class="date">${role.date}</p>
+            <ul>${items}</ul>
+          `;
+          container.appendChild(card);
+        });
+      });
+
+    // Projects
+    fetch('projects.json')
+      .then(response => response.json())
+      .then(data => {
+        const container = document.getElementById('project-list');
+        data.forEach(project => {
+          const card = document.createElement('div');
+          card.className = 'card';
+          card.innerHTML = `
+            <h3>${project.title}</h3>
+            <p class="date">${project.date}</p>
+            <p>${project.description}</p>
+          `;
+          container.appendChild(card);
+        });
+      });
+
+    // Skills
+    fetch('skills.json')
+      .then(response => response.json())
+      .then(data => {
+        const container = document.getElementById('skills-list');
         const card = document.createElement('div');
         card.className = 'card';
-        card.innerHTML = `
-          <h3>${project.title}</h3>
-          <p class="date">${project.date}</p>
-          <p>${project.description}</p>
-        `;
+        let html = '';
+        if (data.technical) {
+          html += '<h3>Technical Skills:</h3><ul>';
+          data.technical.forEach(skill => html += `<li>${skill}</li>`);
+          html += '</ul>';
+        }
+        if (data.languages) {
+          html += '<h3>Languages:</h3><ul>';
+          data.languages.forEach(lang => html += `<li>${lang}</li>`);
+          html += '</ul>';
+        }
+        card.innerHTML = html;
         container.appendChild(card);
       });
-    })
-    .catch(err => {
-      console.error('Error loading projects:', err);
-    });
-</script>
 
-<script>
-  fetch('experience.json')
-    .then(response => response.json())
-    .then(data => {
-      const container = document.getElementById('experience-list');
-      data.forEach(role => {
+    // Links
+    fetch('links.json')
+      .then(response => response.json())
+      .then(data => {
+        const container = document.getElementById('links-list');
         const card = document.createElement('div');
         card.className = 'card';
-        const items = role.items.map(item => `<li>${item}</li>`).join('');
-        card.innerHTML = `
-          <h3>${role.title}</h3>
-          <p class="date">${role.date}</p>
-          <ul>${items}</ul>
-        `;
+        card.innerHTML = '<ul>' +
+          data.map(link => `<li><a href="${link.url}" target="_blank">${link.label}</a></li>`).join('') +
+          '</ul>';
         container.appendChild(card);
       });
-    })
-    .catch(err => {
-      console.error('Error loading experience:', err);
-    });
-</script>
-
-<script>
-// Skills
-fetch('skills.json')
-  .then(response => response.json())
-  .then(data => {
-    const container = document.getElementById('skills-list');
-    const card = document.createElement('div');
-    card.className = 'card';
-    let html = '';
-    if (data.technical) {
-      html += '<h3>Technical Skills:</h3><ul>';
-      data.technical.forEach(skill => html += `<li>${skill}</li>`);
-      html += '</ul>';
-    }
-    if (data.languages) {
-      html += '<h3>Languages:</h3><ul>';
-      data.languages.forEach(lang => html += `<li>${lang}</li>`);
-      html += '</ul>';
-    }
-    card.innerHTML = html;
-    container.appendChild(card);
-  });
-
-// Links
-fetch('links.json')
-  .then(response => response.json())
-  .then(data => {
-    const container = document.getElementById('links-list');
-    const card = document.createElement('div');
-    card.className = 'card';
-    card.innerHTML = '<ul>' +
-      data.map(link => `<li><a href="${link.url}" target="_blank">${link.label}</a></li>`).join('') +
-      '</ul>';
-    container.appendChild(card);
-  });
-</script>
-
-
+  </script>
 </body>
 </html>
