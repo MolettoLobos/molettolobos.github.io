@@ -37,11 +37,9 @@
     </section>
 
     <section class="personal-data">
-      <h2>Personal Data</h2>
-      <p>Nationality: Chilean/Italian</p>
-      <p>Born date: December 9th, 1992</p>
-      <p>Address: Calle de Luis Oliag Numero 3, Piso 2, Puerta 4, 46006, Valencia.</p>
-    </section>
+  <h2>Personal Data</h2>
+  <div class="card" id="personal-data"></div>
+</section>
   </div>
 
   <footer>
@@ -122,6 +120,18 @@
         }
         card.innerHTML = html;
         container.appendChild(card);
+      });
+
+    // Personal Data
+    fetch('personal.json')
+      .then(response => response.json())
+      .then(data => {
+        const container = document.getElementById('personal-data');
+        container.innerHTML = `
+          <p><strong>Nationality:</strong> ${data.nationality}</p>
+          <p><strong>Born date:</strong> ${data.birthdate}</p>
+          <p><strong>Address:</strong> ${data.address}</p>
+        `;
       });
 
     // Links
