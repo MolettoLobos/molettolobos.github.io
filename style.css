@@ -133,9 +133,20 @@ footer {
     margin: 5px 0;
   }
 
-  .profile-pic {
-    width: 100px;
-    height: 100px;
-    bottom: -50px;
-  }
+.profile-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: -70px;
+  margin-bottom: 40px;
+}
+
+.profile-pic {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid white;
+  box-shadow: var(--shadow);
+}
+
 }
