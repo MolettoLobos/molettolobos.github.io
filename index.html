@@ -4,16 +4,27 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Italo Moletto Lobos - CV</title>
+
+  <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- PDF library -->
+  <script src="https://cdn.jsdelivr.net/npm/html2pdf.js@0.10.1/dist/html2pdf.bundle.min.js"></script>
 </head>
 <body>
   <div class="header-wrapper">
     <header id="header"></header>
+
     <div class="profile-wrapper">
       <img class="profile-pic" src="your-photo.jpg" alt="Italo Moletto" />
     </div>
+
+    <!-- PDF Button -->
+    <button id="btn-pdf" class="print-btn" aria-label="Download PDF">Download PDF</button>
   </div>
 
   <div class="container">
@@ -48,74 +59,84 @@
   </footer>
 
   <script>
-    // Header
+    // ------------ Header ------------
     fetch('header.json')
-      .then(response => response.json())
+      .then(r => r.json())
       .then(data => {
         const header = document.getElementById('header');
-        const phones = data.phones.join(' / ');
-        const emails = data.emails.join(' / ');
+        const phones = (data.phones || []).join(' / ');
+        const emails = (data.emails || []).join(' / ');
         header.innerHTML = `
-          <h1>${data.name}</h1>
-          <p>${data.subtitle}</p>
+          <h1>${data.name || ''}</h1>
+          <p>${data.subtitle || ''}</p>
           <div class="contact-info">
-            <span><i class="fas fa-phone"></i> ${phones}</span>
-            <span><i class="fas fa-envelope"></i> ${emails}</span>
-            <a href="${data.linkedin}" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            ${phones ? `<span><i class="fas fa-phone"></i> ${phones}</span>` : ''}
+            ${emails ? `<span><i class="fas fa-envelope"></i> ${emails}</span>` : ''}
+            ${data.linkedin ? `<a href="${data.linkedin}" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>` : ''}
           </div>
         `;
       });
 
-    // Experience
+    // ------------ Experience ------------
     fetch('experience.json')
-      .then(response => response.json())
+      .then(r => r.json())
       .then(data => {
         const container = document.getElementById('experience-list');
         data.forEach(role => {
           const card = document.createElement('div');
           card.className = 'card';
-          const items = role.items.map(item => `<li>${item}</li>`).join('');
+          const items = (role.items || []).map(item => `<li>${item}</li>`).join('');
           card.innerHTML = `
-            <h3>${role.title}</h3>
-            <p class="date">${role.date}</p>
-            <ul>${items}</ul>
+            <h3>${role.title || ''}</h3>
+            <p class="date">${role.date || ''}</p>
+            ${items ? `<ul>${items}</ul>` : ''}
           `;
           container.appendChild(card);
         });
       });
 
-    // Projects
+    // ------------ Projects ------------
+    // Supports: employer, country, code (in addition to title/date/description)
     fetch('projects.json')
-      .then(response => response.json())
+      .then(r => r.json())
       .then(data => {
         const container = document.getElementById('project-list');
         data.forEach(project => {
           const card = document.createElement('div');
           card.className = 'card';
+
+          const metaBits = [];
+          if (project.employer) metaBits.push(project.employer);
+          if (project.country)  metaBits.push(project.country);
+          const meta = metaBits.length ? `<p class="meta">${metaBits.join(' · ')}</p>` : '';
+          const code = project.code ? `<p class="code"><strong>Code:</strong> ${project.code}</p>` : '';
+
           card.innerHTML = `
-            <h3>${project.title}</h3>
-            <p class="date">${project.date}</p>
-            <p>${project.description}</p>
+            <h3>${project.title || ''}</h3>
+            <p class="date">${project.date || ''}</p>
+            ${meta}
+            ${code}
+            <p>${project.description || ''}</p>
           `;
           container.appendChild(card);
         });
       });
 
-    // Skills
+    // ------------ Skills ------------
     fetch('skills.json')
-      .then(response => response.json())
+      .then(r => r.json())
       .then(data => {
         const container = document.getElementById('skills-list');
         const card = document.createElement('div');
         card.className = 'card';
         let html = '';
-        if (data.technical) {
-          html += '<h3>Technical Skills:</h3><ul>';
+        if (data.technical?.length) {
+          html += '<h3>Technical Skills</h3><ul>';
           data.technical.forEach(skill => html += `<li>${skill}</li>`);
           html += '</ul>';
         }
-        if (data.languages) {
-          html += '<h3>Languages:</h3><ul>';
+        if (data.languages?.length) {
+          html += '<h3>Languages</h3><ul>';
           data.languages.forEach(lang => html += `<li>${lang}</li>`);
           html += '</ul>';
         }
@@ -123,30 +144,44 @@
         container.appendChild(card);
       });
 
-    // Personal Data
+    // ------------ Personal Data ------------
     fetch('personal.json')
-      .then(response => response.json())
+      .then(r => r.json())
       .then(data => {
         const container = document.getElementById('personal-data');
         container.innerHTML = `
-          <p><strong>Nationality:</strong> ${data.nationality}</p>
-          <p><strong>Born date:</strong> ${data.birthdate}</p>
-          <p><strong>Address:</strong> ${data.address}</p>
+          <p><strong>Nationality:</strong> ${data.nationality || ''}</p>
+          <p><strong>Born date:</strong> ${data.birthdate || ''}</p>
+          <p><strong>Address:</strong> ${data.address || ''}</p>
         `;
       });
 
-    // Links
+    // ------------ Links ------------
     fetch('links.json')
-      .then(response => response.json())
+      .then(r => r.json())
       .then(data => {
         const container = document.getElementById('links-list');
         const card = document.createElement('div');
         card.className = 'card';
         card.innerHTML = '<ul>' +
-          data.map(link => `<li><a href="${link.url}" target="_blank">${link.label}</a></li>`).join('') +
+          data.map(link => `<li><a href="${link.url}" target="_blank" rel="noopener">${link.label}</a></li>`).join('') +
           '</ul>';
         container.appendChild(card);
       });
+
+    // ------------ PDF Download ------------
+    document.getElementById('btn-pdf').addEventListener('click', () => {
+      const element = document.querySelector('.container'); // export only the content (no header/footer)
+      const opt = {
+        margin: [10, 10, 10, 10],                 // mm
+        filename: 'Italo_Moletto_CV.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2, useCORS: true, backgroundColor: '#ffffff' },
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+        pagebreak: { mode: ['css', 'legacy'] }
+      };
+      html2pdf().set(opt).from(element).save();
+    });
   </script>
 </body>
 </html>
