@@ -191,3 +191,20 @@ footer .print-btn:hover {
   .container { margin-top: 100px; padding: 30px 15px; }
   footer { font-size: 0.8em; padding: 22px 0 28px; }
 }
+
+
+/* Paginación fiable para PDF */
+.pdf-root, .container {
+  break-inside: auto;
+}
+
+.card, section, .personal-data {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+/* Si usas pagebreak por CSS, respétalo */
+.page-break { break-before: page; page-break-before: always; }
+.container {
+  max-width: 900px;   /* antes 1000px */
+}
