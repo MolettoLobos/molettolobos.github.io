@@ -1,12 +1,138 @@
 [
   {
-    "title": "TrankET",
-    "date": "2023 – Ongoing",
-    "description": "AI-based monitoring system for water reuse in tailings using BRDF and satellite fusion."
+    "employer": "University of Valencia",
+    "code": "CIGRIS 161",
+    "country": "Spain",
+    "title": "Santiago Grisolia Scholarship — From field to global: A Phenology-Informed Framework for Yield Monitoring and Climate Risk in Winter Cereals",
+    "date": "2022 – Ongoing",
+    "description": "Assessed multiscale satellite transferability for wheat yield prediction and climate risk assessment using GDD-normalised indices."
   },
   {
-    "title": "Yield Transferability Study",
-    "date": "2024",
-    "description": "Sentinel 1–2 fusion model transferability across regions and seasons for wheat/barley yield prediction."
+    "employer": "University of Valencia",
+    "code": "ESA CHIME BRDF",
+    "country": "Spain · EU",
+    "title": "CHIME BRDF Calibration",
+    "date": "2024 – Ongoing",
+    "description": "Team member developing BRDF calibration strategies for ESA’s CHIME hyperspectral mission."
+  },
+  {
+    "employer": "University of Valencia",
+    "code": "ESA Sen2Like",
+    "country": "Spain · EU",
+    "title": "Sen2Like BRDF Harmonisation",
+    "date": "2021 – 2022",
+    "description": "Developed and tested BRDF harmonisation workflows for the Sen2Like virtual constellation."
+  },
+  {
+    "employer": "AgroSpace",
+    "code": "TrankET",
+    "country": "Chile",
+    "title": "TrankET",
+    "date": "2024 – Ongoing",
+    "description": "Satellite- and AI-based monitoring system for water reuse in mining tailings. Integrates Sen2Like to predict evaporation and map wet/dry zones in near real time."
+  },
+  {
+    "employer": "AgroSpace",
+    "code": "SMA Res.Ex.N°2099",
+    "country": "Chile",
+    "title": "Change Detection Models for Sand Extraction Monitoring (SMA)",
+    "date": "2023 – 2024",
+    "description": "Lead investigator developing ML/remote sensing models to support remote enforcement of sand extraction projects for the Environmental Authority."
+  },
+  {
+    "employer": "AgroSpace",
+    "code": "21CV2-183244",
+    "country": "Chile",
+    "title": "FertiPro",
+    "date": "2021 – 2023",
+    "description": "Geo-spatial platform integrating soil chemistry and mapping to optimise fertiliser recommendations. Funded by CORFO."
+  },
+  {
+    "employer": "AgroSpace",
+    "code": "21IR-176557",
+    "country": "Chile",
+    "title": "AI-based Smart Irrigation System",
+    "date": "2021 – 2023",
+    "description": "Co-developed 'Irrismart', an integrated platform using EO, IoT, and AI to optimise irrigation scheduling."
+  },
+  {
+    "employer": "AgroSpace",
+    "code": "20SN-139594",
+    "country": "Chile",
+    "title": "Pastoreo de Praderas sin Efecto de Nubes",
+    "date": "2020 – 2021",
+    "description": "Biomass mapping service for grasslands using cloud-free satellite indices calibrated to local conditions."
+  },
+  {
+    "employer": "University of Chile — Center for Climate and Resilience Research (CR2)",
+    "code": "Res. Ex RA 311/71/2020",
+    "country": "Chile",
+    "title": "ARClim (Climate Risk Atlas)",
+    "date": "2019",
+    "description": "Technical staff contributor for the national climate risk atlas combining satellite and climate data."
+  },
+  {
+    "employer": "AgroSpace",
+    "code": "1154-30-L120",
+    "country": "Chile",
+    "title": "Glacial Lake Outburst Flood Early Warning System",
+    "date": "2019 – 2021",
+    "description": "Project manager for remote monitoring of glaciers and lakes in Aysén to anticipate flood risks."
+  },
+  {
+    "employer": "University of Chile — Laboratory for the Analysis of the Biosphere (LAB)",
+    "code": "VIU18P0109",
+    "country": "Chile",
+    "title": "HidroSat",
+    "date": "2018 – 2019",
+    "description": "Director of project using satellites and UAVs to estimate actual crop water use and enable efficient irrigation scheduling."
+  },
+  {
+    "employer": "University of Aysén — Laboratory of Geoscience",
+    "code": "BIP 40000494-0",
+    "country": "Chile",
+    "title": "Zonificación Agroclimática Dinámica",
+    "date": "2017 – 2019",
+    "description": "Dynamic agro-climatic zoning for Aysén using meteorological modelling and remote sensing."
+  },
+  {
+    "employer": "FAO",
+    "code": "GCP/CHI/034/GFF",
+    "country": "Chile",
+    "title": "Castor Control (GEF/FAO)",
+    "date": "2017 – 2022",
+    "description": "Technical staff supporting invasive beaver monitoring and control in Patagonia."
+  },
+  {
+    "employer": "Universidad de La Frontera (UFRO)",
+    "code": "Res. Ex RA 311/71/2020",
+    "country": "Chile",
+    "title": "NEXER (Network for Extreme Environment Research)",
+    "date": "2020",
+    "description": "Technical staff on network activities supporting research in extreme environments."
+  },
+  {
+    "employer": "University of Chile — Laboratory for the Analysis of the Biosphere (LAB)",
+    "code": "BIP 40013379",
+    "country": "Chile",
+    "title": "Real-Time Monitoring of Crop Water Requirements (Copiapó)",
+    "date": "2019 – 2021",
+    "description": "Developed dynamic models to estimate potential and actual crop water use at 10 m and 8-day cadence for basin management."
+  },
+  {
+    "employer": "University of Chile — Laboratory for the Analysis of the Biosphere (LAB)",
+    "code": "IT18I0022",
+    "country": "Chile",
+    "title": "Transfer of Actual Evapotranspiration Model for Sustainable Water Management",
+    "date": "2019 – 2021",
+    "description": "Built a transferable platform to operationalise an ETa model developed in prior research for regional water management."
+  },
+  {
+    "employer": "University of Chile — CONICYT Anillos",
+    "code": "SOC1404",
+    "country": "Chile",
+    "title": "Natural, Spatial and Socio-Cultural Dynamics in Chile’s Forest Territories (1975–2014)",
+    "date": "2015 & 2017 – 2018",
+    "description": "Technical staff on interdisciplinary research about socio-environmental conflicts in forest territories."
   }
 ]

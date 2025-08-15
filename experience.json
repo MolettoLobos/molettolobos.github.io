@@ -1,19 +1,66 @@
 [
   {
-    "title": "PhD Candidate - Universitat de València",
-    "date": "Sep 2022 – Present",
+    "title": "Postdoctoral Researcher — University of Valencia (Global Change Unit)",
+    "date": "Aug 2025 – Jul 2026",
     "items": [
-      "Remote sensing research on wheat yield and climate risk.",
-      "Lead data fusion from Sentinel-1/2 & PlanetScope.",
-      "Team member in ESA’s CHIME & Sen2Like missions."
+      "Detect extreme climate events and assess impacts on agricultural yield at global scale.",
+      "Integrate satellite observations (S1/S2, MODIS, PlanetScope) with climate datasets (e.g., ERA5).",
+      "Extension following PhD scholarship; fixed-term research contract."
     ]
   },
   {
-    "title": "CSO - AgroSpace SPA",
-    "date": "2021 – Present",
+    "title": "PhD in Remote Sensing — University of Valencia",
+    "date": "Sep 2022 – Jul 2025",
     "items": [
-      "Develop AI/ML tools for water and food security.",
-      "Winner of $5M AIM for Climate Challenge (COP28)."
+      "Thesis on wheat yield prediction and climate risk using multi-source EO and reanalysis.",
+      "RAQRS VI & VII co-organiser; CHIME BRDF calibration team; Sen2Like collaborations.",
+      "PhD awarded Jul 2025 (Cum Laude)."
+    ]
+  },
+  {
+    "title": "Research Technician — University of Valencia (Global Change Unit)",
+    "date": "Jul 2021 – Sep 2022",
+    "items": [
+      "Sen2Like BRDF algorithm development and harmonisation workflows.",
+      "High-performance server (ARYA) management and EO pipelines."
+    ]
+  },
+  {
+    "title": "Chief Science Officer (CSO) — AgroSpace SpA",
+    "date": "Aug 2016 – Aug 2025",
+    "items": [
+      "Cofounder leading scientific solutions with EO, weather stations, and ML/AI.",
+      "Winner of AIM for Climate Challenge: $5,000,000 prize (COP28)."
+    ]
+  },
+  {
+    "title": "Expert Researcher — Univ. of Chile / Center for Climate and Resilience Research (CR2)",
+    "date": "Oct 2019 – Jun 2020",
+    "items": [
+      "MODIS vegetation time-series for native forest and plantations across Chile.",
+      "Contribution to Climate Risk Atlas (ARCLIM)."
+    ]
+  },
+  {
+    "title": "Research Assistant — University of Aysén (Lab. of Geosciences)",
+    "date": "Apr 2018 – Jun 2019",
+    "items": [
+      "Dynamic agroclimatic zoning using remote sensing, climate, and drone data."
+    ]
+  },
+  {
+    "title": "Research Assistant — University of Chile (LAB)",
+    "date": "Aug 2016 – Jun 2021",
+    "items": [
+      "Research in climate and remote sensing for food and water security projects."
+    ]
+  },
+  {
+    "title": "Consultant Expert — FAO (Project GCP/CHI/034/GFF)",
+    "date": "Jul 2021 – Aug 2021",
+    "items": [
+      "Beaver detection and monitoring consultancy.",
+      "Short-term expert support."
     ]
   }
 ]
