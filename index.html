@@ -22,9 +22,6 @@
     <div class="profile-wrapper">
       <img class="profile-pic" src="your-photo.jpg" alt="Italo Moletto" />
     </div>
-
-    <!-- PDF Button -->
-    <button id="btn-pdf" class="print-btn" aria-label="Download PDF">Download PDF</button>
   </div>
 
   <div class="container">
@@ -55,6 +52,11 @@
   </div>
 
   <footer>
+    <div class="pdf-btn-wrapper">
+      <button id="btn-pdf" class="print-btn" aria-label="Download PDF">
+        <i class="fas fa-file-arrow-down" aria-hidden="true"></i> Download PDF
+      </button>
+    </div>
     <p>&copy; 2025 Italo Moletto Lobos — Remote Sensing & AI</p>
   </footer>
 
@@ -72,7 +74,7 @@
           <div class="contact-info">
             ${phones ? `<span><i class="fas fa-phone"></i> ${phones}</span>` : ''}
             ${emails ? `<span><i class="fas fa-envelope"></i> ${emails}</span>` : ''}
-            ${data.linkedin ? `<a href="${data.linkedin}" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>` : ''}
+            ${data.linkedin ? `<a href="${data.linkedin}" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a>` : ''}
           </div>
         `;
       });
@@ -171,9 +173,10 @@
 
     // ------------ PDF Download ------------
     document.getElementById('btn-pdf').addEventListener('click', () => {
-      const element = document.querySelector('.container'); // export only the content (no header/footer)
+      // Export only the main content, not the header/footer visuals
+      const element = document.querySelector('.container');
       const opt = {
-        margin: [10, 10, 10, 10],                 // mm
+        margin: [10, 10, 10, 10],                   // mm
         filename: 'Italo_Moletto_CV.pdf',
         image: { type: 'jpeg', quality: 0.98 },
         html2canvas: { scale: 2, useCORS: true, backgroundColor: '#ffffff' },

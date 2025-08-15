@@ -69,27 +69,6 @@ header p {
   background-color: white;
 }
 
-/* PDF button */
-.print-btn {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background: white;
-  color: var(--primary);
-  border: 1px solid #ddd;
-  border-radius: var(--radius);
-  padding: 8px 14px;
-  font-family: 'Inter', sans-serif;
-  font-size: 0.9em;
-  cursor: pointer;
-  box-shadow: var(--shadow);
-  transition: background 0.2s ease, color 0.2s ease;
-}
-.print-btn:hover {
-  background: var(--accent);
-  color: white;
-}
-
 /* Main container */
 .container {
   max-width: 1000px;
@@ -126,7 +105,7 @@ h2 {
 
 .date {
   font-size: 0.9em;
-  color: #777;
+  color: #cfd8dc;
   margin-bottom: 6px;
 }
 
@@ -166,8 +145,30 @@ footer {
     url('images/header-footer-bg.png') center center / cover no-repeat;
   color: white;
   text-align: center;
-  padding: 30px 0;
+  padding: 26px 0 32px; /* espacio para botón + texto */
   font-size: 0.9em;
+}
+
+footer .pdf-btn-wrapper {
+  margin-bottom: 10px;
+}
+
+footer .print-btn {
+  background: white;
+  color: var(--primary);
+  border: none;
+  border-radius: var(--radius);
+  padding: 8px 16px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95em;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+footer .print-btn:hover {
+  background: var(--accent);
+  color: white;
 }
 
 /* Print optimizations */
@@ -180,24 +181,13 @@ footer {
 
 /* Mobile */
 @media (max-width: 768px) {
-  header h1 {
-    font-size: 2em;
-  }
+  header h1 { font-size: 2em; }
   .contact-info span,
   .contact-info a {
     display: block;
     margin: 5px 0;
   }
-  .profile-pic {
-    width: 100px;
-    height: 100px;
-  }
-  .container {
-    margin-top: 100px;
-    padding: 30px 15px;
-  }
-  footer {
-    font-size: 0.8em;
-    padding: 20px;
-  }
+  .profile-pic { width: 100px; height: 100px; }
+  .container { margin-top: 100px; padding: 30px 15px; }
+  footer { font-size: 0.8em; padding: 22px 0 28px; }
 }
