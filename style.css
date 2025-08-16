@@ -251,6 +251,66 @@ h2 { margin: 0 0 10px 0 !important; }
 /* Salto manual si lo necesitas */
 .page-break { break-before: page; page-break-before: always; }
 
+/* ===== Big Experience Card ===== */
+.big-experience-card {
+  /* ya hereda el estilo .card; puedes ajustar si quieres más compacto */
+  padding: 28px 32px;
+}
+
+/* Cada empleador como bloque dentro del card */
+.big-experience-card .employer-block {
+  padding: 18px 0;
+  border-top: 1px solid #e8edf2;
+  break-inside: avoid;           /* ayuda en PDF */
+  page-break-inside: avoid;
+}
+
+.big-experience-card .employer-block:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.big-experience-card .employer-name {
+  margin: 0 0 6px 0;
+  font-size: 1.25em;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.big-experience-card .meta {
+  margin: 0 0 10px 0;
+  color: #555;
+}
+
+.big-experience-card .role {
+  margin: 12px 0 18px;
+}
+
+.big-experience-card .role-title {
+  margin: 0;
+  font-weight: 700;
+}
+
+.big-experience-card .date {
+  margin: 2px 0 8px;
+  font-size: 0.95em;
+  color: #777;
+}
+
+/* Opcional: reduce el espaciamiento de la ul dentro de roles */
+.big-experience-card .role ul { margin: 0 0 0 18px; }
+.big-experience-card .role li { margin-bottom: 6px; }
+
+/* PRINT: permitir cortes suaves entre empleadores si la página se queda corta */
+@media print {
+  .big-experience-card .employer-block {
+    break-inside: auto;
+    page-break-inside: auto;
+  }
+}
+
+
+
 /* ==== Projects section ==== */
 #projects .card.project {
   font-size: 0.9em;         /* letra más pequeña */

@@ -53,10 +53,15 @@
       </section>
 
 
-    <section>
-      <h2>Experience</h2>
+  <section id="experience">
+    <h2>Experience</h2>
+
+    <!-- NUEVO: un solo card que contiene TODO -->
+    <div id="experience-card" class="card big-experience-card">
       <div id="experience-list"></div>
-    </section>
+    </div>
+  </section>
+
 
     <section>
       <h2>Projects</h2>
@@ -149,34 +154,39 @@ fetch('header.json')
       })
   );
 
-    // ------------ Experience (grouped by employer) ------------
-    loaders.push(
-      fetch('experience.json')
-        .then(r => r.json())
-        .then(data => {
-          const container = document.getElementById('experience-list');
-          data.forEach(org => {
-            const card = document.createElement('div');
-            card.className = 'card employer-card';
-            const rolesHTML = (org.roles || []).map(role => {
-              const items = (role.items || []).map(i => `<li>${i}</li>`).join('');
-              return `
-                <div class="role">
-                  <h4 class="role-title">${role.title || ''}</h4>
-                  <p class="date">${role.date || ''}</p>
-                  ${items ? `<ul>${items}</ul>` : ''}
-                </div>
-              `;
-            }).join('');
-            card.innerHTML = `
-              <h3>${org.employer || ''}</h3>
-              ${org.location ? `<p class="meta">${org.location}</p>` : ''}
-              ${rolesHTML}
-            `;
-            container.appendChild(card);
-          });
-        })
-    );
+// ------------ Experience (one big card; employers as inner blocks) ------------
+loaders.push(
+  fetch('experience.json')
+    .then(r => r.json())
+    .then(data => {
+      const list = document.getElementById('experience-list'); // ahora vive dentro del gran card
+
+      data.forEach(org => {
+        const block = document.createElement('div');
+        block.className = 'employer-block'; // OJO: ya no "card"
+
+        const rolesHTML = (org.roles || []).map(role => {
+          const items = (role.items || []).map(i => `<li>${i}</li>`).join('');
+          return `
+            <div class="role">
+              <h4 class="role-title">${role.title || ''}</h4>
+              <p class="date">${role.date || ''}</p>
+              ${items ? `<ul>${items}</ul>` : ''}
+            </div>
+          `;
+        }).join('');
+
+        block.innerHTML = `
+          <h3 class="employer-name">${org.employer || ''}</h3>
+          ${org.location ? `<p class="meta">${org.location}</p>` : ''}
+          ${rolesHTML}
+        `;
+
+        list.appendChild(block);
+      });
+    })
+);
+
 
 
 // ------------ Projects (collapsible) ------------
