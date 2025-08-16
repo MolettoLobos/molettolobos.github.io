@@ -172,13 +172,17 @@ html, body { height: auto !important; background: #ffffff !important; }
 
 footer { display: none !important; height:0 !important; padding:0 !important; margin:0 !important; border:0 !important; }
 
-/* Evita cortes feos en secciones, pero permite que las cards se partan si no caben */
-section, .personal-data { break-inside: avoid; page-break-inside: avoid; }
-/* Permite partir cards para evitar páginas medio vacías */
-.card { break-inside: auto; page-break-inside: auto; }
-/* Asegura que la primera card no empuje todo a la página 2 */
-section:first-of-type .card:first-child { break-inside: auto; page-break-inside: auto; }
-section { margin-bottom: 28px !important; }
+/* Evita cortes feos en secciones, pero deja que las cards se partan si no caben */
+section, .personal-data { break-inside: avoid !important; page-break-inside: avoid !important; }
+
+/* Permitir cortar cards entre páginas para evitar la hoja 1 en blanco */
+.card { break-inside: auto !important; page-break-inside: auto !important; }
+
+/* Garantiza que la PRIMERA card pueda comenzar en la página 1 */
+section:first-of-type .card:first-child { break-inside: auto !important; page-break-inside: auto !important; }
+
+
+  section { margin-bottom: 28px !important; }
 .card { margin-bottom: 14px !important; padding: 18px 20px !important; border: none !important; }
 h2 { margin: 0 0 10px 0 !important; }
 .date { color: #666 !important; }
