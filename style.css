@@ -8,347 +8,157 @@
   --radius: 12px;
 }
 
-/* Base */
+/* ===== BASE ===== */
 body {
   font-family: 'Inter', sans-serif;
-  background-color: var(--bg);
+  background: var(--bg);
   color: var(--text);
   margin: 0;
-  padding: 0;
-}
-
-/* Header */
-.header-wrapper {
-  position: relative;
-  background:
-    linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-    url('images/header-footer-bg.png') center center / cover no-repeat;
-  color: white;
-  text-align: center;
-  padding: 60px 20px 100px;
-}
-
-header h1 {
-  font-size: 2.8em;
-  margin-bottom: 10px;
-}
-
-header p {
-  font-size: 1.2em;
-  opacity: 0.85;
-}
-
-.contact-info {
-  margin-top: 25px;
-  font-size: 0.95em;
-}
-
-.contact-info span,
-.contact-info a {
-  margin: 0 12px;
-  color: white;
-  text-decoration: none;
-}
-
-/* Profile photo */
-.profile-wrapper {
-  position: absolute;
-  bottom: -70px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 10;
-}
-
-.profile-pic {
-  width: 140px;
-  height: 140px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 5px solid white;
-  box-shadow: var(--shadow);
-  background-color: white;
-}
-
-/* Main container */
-.container {
-  max-width: 1000px;
-  margin: 120px auto 0;
-  padding: 40px 20px;
-}
-
-/* Sections */
-section {
-  margin-bottom: 60px;
 }
 
 h2 {
   font-size: 1.8em;
   border-left: 5px solid var(--accent);
   padding-left: 15px;
-  margin-bottom: 25px;
+  margin: 0 0 25px;
   color: var(--primary);
 }
 
-/* Cards */
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+ul { padding-left: 20px; }
+ul li { margin-bottom: 6px; }
+
+/* ===== HEADER ===== */
+.header-wrapper {
+  position: relative;
+  text-align: center;
+  padding: 60px 20px 100px;
+  color: white;
+  background:
+    linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+    url('images/header-footer-bg.png') center/cover no-repeat;
+}
+
+header h1 { font-size: 2.8em; margin: 0 0 10px; }
+header p { font-size: 1.2em; opacity: 0.85; }
+
+.contact-info {
+  margin-top: 25px;
+  font-size: 0.95em;
+}
+.contact-info span, .contact-info a {
+  margin: 0 12px;
+  color: white;
+}
+
+/* Profile */
+.profile-wrapper {
+  position: absolute;
+  bottom: -70px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.profile-pic {
+  width: 140px; height: 140px;
+  border-radius: 50%;
+  border: 5px solid white;
+  object-fit: cover;
+  background: white;
+  box-shadow: var(--shadow);
+}
+
+/* ===== CONTAINER ===== */
+.container {
+  max-width: 1000px;
+  margin: 120px auto 0;
+  padding: 40px 20px;
+}
+section { margin-bottom: 60px; }
+
 .card {
-  background-color: var(--card-bg);
+  background: var(--card-bg);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   padding: 25px 30px;
   margin-bottom: 25px;
 }
+.card h3 { margin: 0 0 6px; font-size: 1.25em; }
 
-.card h3 {
-  margin-top: 0;
-  font-size: 1.3em;
-  color: var(--text);
+/* ===== BIG CARDS ===== */
+.big-card { padding: 28px 32px; }
+.big-card .block {
+  padding: 16px 0;
+  border-top: 1px solid #e8edf2;
+  break-inside: avoid; page-break-inside: avoid;
 }
+.big-card .block:first-child { border-top: 0; padding-top: 0; }
 
-.date {
-  font-size: 0.9em;
-  color: #777;
-  margin-bottom: 6px;
+.big-card .title { font-weight: 800; margin: 0 0 6px; }
+.big-card .meta { color: #555; margin: 0 0 6px; }
+.big-card .date { color: #777; font-size: .9em; margin-bottom: 8px; }
+.big-card ul { margin: 6px 0 0 18px; }
+
+/* ===== PROJECTS (one toggle) ===== */
+.big-projects-card { padding: 22px 28px; }
+.projects-details > summary {
+  list-style: none;
+  cursor: pointer;
+  font-weight: 700;
+  display: flex;
+  gap: 6px;
+  margin-bottom: 12px;
 }
+.projects-summary-hint { font-weight: 400; color: #666; font-size: .9em; }
+.projects-details[open] .projects-summary-hint { display: none; }
+.project-block { padding: 14px 0; border-top: 1px solid #e8edf2; }
+.project-block:first-child { border-top: 0; }
+.project-title { font-weight: 700; margin: 0 0 4px; }
+.project-sub { font-size: .95em; color: #555; margin: 0 0 6px; }
+.project-sub .date { color: #666; }
 
-.meta {
-  font-size: 0.95em;
-  color: #555;
-  margin: 0 0 6px 0;
-}
-
-.code {
-  font-size: 0.9em;
-  color: #444;
-  margin: 0 0 10px 0;
-}
-
-ul { padding-left: 20px; }
-ul li { margin-bottom: 8px; }
-
-a { color: var(--accent); text-decoration: none; }
-a:hover { text-decoration: underline; }
-
-/* Footer */
+/* ===== FOOTER ===== */
 footer {
-  background:
-    linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-    url('images/header-footer-bg.png') center center / cover no-repeat;
-  color: white;
   text-align: center;
   padding: 26px 0 32px;
   font-size: 0.9em;
+  color: white;
+  background:
+    linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+    url('images/header-footer-bg.png') center/cover no-repeat;
 }
-
-footer .pdf-btn-wrapper { margin-bottom: 10px; }
-
 footer .print-btn {
   background: white;
   color: var(--primary);
   border: none;
   border-radius: var(--radius);
   padding: 8px 16px;
-  font-family: 'Inter', sans-serif;
   font-size: 0.95em;
   cursor: pointer;
   box-shadow: var(--shadow);
-  transition: background 0.2s ease, color 0.2s ease;
 }
 footer .print-btn:hover { background: var(--accent); color: white; }
 
-/* Mobile */
+/* ===== MOBILE ===== */
 @media (max-width: 768px) {
   header h1 { font-size: 2em; }
   .contact-info span, .contact-info a { display: block; margin: 5px 0; }
   .profile-pic { width: 100px; height: 100px; }
   .container { margin-top: 100px; padding: 30px 15px; }
-  footer { font-size: 0.8em; padding: 22px 0 28px; }
+  footer { font-size: 0.8em; }
 }
 
-/* ==== PRINT: PDF nativo, limpio ==== */
+/* ===== PRINT ===== */
 @media print {
-@page { size: A4; margin: 12mm; }
-html, body { height: auto !important; background: #ffffff !important; }
-* { box-shadow: none !important; filter: none !important; transform: none !important; }
+  @page { size: A4; margin: 12mm; }
+  html, body { background: #fff !important; }
+  * { box-shadow: none !important; }
 
-footer { display: none !important; height:0 !important; padding:0 !important; margin:0 !important; border:0 !important; }
-
-/* Evita cortes feos en secciones, pero deja que las cards se partan si no caben */
-section, .personal-data { break-inside: avoid !important; page-break-inside: avoid !important; }
-
-/* Permitir cortar cards entre páginas para evitar la hoja 1 en blanco */
-.card { break-inside: auto !important; page-break-inside: auto !important; }
-
-/* Garantiza que la PRIMERA card pueda comenzar en la página 1 */
-section:first-of-type .card:first-child { break-inside: auto !important; page-break-inside: auto !important; }
-
-
-  section { margin-bottom: 28px !important; }
-.card { margin-bottom: 14px !important; padding: 18px 20px !important; border: none !important; }
-h2 { margin: 0 0 10px 0 !important; }
-.date { color: #666 !important; }
-
-.print-btn, .contact-info a { display: none !important; }
-
-/* Oculta el header grande en PDF */
-.header-wrapper { display: none !important; }
-
-/* Header compacto SOLO para imprimir */
-.print-header {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: space-between !important;
-  gap: 6mm !important;
-
-  max-width: 820px !important;
-  margin: 0 auto !important;
-  padding: 6mm 0 2mm !important;
-
-  background: #fff !important;
-  color: #000 !important;
-
-  page-break-after: avoid !important;
-  break-after: avoid !important;
-}
-
-.print-header .identity h1 { font-size: 16pt !important; margin: 0 0 2mm 0 !important; }
-.print-header .identity p  { font-size: 10pt !important; margin: 0 0 1.5mm 0 !important; }
-.print-header .contact-line { font-size: 9pt !important; display: flex; gap: 6mm; flex-wrap: wrap; }
-
-.print-header .print-avatar {
-  width: 18mm !important;
-  height: 18mm !important;
-  border-radius: 50% !important;
-  border: 0 !important;
-  box-shadow: none !important;
-  object-fit: cover !important;
-}
-
-/* El contenido arranca pegado al header compacto */
-.container {
-  max-width: 820px !important;
-  width: 100% !important;
-  margin: 2mm auto 0 !important;
-  padding: 0 !important;
-  background: #ffffff !important;
-  page-break-before: avoid !important;
-  break-before: avoid !important;
-}
-}
-
-/* Print header: oculto en pantalla */
-.print-header {
-  display: none;
-}
-
-/* Por si alguna vez se muestra en pantalla (debug), que no rompa el layout */
-.print-header .print-avatar {
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-/* Salto manual si lo necesitas */
-.page-break { break-before: page; page-break-before: always; }
-
-/* ===== Big Experience Card ===== */
-.big-experience-card {
-  /* ya hereda el estilo .card; puedes ajustar si quieres más compacto */
-  padding: 28px 32px;
-}
-
-/* Cada empleador como bloque dentro del card */
-.big-experience-card .employer-block {
-  padding: 18px 0;
-  border-top: 1px solid #e8edf2;
-  break-inside: avoid;           /* ayuda en PDF */
-  page-break-inside: avoid;
-}
-
-.big-experience-card .employer-block:first-child {
-  border-top: 0;
-  padding-top: 0;
-}
-
-.big-experience-card .employer-name {
-  margin: 0 0 6px 0;
-  font-size: 1.25em;
-  font-weight: 800;
-  color: var(--text);
-}
-
-.big-experience-card .meta {
-  margin: 0 0 10px 0;
-  color: #555;
-}
-
-.big-experience-card .role {
-  margin: 12px 0 18px;
-}
-
-.big-experience-card .role-title {
-  margin: 0;
-  font-weight: 700;
-}
-
-.big-experience-card .date {
-  margin: 2px 0 8px;
-  font-size: 0.95em;
-  color: #777;
-}
-
-/* Opcional: reduce el espaciamiento de la ul dentro de roles */
-.big-experience-card .role ul { margin: 0 0 0 18px; }
-.big-experience-card .role li { margin-bottom: 6px; }
-
-/* PRINT: permitir cortes suaves entre empleadores si la página se queda corta */
-@media print {
-  .big-experience-card .employer-block {
-    break-inside: auto;
-    page-break-inside: auto;
-  }
-}
-
-
-
-/* ==== Projects section ==== */
-#projects .card.project {
-  font-size: 0.9em;         /* letra más pequeña */
-  padding: 18px 22px;       /* más compacto */
-}
-
-#projects .card.project h3 {
-  font-size: 1.1em;
-  margin-bottom: 6px;
-}
-
-#projects .card.project .date {
-  font-size: 0.85em;
-  color: #555;
-  margin-bottom: 10px;
-}
-
-#projects .card.project .toggle-btn {
-  background: var(--accent);
-  color: white;
-  border: none;
-  border-radius: var(--radius);
-  padding: 4px 10px;
-  font-size: 0.8em;
-  cursor: pointer;
-  margin-bottom: 10px;
-}
-
-#projects .card.project .toggle-btn:hover {
-  background: #217dbb;
-}
-
-#projects .card.project .details {
-  display: none;           /* ocultos por defecto */
-  margin-top: 8px;
-  padding-left: 18px;
-}
-
-#projects .card.project.open .details {
-  display: block;          /* visibles cuando está expandido */
+  footer, .header-wrapper, .print-btn, .contact-info a { display: none !important; }
+  .container { max-width: 820px !important; margin: 2mm auto 0 !important; padding: 0 !important; }
+  section, .block { break-inside: avoid; page-break-inside: avoid; }
+  .card { border: none !important; padding: 18px 20px !important; margin-bottom: 14px !important; }
+  h2 { margin-bottom: 10px !important; }
+  #projects-details { open: open; } /* fuerza expandido en PDF */
 }

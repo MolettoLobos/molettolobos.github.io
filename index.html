@@ -47,10 +47,13 @@
 
 
   <div class="container">
-    <section>
-      <h2>Education</h2>
+  <!-- ===== Education ===== -->
+  <section id="education">
+    <h2>Education</h2>
+    <div id="education-card" class="card big-edu-card">
       <div id="education-list"></div>
-      </section>
+    </div>
+  </section>
 
 
   <section id="experience">
@@ -63,10 +66,20 @@
   </section>
 
 
-    <section>
-      <h2>Projects</h2>
-      <div id="project-list"></div>
-    </section>
+  <!-- ===== Projects ===== -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <div id="projects-card" class="card big-projects-card">
+      <!-- Single toggle for ALL projects -->
+      <details id="projects-details" class="projects-details">
+        <summary class="projects-summary">
+          <span id="projects-summary-text">Projects</span>
+          <span class="projects-summary-hint">— click to expand</span>
+        </summary>
+        <div id="project-list"></div>
+      </details>
+    </div>
+  </section>
 
     <section>
       <h2>Skills</h2>
@@ -133,26 +146,29 @@ fetch('header.json')
   })
   );
 
-  // ------------ Education ------------
-  loaders.push(
-    fetch('education.json')
-      .then(r => r.json())
-      .then(data => {
-        const container = document.getElementById('education-list');
-        data.forEach(ed => {
-          const card = document.createElement('div');
-          card.className = 'card edu-card';
-          const notes = (ed.notes || []).map(n => `<li>${n}</li>`).join('');
-          card.innerHTML = `
-            <h3>${ed.degree}</h3>
-            <p class="meta">${ed.institution}${ed.location ? ' · ' + ed.location : ''}</p>
-            <p class="date">${ed.date || ''}</p>
-            ${notes ? `<ul>${notes}</ul>` : ''}
-          `;
-          container.appendChild(card);
-        });
-      })
-  );
+ // ------------ Education (one big card; items as inner blocks) ------------
+loaders.push(
+  fetch('education.json')
+    .then(r => r.json())
+    .then(data => {
+      const list = document.getElementById('education-list');
+      data.forEach(ed => {
+        const block = document.createElement('div');
+        block.className = 'edu-block';
+        const notes = (ed.notes || []).map(n => `<li>${n}</li>`).join('');
+        block.innerHTML = `
+          <h3 class="edu-degree">${ed.degree || ''}</h3>
+          <p class="meta">
+            ${ed.institution || ''}${ed.location ? ' · ' + ed.location : ''}
+          </p>
+          <p class="date">${ed.date || ''}</p>
+          ${notes ? `<ul>${notes}</ul>` : ''}
+        `;
+        list.appendChild(block);
+      });
+    })
+);
+
 
 // ------------ Experience (one big card; employers as inner blocks) ------------
 loaders.push(
@@ -188,44 +204,42 @@ loaders.push(
 );
 
 
-
-// ------------ Projects (collapsible) ------------
+// ------------ Projects (ONE toggle to expand/collapse all) ------------
 loaders.push(
   fetch('projects.json')
     .then(r => r.json())
     .then(data => {
-      const container = document.getElementById('project-list');
+      const details = document.getElementById('projects-details');
+      const summaryText = document.getElementById('projects-summary-text');
+      const list = document.getElementById('project-list');
+
+      // Summary text with count
+      summaryText.textContent = `Projects (${data.length})`;
+
+      // Build inner blocks (no per-item <details>)
       data.forEach(project => {
-        const card = document.createElement('div');
-        card.className = 'card project-card';
+        const block = document.createElement('div');
+        block.className = 'project-block';
         const metaBits = [];
         if (project.employer) metaBits.push(project.employer);
         if (project.country)  metaBits.push(project.country);
         const meta = metaBits.length ? `<span class="meta">${metaBits.join(' · ')}</span>` : '';
         const code = project.code ? `<span class="code"><strong>${project.code}</strong></span>` : '';
 
-        card.innerHTML = `
-          <details>
-            <summary>
-              <span class="proj-title">${project.title || ''}</span>
-              <span class="proj-right">
-                ${project.date ? `<span class="date">${project.date}</span>` : ''}
-                ${meta}
-                ${code}
-              </span>
-            </summary>
-            <div class="proj-body">
-              <p>${project.description || ''}</p>
-            </div>
-          </details>
+        block.innerHTML = `
+          <h3 class="project-title">${project.title || ''}</h3>
+          <div class="project-sub">
+            ${project.date ? `<span class="date">${project.date}</span>` : ''}
+            ${meta}${code ? ` · ${code}` : ''}
+          </div>
+          ${project.description ? `<p class="project-desc">${project.description}</p>` : ''}
         `;
-        container.appendChild(card);
+        list.appendChild(block);
       });
 
-      // Abrir todos para imprimir
-      const allDetails = container.querySelectorAll('details');
-      const openForPrint = () => allDetails.forEach(d => d.setAttribute('open', 'open'));
-      const closeAfterPrint = () => allDetails.forEach(d => d.removeAttribute('open'));
+      // Auto-open for print and close after
+      const openForPrint = () => details.setAttribute('open', 'open');
+      const closeAfterPrint = () => details.removeAttribute('open');
       if (window.matchMedia) {
         window.matchMedia('print').addEventListener('change', e => {
           if (e.matches) openForPrint(); else closeAfterPrint();
