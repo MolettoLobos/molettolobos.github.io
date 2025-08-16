@@ -171,12 +171,50 @@ footer .print-btn:hover { background: var(--accent); color: white; }
   html, body { height: auto !important; background: #ffffff !important; }
   * { box-shadow: none !important; filter: none !important; transform: none !important; }
 
-  /* Oculta header y footer en la impresión (ajusta si quieres incluir el header) */
-  .header-wrapper,
-  footer {
-    display: none !important;
-    height: 0 !important; padding: 0 !important; margin: 0 !important; border: 0 !important;
-  }
+/* Mostrar header simple con foto; ocultar solo el footer */
+footer {
+  display: none !important;
+  height: 0 !important; padding: 0 !important; margin: 0 !important; border: 0 !important;
+}
+
+.header-wrapper {
+  display: block !important;
+  background: #ffffff !important;          /* sin imagen de fondo en PDF */
+  color: #000 !important;
+  text-align: center !important;
+  padding: 10mm 0 0 !important;            /* compacto para PDF */
+}
+
+/* Que la foto baje y quede centrada */
+.profile-wrapper {
+  position: static !important;
+  transform: none !important;
+  margin: 4mm auto 6mm !important;
+  text-align: center !important;
+  z-index: auto !important;
+}
+
+.profile-pic {
+  width: 35mm !important;                   /* tamaño cómodo en A4 */
+  height: 35mm !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  background: #fff !important;
+}
+
+/* Tipografía del header más sobria en PDF */
+header h1 { font-size: 18pt !important; margin: 0 0 2mm 0 !important; }
+header p  { font-size: 11pt !important; opacity: 1 !important; margin: 0 !important; }
+
+/* Contenido: ancho estable y sin sombras */
+.container {
+  max-width: 820px !important;
+  width: 100% !important;
+  margin: 6mm auto 0 !important;            /* un poco de espacio tras la foto */
+  padding: 0 !important;
+  background: #ffffff !important;
+}
+
 
   .container {
     max-width: 820px !important;
