@@ -449,32 +449,47 @@
     root.appendChild(wrapper);
   }
 
-  pdfSimplifiedBtn.addEventListener('click', async () => {
-    await Promise.all(loaders);
-    if (document.fonts?.ready) await document.fonts.ready;
+pdfSimplifiedBtn.addEventListener('click', async () => {
+  await Promise.all(loaders);
+  if (document.fonts?.ready) await document.fonts.ready;
 
-    // Construir clon simplificado
-    buildSimplifiedDOM();
+  // Construir clon simplificado (respeta tus reglas de qué incluir)
+  buildSimplifiedDOM();
 
-    // Mostrar solo el clon en impresión
-    const root = document.getElementById('pdf-simplified');
-    root.style.display = 'block';
-    document.body.classList.add('print-simplified');
+  const root = document.getElementById('pdf-simplified');
+  const elsToHide = [
+    document.querySelector('.container'),
+    document.querySelector('footer'),
+    document.querySelector('.header-wrapper'),
+    document.getElementById('print-header') // evita duplicar header compacto
+  ];
 
-    const cleanup = () => {
-      document.body.classList.remove('print-simplified');
-      root.style.display = 'none';
-      root.innerHTML = ''; // limpiar para evitar duplicados
-    };
+  // Ocultamos el CV normal directamente (soluciona Chrome móvil)
+  elsToHide.forEach(el => { if (el) el.style.display = 'none'; });
 
-    // Manejo before/after print
-    const after = () => {
-      cleanup();
-      window.removeEventListener('afterprint', after);
-    };
-    window.addEventListener('afterprint', after);
+  // Mostramos el clon simplified
+  root.style.display = 'block';
+  document.body.classList.add('print-simplified');
 
-    window.print();
+  // Imprimir
+  window.print();
+
+  // Limpieza y restauración
+  const cleanup = () => {
+    document.body.classList.remove('print-simplified');
+    elsToHide.forEach(el => { if (el) el.style.display = ''; });
+    root.style.display = 'none';
+    root.innerHTML = '';
+  };
+
+  // Desktop suele disparar afterprint
+  const after = () => { cleanup(); window.removeEventListener('afterprint', after); };
+  window.addEventListener('afterprint', after);
+
+  // Fallback por si afterprint no se dispara en móvil
+  setTimeout(() => {
+    if (root.style.display === 'block') cleanup();
+  }, 1500);
   });
 </script>
 
