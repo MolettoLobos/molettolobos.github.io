@@ -203,49 +203,16 @@
       })
   );
 
-  // ------------ PDF Download (versión optimizada) ------------
-  document.getElementById('btn-pdf').addEventListener('click', async () => {
-    await Promise.all(loaders);
-    if (document.fonts?.ready) await document.fonts.ready;
+// ------------ PDF Download (nativo, estable) ------------
+const pdfBtn = document.getElementById('btn-pdf');
+pdfBtn.addEventListener('click', async () => {
+  // Espera a que carguen fuentes e imágenes
+  await Promise.all(loaders);
+  if (document.fonts?.ready) await document.fonts.ready;
 
-    const src = document.querySelector('.container');
+  window.print();
+});
 
-    // Clon limpio
-    const clone = src.cloneNode(true);
-    clone.classList.add('pdf-root');
-    clone.style.maxWidth = '900px';
-    clone.style.margin = '0 auto';
-    clone.style.background = '#ffffff';
-    clone.style.padding = '0 4px';
-    clone.querySelectorAll('.card').forEach(el => {
-      el.style.boxShadow = 'none';
-    });
-
-    const tmp = document.createElement('div');
-    tmp.style.position = 'fixed';
-    tmp.style.left = '-99999px';
-    tmp.appendChild(clone);
-    document.body.appendChild(tmp);
-
-    const nodeWidth = Math.max(clone.scrollWidth, clone.offsetWidth, clone.clientWidth);
-
-    const opt = {
-      margin: [12, 12, 14, 12],
-      filename: 'Italo_Moletto_CV.pdf',
-      image: { type: 'jpeg', quality: 0.98 },
-      html2canvas: {
-        scale: 2,
-        useCORS: true,
-        backgroundColor: '#ffffff',
-        windowWidth: nodeWidth
-      },
-      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
-      pagebreak: { mode: ['css'], before: '.card' }
-    };
-
-    await html2pdf().set(opt).from(clone).save();
-
-    document.body.removeChild(tmp);
   });
 </script>
 
