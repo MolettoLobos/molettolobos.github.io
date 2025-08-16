@@ -201,6 +201,10 @@ footer .print-btn:hover { background: var(--accent); color: white; }
     display: block !important; width: 90px !important; height: 90px !important;
     border-radius: 50% !important; margin: 0 auto 8px !important; object-fit: cover !important;
   }
+    /* Mantener cada h2 pegado a su primer bloque de contenido */
+  section > h2 { break-after: avoid-page !important; }
+  section > h2 + .card,
+  section > h2 + * { break-inside: avoid !important; }
 }
 
 
