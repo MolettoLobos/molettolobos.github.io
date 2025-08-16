@@ -246,15 +246,29 @@ footer .print-btn:hover { background: var(--accent); color: white; }
 
 /* Reglas de impresión exclusivas cuando body tiene la clase print-simplified */
 @media print {
+  /* Oculta el CV normal en modo simplified */
   body.print-simplified .header-wrapper,
   body.print-simplified footer,
-  body.print-simplified .container { /* oculta el CV normal */
+  body.print-simplified .container:not(.simplified-container) {
     display: none !important;
   }
-  body.print-simplified #pdf-simplified { /* muestra el clon simplificado */
+
+  /* Muestra solo el clon simplificado */
+  body.print-simplified #pdf-simplified {
     display: block !important;
   }
-  /* Ajustes compactos para el clon */
+
+  /* Oculta el print-header global (fuera del clon) para no duplicar */
+  body.print-simplified > .print-header {
+    display: none !important;
+  }
+
+  /* Asegura que el header compacto del clon se vea */
+  body.print-simplified #pdf-simplified .print-header {
+    display: block !important;
+  }
+
+  /* Ajustes del clon */
   body.print-simplified #pdf-simplified .container {
     max-width: 820px !important;
     margin: 0 !important;
