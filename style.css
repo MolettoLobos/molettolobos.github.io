@@ -167,30 +167,57 @@ footer .print-btn:hover { background: var(--accent); color: white; }
     background: #fff !important;
   }
 
-  /* >>> CLAVE: permitir cortes en contenedores grandes */
+  /* Permitir cortes en contenedores grandes */
   section, .card {
     break-inside: auto !important;
     page-break-inside: auto !important;
   }
 
-  /* …y evitar cortes solo en bloques cortos internos */
-  .edu-block,
-  .employer-block,
-  .project-block,
-  .role {
+  /* Educación: normalmente cabe entera */
+  .edu-block {
     break-inside: avoid !important;
     page-break-inside: avoid !important;
   }
 
-  /* Márgenes y espaciados más compactos */
+  /* Experience */
+  .employer-block {               /* el empleador puede partirse */
+    break-inside: auto !important;
+    page-break-inside: auto !important;
+  }
+  .role {                         /* cada rol se mantiene junto */
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+  .role .role-title, .role .date { break-after: avoid !important; }
+  .role ul, .role li { break-inside: avoid !important; }
+
+  /* Projects */
+  .project-block {                /* el proyecto puede partirse */
+    break-inside: auto !important;
+    page-break-inside: auto !important;
+  }
+  .project-title, .project-sub { break-after: avoid !important; }
+  .project-block ul, .project-block li { break-inside: avoid !important; }
+
+  /* Anular el avoid de los bloques grandes definidos en pantalla */
+  .big-card .block {
+    break-inside: auto !important;
+    page-break-inside: auto !important;
+    padding: 10px 0 !important;
+  }
+
+  /* Título de sección pegado a su primer bloque */
+  section > h2 { break-after: avoid-page !important; }
+  section > h2 + .card { break-inside: auto !important; }
+
+  /* Márgenes compactos */
   section { margin: 10px 0 14px !important; }
   .card { border: none !important; padding: 14px 16px !important; margin-bottom: 10px !important; }
   h2 { margin: 0 0 8px !important; }
-  .big-card .block { padding: 10px 0 !important; }
   ul { margin: 6px 0 0 18px !important; }
   ul li { margin: 3px 0 !important; }
 
-  /* Evitar títulos huérfanos */
+  /* Opcional: huérfanos/viudas suaves */
   h2, h3, h4 { page-break-after: avoid; }
   p, li { orphans: 2; widows: 2; }
 
@@ -201,11 +228,8 @@ footer .print-btn:hover { background: var(--accent); color: white; }
     display: block !important; width: 90px !important; height: 90px !important;
     border-radius: 50% !important; margin: 0 auto 8px !important; object-fit: cover !important;
   }
-    /* Mantener cada h2 pegado a su primer bloque de contenido */
-  section > h2 { break-after: avoid-page !important; }
-  section > h2 + .card,
-  section > h2 + * { break-inside: avoid !important; }
 }
+
 
 
 /* En pantalla (no impresión), ocultamos el header compacto */
