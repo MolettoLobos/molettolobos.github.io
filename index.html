@@ -311,7 +311,7 @@ loaders.push(
     fetch('press.json')
       .then(r => r.json())
       .then(data => {
-        const container = document.getElementById('science-list');
+        const container = document.getElementById('press-list');
         const card = document.createElement('div');
         card.className = 'card';
         card.innerHTML = '<ul>' +
