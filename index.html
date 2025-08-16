@@ -85,8 +85,13 @@
     </section>
 
     <section>
-      <h2>Links</h2>
-      <div id="links-list"></div>
+      <h2>Scientific profiles</h2>
+      <div id="science-list"></div>
+    </section>
+
+    <section>
+      <h2>In press/h2>
+      <div id="press-list"></div>
     </section>
 
     <section class="personal-data">
@@ -291,7 +296,22 @@ loaders.push(
     fetch('science.json')
       .then(r => r.json())
       .then(data => {
-        const container = document.getElementById('links-list');
+        const container = document.getElementById('science-list');
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = '<ul>' +
+          data.map(link => `<li><a href="${link.url}" target="_blank" rel="noopener">${link.label}</a></li>`).join('') +
+          '</ul>';
+        container.appendChild(card);
+      })
+  );
+
+    // ------------ In press ------------
+  loaders.push(
+    fetch('press.json')
+      .then(r => r.json())
+      .then(data => {
+        const container = document.getElementById('science-list');
         const card = document.createElement('div');
         card.className = 'card';
         card.innerHTML = '<ul>' +
