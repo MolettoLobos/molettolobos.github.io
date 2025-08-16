@@ -48,6 +48,12 @@
 
   <div class="container">
     <section>
+      <h2>Education</h2>
+      <div id="education-list"></div>
+      </section>
+
+
+    <section>
       <h2>Experience</h2>
       <div id="experience-list"></div>
     </section>
@@ -122,53 +128,103 @@ fetch('header.json')
   })
   );
 
-  // ------------ Experience ------------
+  // ------------ Education ------------
   loaders.push(
-    fetch('experience.json')
+    fetch('education.json')
       .then(r => r.json())
       .then(data => {
-        const container = document.getElementById('experience-list');
-        data.forEach(role => {
+        const container = document.getElementById('education-list');
+        data.forEach(ed => {
           const card = document.createElement('div');
-          card.className = 'card';
-          const items = (role.items || []).map(item => `<li>${item}</li>`).join('');
+          card.className = 'card edu-card';
+          const notes = (ed.notes || []).map(n => `<li>${n}</li>`).join('');
           card.innerHTML = `
-            <h3>${role.title || ''}</h3>
-            <p class="date">${role.date || ''}</p>
-            ${items ? `<ul>${items}</ul>` : ''}
+            <h3>${ed.degree}</h3>
+            <p class="meta">${ed.institution}${ed.location ? ' · ' + ed.location : ''}</p>
+            <p class="date">${ed.date || ''}</p>
+            ${notes ? `<ul>${notes}</ul>` : ''}
           `;
           container.appendChild(card);
         });
       })
   );
 
-  // ------------ Projects ------------
-  loaders.push(
-    fetch('projects.json')
-      .then(r => r.json())
-      .then(data => {
-        const container = document.getElementById('project-list');
-        data.forEach(project => {
-          const card = document.createElement('div');
-          card.className = 'card';
+    // ------------ Experience (grouped by employer) ------------
+    loaders.push(
+      fetch('experience.json')
+        .then(r => r.json())
+        .then(data => {
+          const container = document.getElementById('experience-list');
+          data.forEach(org => {
+            const card = document.createElement('div');
+            card.className = 'card employer-card';
+            const rolesHTML = (org.roles || []).map(role => {
+              const items = (role.items || []).map(i => `<li>${i}</li>`).join('');
+              return `
+                <div class="role">
+                  <h4 class="role-title">${role.title || ''}</h4>
+                  <p class="date">${role.date || ''}</p>
+                  ${items ? `<ul>${items}</ul>` : ''}
+                </div>
+              `;
+            }).join('');
+            card.innerHTML = `
+              <h3>${org.employer || ''}</h3>
+              ${org.location ? `<p class="meta">${org.location}</p>` : ''}
+              ${rolesHTML}
+            `;
+            container.appendChild(card);
+          });
+        })
+    );
 
-          const metaBits = [];
-          if (project.employer) metaBits.push(project.employer);
-          if (project.country)  metaBits.push(project.country);
-          const meta = metaBits.length ? `<p class="meta">${metaBits.join(' · ')}</p>` : '';
-          const code = project.code ? `<p class="code"><strong>Code:</strong> ${project.code}</p>` : '';
 
-          card.innerHTML = `
-            <h3>${project.title || ''}</h3>
-            <p class="date">${project.date || ''}</p>
-            ${meta}
-            ${code}
-            <p>${project.description || ''}</p>
-          `;
-          container.appendChild(card);
+// ------------ Projects (collapsible) ------------
+loaders.push(
+  fetch('projects.json')
+    .then(r => r.json())
+    .then(data => {
+      const container = document.getElementById('project-list');
+      data.forEach(project => {
+        const card = document.createElement('div');
+        card.className = 'card project-card';
+        const metaBits = [];
+        if (project.employer) metaBits.push(project.employer);
+        if (project.country)  metaBits.push(project.country);
+        const meta = metaBits.length ? `<span class="meta">${metaBits.join(' · ')}</span>` : '';
+        const code = project.code ? `<span class="code"><strong>${project.code}</strong></span>` : '';
+
+        card.innerHTML = `
+          <details>
+            <summary>
+              <span class="proj-title">${project.title || ''}</span>
+              <span class="proj-right">
+                ${project.date ? `<span class="date">${project.date}</span>` : ''}
+                ${meta}
+                ${code}
+              </span>
+            </summary>
+            <div class="proj-body">
+              <p>${project.description || ''}</p>
+            </div>
+          </details>
+        `;
+        container.appendChild(card);
+      });
+
+      // Abrir todos para imprimir
+      const allDetails = container.querySelectorAll('details');
+      const openForPrint = () => allDetails.forEach(d => d.setAttribute('open', 'open'));
+      const closeAfterPrint = () => allDetails.forEach(d => d.removeAttribute('open'));
+      if (window.matchMedia) {
+        window.matchMedia('print').addEventListener('change', e => {
+          if (e.matches) openForPrint(); else closeAfterPrint();
         });
-      })
-  );
+      }
+      window.addEventListener('beforeprint', openForPrint);
+      window.addEventListener('afterprint', closeAfterPrint);
+    })
+);
 
   // ------------ Skills ------------
   loaders.push(
@@ -203,7 +259,6 @@ fetch('header.json')
         container.innerHTML = `
           <p><strong>Nationality:</strong> ${data.nationality || ''}</p>
           <p><strong>Born date:</strong> ${data.birthdate || ''}</p>
-          <p><strong>Address:</strong> ${data.address || ''}</p>
         `;
       })
   );
