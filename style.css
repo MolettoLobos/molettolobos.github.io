@@ -235,9 +235,21 @@ h2 { margin: 0 0 10px 0 !important; }
 }
 }
 
+/* Print header: oculto en pantalla */
+.print-header {
+  display: none;
+}
+
+/* Por si alguna vez se muestra en pantalla (debug), que no rompa el layout */
+.print-header .print-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
 /* Salto manual si lo necesitas */
 .page-break { break-before: page; page-break-before: always; }
-
 
 /* ==== Projects section ==== */
 #projects .card.project {
