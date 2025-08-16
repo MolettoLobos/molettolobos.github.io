@@ -149,7 +149,7 @@ footer .print-btn:hover { background: var(--accent); color: white; }
   footer { font-size: 0.8em; }
 }
 
-/* ===== PRINT ===== */
+/* ===== PRINT (normal) ===== */
 @media print {
   @page { size: A4; margin: 12mm; }
 
@@ -173,18 +173,18 @@ footer .print-btn:hover { background: var(--accent); color: white; }
     page-break-inside: auto !important;
   }
 
-  /* Educación: normalmente cabe entera */
+  /* Educación */
   .edu-block {
     break-inside: avoid !important;
     page-break-inside: avoid !important;
   }
 
   /* Experience */
-  .employer-block {               /* el empleador puede partirse */
+  .employer-block {
     break-inside: auto !important;
     page-break-inside: auto !important;
   }
-  .role {                         /* cada rol se mantiene junto */
+  .role {
     break-inside: avoid !important;
     page-break-inside: avoid !important;
   }
@@ -192,14 +192,14 @@ footer .print-btn:hover { background: var(--accent); color: white; }
   .role ul, .role li { break-inside: avoid !important; }
 
   /* Projects */
-  .project-block {                /* el proyecto puede partirse */
+  .project-block {
     break-inside: auto !important;
     page-break-inside: auto !important;
   }
   .project-title, .project-sub { break-after: avoid !important; }
   .project-block ul, .project-block li { break-inside: avoid !important; }
 
-  /* Anular el avoid de los bloques grandes definidos en pantalla */
+  /* Anular avoid de bloques grandes en pantalla */
   .big-card .block {
     break-inside: auto !important;
     page-break-inside: auto !important;
@@ -217,7 +217,7 @@ footer .print-btn:hover { background: var(--accent); color: white; }
   ul { margin: 6px 0 0 18px !important; }
   ul li { margin: 3px 0 !important; }
 
-  /* Opcional: huérfanos/viudas suaves */
+  /* Huérfanos/viudas suaves */
   h2, h3, h4 { page-break-after: avoid; }
   p, li { orphans: 2; widows: 2; }
 
@@ -230,9 +230,7 @@ footer .print-btn:hover { background: var(--accent); color: white; }
   }
 }
 
-
-
-/* En pantalla (no impresión), ocultamos el header compacto */
+/* En pantalla, ocultamos header compacto */
 @media screen {
   .print-avatar,
   .print-header {
@@ -240,4 +238,29 @@ footer .print-btn:hover { background: var(--accent); color: white; }
   }
 }
 
+/* ====== AÑADIDOS PARA MODO SIMPLIFIED ====== */
+/* Roles compactos (sin bullets) */
+.role-slim { margin-bottom: 6px; }
+.role-slim .role-title { margin: 0 0 2px; }
+.role-slim .date { margin: 0; color: #666; }
 
+/* Reglas de impresión exclusivas cuando body tiene la clase print-simplified */
+@media print {
+  body.print-simplified .header-wrapper,
+  body.print-simplified footer,
+  body.print-simplified .container { /* oculta el CV normal */
+    display: none !important;
+  }
+  body.print-simplified #pdf-simplified { /* muestra el clon simplificado */
+    display: block !important;
+  }
+  /* Ajustes compactos para el clon */
+  body.print-simplified #pdf-simplified .container {
+    max-width: 820px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  body.print-simplified #pdf-simplified section { margin: 10px 0 14px !important; }
+  body.print-simplified #pdf-simplified .card { border: none !important; padding: 14px 16px !important; margin-bottom: 10px !important; }
+  body.print-simplified #pdf-simplified h2 { margin: 0 0 8px !important; }
+}
