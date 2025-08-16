@@ -161,4 +161,19 @@ footer .print-btn:hover { background: var(--accent); color: white; }
   .card { border: none !important; padding: 18px 20px !important; margin-bottom: 14px !important; }
   h2 { margin-bottom: 10px !important; }
   #projects-details { open: open; } /* fuerza expandido en PDF */
+
+  /* Avatar compacto SOLO en impresión */
+  .profile-wrapper { display: none !important; }   /* escondemos la foto grande */
+  .print-avatar {
+    display: block !important;
+    width: 90px !important;
+    height: 90px !important;
+    margin: 0 auto 8mm !important;
+    border-radius: 50% !important;
+  }
 }
+
+/* Ocultar el avatar de impresión en pantalla */
+.print-avatar { display: none; }
+
+
