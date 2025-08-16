@@ -34,16 +34,14 @@
   </style>
 </head>
 <body>
+  <!-- Header compacto SOLO para imprimir -->
+  <div id="print-header" class="print-header" aria-hidden="true"></div>
   <div class="header-wrapper">
     <header id="header"></header>
-
     <div class="profile-wrapper">
       <img class="profile-pic" src="your-photo.jpg" alt="Italo Moletto" crossorigin="anonymous" />
     </div>
   </div>
-
-  <!-- Header compacto SOLO para imprimir -->
-<div id="print-header" class="print-header" aria-hidden="true"></div>
 
 
   <div class="container">
@@ -131,18 +129,19 @@ fetch('header.json')
     `;
 
     // Header SOLO impresión (compacto, en línea con avatar)
-    const ph = document.getElementById('print-header');
-    ph.innerHTML = `
-      <div class="identity">
-        <h1>${data.name || ''}</h1>
-        <p>${data.subtitle || ''}</p>
-        <div class="contact-line">
-          ${phones ? `<span>📞 ${phones}</span>` : ''}
-          ${emails ? `<span>✉️ ${emails}</span>` : ''}
-        </div>
-      </div>
-      <img class="print-avatar" src="your-photo.jpg" alt="${data.name || 'Photo'}" crossorigin="anonymous" />
-    `;
+const ph = document.getElementById('print-header');
+ph.innerHTML = `
+  <img class="print-avatar" src="your-photo.jpg" alt="${data.name || 'Photo'}" crossorigin="anonymous" />
+  <div class="identity">
+    <h1>${data.name || ''}</h1>
+    <p>${data.subtitle || ''}</p>
+    <div class="contact-line">
+      ${phones ? `<span>📞 ${phones}</span>` : ''}
+      ${emails ? `<span>✉️ ${emails}</span>` : ''}
+    </div>
+  </div>
+`;
+
   })
   );
 

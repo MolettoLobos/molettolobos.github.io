@@ -162,7 +162,7 @@ footer .print-btn:hover { background: var(--accent); color: white; }
   .print-btn,
   .contact-info a { display: none !important; }
 
-  /* Contenedor más estrecho y pegado arriba */
+  /* Contenedor más estrecho */
   .container {
     max-width: 820px !important;
     margin: 2mm auto 0 !important;
@@ -170,7 +170,7 @@ footer .print-btn:hover { background: var(--accent); color: white; }
     background: #fff !important;
   }
 
-  /* Evitar cortes feos cuando se pueda */
+  /* Evitar cortes feos */
   section, .block { break-inside: avoid; page-break-inside: avoid; }
 
   .card {
@@ -181,29 +181,27 @@ footer .print-btn:hover { background: var(--accent); color: white; }
 
   h2 { margin-bottom: 10px !important; }
 
-  /* Abrir proyectos en PDF */
-  #projects-details { open: open; }
+  /* Header compacto SOLO impresión */
+  .profile-wrapper { display: none !important; }   /* esconde la foto grande */
 
-  /* Mostrar el header compacto SOLO en impresión */
-  .print-header {
-    display: block !important;
-    text-align: center !important;
-    margin: 0 auto 8mm !important; /* espacio justo debajo del avatar */
-  }
-
-  /* Esconder la foto grande y mostrar avatar pequeño */
-  .profile-wrapper { display: none !important; }
+  .print-header { display: block !important; text-align: center; margin-bottom: 8mm; }
 
   .print-avatar {
     display: block !important;
     width: 90px !important;
     height: 90px !important;
     border-radius: 50% !important;
-    margin: 0 auto 0 !important;
+    margin: 0 auto 8px !important;
     object-fit: cover !important;
   }
 }
 
-/* En pantalla, el avatar de impresión no se muestra */
-.print-avatar { display: none; }
+/* En pantalla (no impresión), ocultamos el header compacto */
+@media screen {
+  .print-avatar,
+  .print-header {
+    display: none;
+  }
+}
+
 
