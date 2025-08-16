@@ -15,23 +15,20 @@
   <!-- PDF library -->
   <script src="https://cdn.jsdelivr.net/npm/html2pdf.js@0.10.1/dist/html2pdf.bundle.min.js"></script>
 
-  <style>
-    /* Ajustes solo para el clon PDF */
-    .pdf-root, .pdf-root * {
-      background: #ffffff !important;
-    }
-    .pdf-root .card {
-      box-shadow: none !important;
-      break-inside: avoid;
-      page-break-inside: avoid;
-      margin-bottom: 18px;
-    }
-    .pdf-root section, .pdf-root .personal-data {
-      break-inside: avoid;
-      page-break-inside: avoid;
-    }
-    .page-break { break-before: page; page-break-before: always; }
-  </style>
+    <style>
+      /* Ajustes solo para el clon PDF (permitir cortes) */
+      .pdf-root, .pdf-root * {
+        background: #ffffff !important;
+      }
+      .pdf-root .card,
+      .pdf-root section,
+      .pdf-root .personal-data {
+        break-inside: auto !important;
+        page-break-inside: auto !important;
+      }
+      .page-break { break-before: page; page-break-before: always; }
+    </style>
+
 </head>
 <body>
   <!-- Header compacto SOLO para imprimir -->
