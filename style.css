@@ -180,57 +180,45 @@ h2 { margin: 0 0 10px 0 !important; }
 
 .print-btn, .contact-info a { display: none !important; }
 
-/* —— Header super compacto en PDF (una sola línea + avatar) —— */
-.header-wrapper {
-  display: block !important;
-  background: #ffffff !important;
-  color: #000 !important;
-  padding: 4mm 0 2mm !important;
-  margin: 0 !important;
+/* Oculta el header grande en PDF */
+.header-wrapper { display: none !important; }
 
-  /* truco: armado en fila con poco alto */
+/* Header compacto SOLO para imprimir */
+.print-header {
   display: flex !important;
   align-items: center !important;
-  justify-content: center !important;
+  justify-content: space-between !important;
   gap: 6mm !important;
+
+  max-width: 820px !important;
+  margin: 0 auto !important;
+  padding: 6mm 0 2mm !important;
+
+  background: #fff !important;
+  color: #000 !important;
 
   page-break-after: avoid !important;
   break-after: avoid !important;
 }
 
-header {
-  margin: 0 !important;
-  padding: 0 !important;
-}
+.print-header .identity h1 { font-size: 16pt !important; margin: 0 0 2mm 0 !important; }
+.print-header .identity p  { font-size: 10pt !important; margin: 0 0 1.5mm 0 !important; }
+.print-header .contact-line { font-size: 9pt !important; display: flex; gap: 6mm; flex-wrap: wrap; }
 
-header h1 { font-size: 15pt !important; margin: 0 0 1.5mm 0 !important; }
-header p  { font-size: 9.5pt !important; margin: 0 0 1mm 0 !important; opacity: 1 !important; }
-.contact-info { font-size: 9pt !important; margin: 0 !important; }
-.contact-info span, .contact-info a { margin: 0 4px !important; color: #000 !important; }
-
-/* avatar a la derecha del texto, pequeño */
-.profile-wrapper {
-  position: static !important;
-  transform: none !important;
-  margin: 0 !important;
-  text-align: center !important;
-  z-index: auto !important;
-  flex: 0 0 auto !important;
-}
-.profile-pic {
+.print-header .print-avatar {
   width: 18mm !important;
   height: 18mm !important;
+  border-radius: 50% !important;
   border: 0 !important;
   box-shadow: none !important;
-  background: #fff !important;
-  display: block !important;
+  object-fit: cover !important;
 }
 
-/* el contenido arranca inmediatamente debajo */
+/* El contenido arranca pegado al header compacto */
 .container {
   max-width: 820px !important;
   width: 100% !important;
-  margin: 2mm auto 0 !important;  /* pegado al header */
+  margin: 2mm auto 0 !important;
   padding: 0 !important;
   background: #ffffff !important;
   page-break-before: avoid !important;
