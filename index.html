@@ -286,9 +286,9 @@ loaders.push(
       })
   );
 
-  // ------------ Links ------------
+  // ------------ Scientific profile ------------
   loaders.push(
-    fetch('links.json')
+    fetch('science.json')
       .then(r => r.json())
       .then(data => {
         const container = document.getElementById('links-list');
