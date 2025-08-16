@@ -50,7 +50,7 @@ header p {
   text-decoration: none;
 }
 
-/* Profile photo bubble */
+/* Profile photo */
 .profile-wrapper {
   position: absolute;
   bottom: -70px;
@@ -89,6 +89,7 @@ h2 {
   color: var(--primary);
 }
 
+/* Cards */
 .card {
   background-color: var(--card-bg);
   border-radius: var(--radius);
@@ -105,7 +106,7 @@ h2 {
 
 .date {
   font-size: 0.9em;
-  color: #cfd8dc;
+  color: #777;
   margin-bottom: 6px;
 }
 
@@ -121,22 +122,11 @@ h2 {
   margin: 0 0 10px 0;
 }
 
-ul {
-  padding-left: 20px;
-}
+ul { padding-left: 20px; }
+ul li { margin-bottom: 8px; }
 
-ul li {
-  margin-bottom: 8px;
-}
-
-a {
-  color: var(--accent);
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
 
 /* Footer */
 footer {
@@ -145,13 +135,11 @@ footer {
     url('images/header-footer-bg.png') center center / cover no-repeat;
   color: white;
   text-align: center;
-  padding: 26px 0 32px; /* espacio para botón + texto */
+  padding: 26px 0 32px;
   font-size: 0.9em;
 }
 
-footer .pdf-btn-wrapper {
-  margin-bottom: 10px;
-}
+footer .pdf-btn-wrapper { margin-bottom: 10px; }
 
 footer .print-btn {
   background: white;
@@ -165,66 +153,51 @@ footer .print-btn {
   box-shadow: var(--shadow);
   transition: background 0.2s ease, color 0.2s ease;
 }
-
-footer .print-btn:hover {
-  background: var(--accent);
-  color: white;
-}
-
+footer .print-btn:hover { background: var(--accent); color: white; }
 
 /* Mobile */
 @media (max-width: 768px) {
   header h1 { font-size: 2em; }
-  .contact-info span,
-  .contact-info a {
-    display: block;
-    margin: 5px 0;
-  }
+  .contact-info span, .contact-info a { display: block; margin: 5px 0; }
   .profile-pic { width: 100px; height: 100px; }
   .container { margin-top: 100px; padding: 30px 15px; }
   footer { font-size: 0.8em; padding: 22px 0 28px; }
 }
 
-/* ==== PRINT: salida PDF nativa, limpia y sin páginas fantasma ==== */
+/* ==== PRINT: PDF nativo, limpio ==== */
 @media print {
-  /* Página A4 y márgenes */
   @page { size: A4; margin: 12mm; }
 
-  /* Reset duro para cálculo estable de páginas */
   html, body { height: auto !important; background: #ffffff !important; }
   * { box-shadow: none !important; filter: none !important; transform: none !important; }
 
-  /* Oculta completamente header y footer para que no reserven altura */
+  /* Oculta header y footer en la impresión (ajusta si quieres incluir el header) */
   .header-wrapper,
   footer {
     display: none !important;
     height: 0 !important; padding: 0 !important; margin: 0 !important; border: 0 !important;
   }
 
-  /* Contenido a imprimir */
   .container {
-    max-width: 820px !important;   /* ancho seguro para A4 */
+    max-width: 820px !important;
     width: 100% !important;
     margin: 0 auto !important;
     padding: 0 !important;
     background: #ffffff !important;
   }
 
-  /* Evitar cortes feos */
   section, .card, .personal-data {
     break-inside: avoid;
     page-break-inside: avoid;
   }
 
-  /* Compactar un poco para que rinda mejor el espacio */
   section { margin-bottom: 28px !important; }
   .card { margin-bottom: 14px !important; padding: 18px 20px !important; border: none !important; }
   h2 { margin: 0 0 10px 0 !important; }
   .date { color: #666 !important; }
 
-  /* Quita elementos interactivos si quedara alguno */
   .print-btn, .contact-info a { display: none !important; }
 }
 
-/* (Opcional) Salto manual si alguna vez lo usas */
+/* Salto manual (si lo necesitas) */
 .page-break { break-before: page; page-break-before: always; }
