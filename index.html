@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,13 +9,20 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="style.css">
-
   <!-- PDF library -->
   <script src="https://cdn.jsdelivr.net/npm/html2pdf.js@0.10.1/dist/html2pdf.bundle.min.js"></script>
 
   <style>
+    :root {
+      --primary: #2c3e50;
+      --accent: #3498db;
+      --bg: #f5f7fa;
+      --text: #2c2c2c;
+      --card-bg: #ffffff;
+      --shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      --radius: 12px;
+    }
+
     /* Ajustes base para clones PDF */
     .pdf-root, .pdf-root * { background: #ffffff !important; }
     .pdf-root .card,
@@ -25,315 +32,827 @@
       page-break-inside: auto !important;
     }
     .page-break { break-before: page; page-break-before: always; }
+
+    /* ===== BASE */
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      margin: 0;
+    }
+
+    h2 {
+      font-size: 1.8em;
+      border-left: 5px solid var(--accent);
+      padding-left: 15px;
+      margin: 0 0 25px;
+      color: var(--primary);
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    ul { padding-left: 20px; }
+    ul li { margin-bottom: 6px; }
+
+    /* ===== HEADER */
+    .header-wrapper {
+      position: relative;
+      text-align: center;
+      padding: 60px 20px 100px;
+      color: white;
+      background:
+        linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+        url('/images/header-footer-bg.png') center/cover no-repeat;
+    }
+
+    header {
+      position: relative;
+    }
+    header h1 { font-size: 2.8em; margin: 0 0 10px; }
+    header p { font-size: 1.2em; opacity: 0.85; }
+
+    .contact-info {
+      margin-top: 25px;
+      font-size: 0.95em;
+    }
+    .contact-info span, .contact-info a {
+      margin: 0 12px;
+      color: white;
+    }
+
+    .lang-selector {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+
+    /* Profile */
+    .profile-wrapper {
+      position: absolute;
+      bottom: -70px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .profile-pic {
+      width: 140px; height: 140px;
+      border-radius: 50%;
+      border: 5px solid white;
+      object-fit: cover;
+      background: white;
+      box-shadow: var(--shadow);
+    }
+
+    /* ===== CONTAINER */
+    .container {
+      max-width: 1000px;
+      margin: 120px auto 0;
+      padding: 40px 20px;
+    }
+    section { margin-bottom: 60px; }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 25px 30px;
+      margin-bottom: 25px;
+    }
+    .card h3 { margin: 0 0 6px; font-size: 1.25em; }
+
+    /* Loader */
+    #loading-overlay {
+        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(2px);
+        display: flex; justify-content: center; align-items: center;
+        flex-direction: column; z-index: 1000;
+        transition: opacity 0.3s ease-in-out;
+    }
+    .spinner {
+        border: 4px solid #f3f3f3; border-top: 4px solid var(--accent);
+        border-radius: 50%; width: 40px; height: 40px;
+        animation: spin 1s linear infinite;
+    }
+    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+
+    /* ===== BIG CARDS (Education/Experience/Projects) */
+    .big-card { padding: 28px 32px; }
+    .edu-block, .employer-block, .project-block {
+      padding: 16px 0;
+      border-top: 1px solid #e8edf2;
+      break-inside: avoid; page-break-inside: avoid;
+    }
+    .edu-block:first-child, .employer-block:first-child, .project-block:first-child { border-top: 0; padding-top: 0; }
+
+    .edu-degree, .employer-name, .project-title { font-weight: 800; margin: 0 0 6px; }
+    .meta { color: #555; margin: 0 0 6px; }
+    .date { color: #777; font-size: .9em; margin-bottom: 8px; }
+    .edu-block ul, .role ul { margin: 6px 0 0 18px; }
+
+    /* Projects */
+    .big-projects-card { padding: 22px 28px; }
+    .projects-details > summary {
+      list-style: none;
+      cursor: pointer;
+      font-weight: 700;
+      display: flex;
+      gap: 6px;
+      margin-bottom: 12px;
+    }
+    .projects-summary-hint { font-weight: 400; color: #666; font-size: .9em; }
+    .projects-details[open] .projects-summary-hint { display: none; }
+    .project-sub { font-size: .95em; color: #555; margin: 0 0 6px; }
+    .project-sub .date { color: #666; }
+
+    /* ===== FOOTER */
+    footer {
+      text-align: center;
+      padding: 26px 0 32px;
+      font-size: 0.9em;
+      color: white;
+      background:
+        linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+        url('/images/header-footer-bg.png') center/cover no-repeat;
+    }
+    footer .print-btn {
+      background: white;
+      color: var(--primary);
+      border: none;
+      border-radius: var(--radius);
+      padding: 8px 16px;
+      font-size: 0.95em;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      transition: background 0.2s, color 0.2s;
+    }
+    footer .print-btn:hover { background: var(--accent); color: white; }
+
+    /* ===== MOBILE */
+    @media (max-width: 768px) {
+      header h1 { font-size: 2em; }
+      .contact-info span, .contact-info a { display: block; margin: 5px 0; }
+      .profile-pic { width: 100px; height: 100px; }
+      .container { margin-top: 100px; padding: 30px 15px; }
+      footer { font-size: 0.8em; }
+      .lang-selector { position: relative; top: -20px; right: 0; margin-bottom: -40px; }
+    }
+
+    /* ===== PRINT (normal) */
+    @media print {
+      @page { size: A4; margin: 12mm; }
+
+      html, body { background: #fff !important; }
+      * { box-shadow: none !important; }
+
+      /* Ocultar lo que no va al PDF */
+      .header-wrapper, footer, .print-btn, .contact-info a, .lang-selector { display: none !important; }
+
+      /* Contenedor */
+      .container {
+        max-width: 820px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        background: #fff !important;
+      }
+
+      /* Permitir cortes en contenedores grandes */
+      section, .card {
+        break-inside: auto !important;
+        page-break-inside: auto !important;
+      }
+
+      /* Bloques de contenido a evitar corte */
+      .edu-block, .role {
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+      }
+
+      /* Título de sección pegado a su primer bloque */
+      section > h2 { break-after: avoid-page !important; }
+      section > h2 + .card { break-inside: auto !important; }
+
+      /* Márgenes compactos */
+      section { margin: 10px 0 14px !important; }
+      .card { border: none !important; padding: 14px 16px !important; margin-bottom: 10px !important; }
+      h2 { margin: 0 0 8px !important; }
+      ul { margin: 6px 0 0 18px !important; }
+      ul li { margin: 3px 0 !important; }
+
+      /* Header compacto impresión */
+      .profile-wrapper { display: none !important; }
+      .print-header { display: flex !important; align-items: center; margin-bottom: 8mm; text-align: left; }
+      .print-header h1 { font-size: 1.8em; margin: 0; color: var(--primary); }
+      .print-header p { margin: 0; font-size: 1em; color: #555; }
+      .print-header .contact-line { font-size: 0.9em; margin-top: 4px; }
+      .print-header .contact-line span { margin-right: 15px; }
+
+      .print-avatar {
+        display: block !important; width: 90px !important; height: 90px !important;
+        border-radius: 50% !important; margin-right: 15px !important; object-fit: cover !important;
+      }
+    }
+
+    /* En pantalla, ocultamos header compacto */
+    @media screen {
+      .print-header { display: none; }
+    }
+
+    /* ====== AÑADIDOS PARA MODO SIMPLIFIED */
+    .role-slim { margin-bottom: 6px; }
+    .role-slim .role-title { margin: 0 0 2px; }
+    .role-slim .date { margin: 0; color: #666; }
+
+    @media print {
+      /* Oculta el CV normal en modo simplified */
+      body.print-simplified .header-wrapper,
+      body.print-simplified footer,
+      body.print-simplified .container:not(.simplified-container),
+      body.print-simplified > .print-header {
+        display: none !important;
+      }
+
+      /* Muestra solo el clon simplificado */
+      body.print-simplified #pdf-simplified {
+        display: block !important;
+        margin: 0 !important;
+        padding: 0.5cm 1cm !important;
+      }
+
+      /* Asegura que el header compacto del clon se vea */
+      body.print-simplified #pdf-simplified .print-header {
+        display: flex !important;
+        margin-bottom: 6mm !important;
+      }
+
+      /* Ajustes del clon */
+      body.print-simplified #pdf-simplified .container {
+        max-width: 820px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        box-shadow: none !important;
+      }
+
+      body.print-simplified #pdf-simplified section {
+        page-break-inside: avoid;
+        margin: 6px 0 10px !important;
+      }
+
+      body.print-simplified #pdf-simplified .card {
+        border: none !important;
+        padding: 10px 12px !important;
+        margin-bottom: 6px !important;
+      }
+
+      body.print-simplified #pdf-simplified h2 {
+        margin: 6px 0 4px !important;
+      }
+    }
   </style>
 </head>
 <body>
+  <!-- Indicador de carga -->
+  <div id="loading-overlay">
+    <div class="spinner"></div>
+    <p style="margin-top: 20px; font-weight: 600; color: var(--primary);" id="loading-text">Cargando datos del CV...</p>
+  </div>
+
   <!-- Header compacto SOLO para imprimir -->
   <div id="print-header" class="print-header" aria-hidden="true"></div>
 
   <div class="header-wrapper">
-    <header id="header"></header>
+    <header id="header">
+        <div class="lang-selector">
+            <label for="lang-select" style="font-size:0.85em; color: rgba(255,255,255,0.7);">Language:</label>
+            <select id="lang-select" style="padding: 5px 8px; border-radius: 6px; color: var(--primary); border:none;">
+                <option value="en">English</option>
+                <option value="es">Español</option>
+                <option value="it">Italiano</option>
+                <option value="fr">Français</option>
+                <option value="de">Deutsch</option>
+                <option value="pt">Português</option>
+                <option value="ru">Русский</option>
+                <option value="uk">Українська</option>
+                <option value="nl">Nederlands</option>
+                <option value="sv">Svenska</option>
+                <option value="pl">Polski</option>
+                <option value="ja">日本語</option>
+                <option value="ko">한국어</option>
+            </select>
+        </div>
+    </header>
     <div class="profile-wrapper">
+      <!-- Usando un placeholder de imagen -->
       <img class="profile-pic" src="your-photo.jpg" alt="Italo Moletto" crossorigin="anonymous" />
     </div>
   </div>
 
-  <div class="container">
+  <div class="container" style="display:none;">
     <!-- ===== Education ===== -->
-    <section id="education">
-      <h2>Education</h2>
+    <section id="section-education">
+      <h2 data-lang-key="Education">Education</h2>
       <div id="education-card" class="card big-edu-card">
         <div id="education-list"></div>
       </div>
     </section>
 
-    <section id="experience">
-      <h2>Experience</h2>
-      <!-- Un solo card que contiene TODO -->
+    <!-- ===== Experience ===== -->
+    <section id="section-experience">
+      <h2 data-lang-key="Experience">Experience</h2>
       <div id="experience-card" class="card big-experience-card">
         <div id="experience-list"></div>
       </div>
     </section>
 
     <!-- ===== Projects ===== -->
-    <section id="projects">
-      <h2>Projects</h2>
+    <section id="section-projects">
+      <h2 data-lang-key="Projects">Projects</h2>
       <div id="projects-card" class="card big-projects-card">
-        <!-- Toggle único -->
         <details id="projects-details" class="projects-details">
           <summary class="projects-summary">
-            <span id="projects-summary-text">Projects</span>
-            <span class="projects-summary-hint">— click to expand</span>
+            <span id="projects-summary-text" data-lang-key="Projects Summary">Projects</span>
+            <span class="projects-summary-hint" data-lang-key="Click to expand">— click to expand</span>
           </summary>
           <div id="project-list"></div>
         </details>
       </div>
     </section>
 
-    <section>
-      <h2>Skills</h2>
+    <!-- ===== Skills ===== -->
+    <section id="section-skills">
+      <h2 data-lang-key="Skills">Skills</h2>
       <div id="skills-list"></div>
     </section>
 
-    <section>
-      <h2>Scientific profiles</h2>
+    <!-- ===== Scientific profiles ===== -->
+    <section id="section-science">
+      <h2 data-lang-key="Scientific profiles">Scientific profiles</h2>
       <div id="science-list"></div>
     </section>
 
-    <section>
-      <h2>In press</h2>
+    <!-- ===== In press ===== -->
+    <section id="section-press">
+      <h2 data-lang-key="In press">In press</h2>
       <div id="press-list"></div>
     </section>
 
-    <section class="personal-data">
-      <h2>Personal Data</h2>
+    <!-- ===== Personal Data ===== -->
+    <section class="personal-data" id="section-personal">
+      <h2 data-lang-key="Personal Data">Personal Data</h2>
       <div class="card" id="personal-data"></div>
     </section>
   </div>
 
-  <footer>
+  <footer style="display:none;">
     <div class="pdf-btn-wrapper" style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
       <button id="btn-pdf" class="print-btn" aria-label="Download PDF">
-        <i class="fas fa-file-arrow-down" aria-hidden="true"></i> Download PDF
+        <i class="fas fa-file-arrow-down" aria-hidden="true"></i> <span data-lang-key="Download PDF">Download PDF</span>
       </button>
       <button id="btn-pdf-simplified" class="print-btn" aria-label="Download PDF (simplified)">
-        <i class="fas fa-file-circle-minus" aria-hidden="true"></i> Download PDF (simplified)
+        <i class="fas fa-file-circle-minus" aria-hidden="true"></i> <span data-lang-key="Download PDF (simplified)">Download PDF (simplified)</span>
       </button>
     </div>
-    <p>&copy; 2025 Italo Moletto Lobos — Remote Sensing & AI</p>
+    <p id="footer-text"></p>
   </footer>
 
   <!-- Contenedor del clon simplificado (se crea dinámicamente) -->
   <div id="pdf-simplified" class="pdf-root" style="display:none;"></div>
 
 <script>
-  // Colección de promesas de carga
-  const loaders = [];
+  // =========================================================================
+  // --- CORE DATA (Glosarios y Almacenamiento) ---
+  // Se inicializan como variables vacías que se llenarán con la carga de glossary.json
+  // =========================================================================
 
-  // Guardamos data global para reutilizar en "simplified"
-  let headerData = null;
-  let educationData = null;
-  let experienceData = null;
-  let skillsData = null;
-  let scienceData = null;
-  let personalData = null;
+  let GLOSSARY_TERMS = {};        // Glosario de UI (Cargado desde glossary.json -> ui)
+  let DATA_GLOSSARY_TRANSLATIONS = {}; // Glosario de Contenido (Cargado desde glossary.json -> content)
+  let TITLES_GLOSSARY = {};       // Glosario de Títulos (Cargado desde glossary.json -> titles)
 
-  // ------------ Header ------------
-  loaders.push(
-    fetch('header.json')
-      .then(r => r.json())
-      .then(data => {
-        headerData = data;
-        const header = document.getElementById('header');
-        const phones = (data.phones || []).join(' / ');
-        const emails = (data.emails || []).join(' / ');
+  let currentLang = localStorage.getItem('cvLang') || 'en';
+  let dataStore = {}; // Objeto para almacenar todos los datos JSON cargados
 
-        // Header pantalla
-        header.innerHTML = `
-          <h1>${data.name || ''}</h1>
-          <p>${data.subtitle || ''}</p>
-          <div class="contact-info">
-            ${phones ? `<span><i class="fas fa-phone"></i> ${phones}</span>` : ''}
-            ${emails ? `<span><i class="fas fa-envelope"></i> ${emails}</span>` : ''}
-            ${data.linkedin ? `<a href="${data.linkedin}" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a>` : ''}
+  // --- Utility Functions ---
+
+  function getTitleTranslation(originalTitle) {
+    const map = TITLES_GLOSSARY[originalTitle];
+    if (map && map[currentLang]) {
+      return map[currentLang];
+    }
+    return originalTitle;
+  }
+
+  function T(key) {
+    const currentMap = GLOSSARY_TERMS[currentLang];
+    const englishMap = GLOSSARY_TERMS['en'];
+
+    if (currentMap && currentMap[key]) {
+        return currentMap[key];
+    }
+    return englishMap ? englishMap[key] || key : key;
+  }
+
+  function updateLoadingText() {
+    const loadingTextEl = document.getElementById('loading-text');
+    if (loadingTextEl) {
+        loadingTextEl.textContent = T('CV Loading');
+    }
+  }
+
+  function translateText(text) {
+    if (!text) return '';
+
+    let translatedText = text;
+
+    // Usamos las claves del mapa español como referencia estable (asumiendo que el contenido JSON original está en EN)
+    const englishKeys = Object.keys(DATA_GLOSSARY_TRANSLATIONS['es'] || {});
+
+    const targetMap = DATA_GLOSSARY_TRANSLATIONS[currentLang] || DATA_GLOSSARY_TRANSLATIONS['en'];
+    if (!targetMap) return text;
+
+    // Ordenar claves por longitud DESCENDENTE para asegurar que las frases completas se reemplacen primero
+    englishKeys.sort((a, b) => b.length - a.length);
+
+    englishKeys.forEach(englishTerm => {
+        // Escapar caracteres especiales para la regex
+        const escapedTerm = englishTerm.replace(/([.?*+^$[\]\\(){}|-])/g, "\\$1");
+        const regex = new RegExp(escapedTerm, 'gi');
+        const targetTranslation = targetMap[englishTerm];
+
+        if (targetTranslation) {
+             translatedText = translatedText.replace(regex, targetTranslation);
+        }
+    });
+
+    return translatedText;
+  }
+
+  // --- Asynchronous Data Loader (Modularized) ---
+
+  async function loadData() {
+    // Definimos todos los archivos JSON a cargar
+    const filePaths = [
+      'glossary.json', 'header.json', 'education.json', 'experience.json',
+      'projects.json', 'skills.json', 'science.json', 'press.json',
+      'personal.json', 'copyright.json'
+    ];
+
+    // Ejecutamos todas las peticiones en paralelo para optimizar la carga
+    const promises = filePaths.map(path => fetch(path).then(res => {
+        if (!res.ok) {
+            console.error(`Error al cargar el archivo: ${path}`, res);
+            throw new Error(`Fallo de carga: ${path}`);
+        }
+        return res.json();
+    }));
+
+    const results = await Promise.all(promises);
+
+    // Mapear los resultados al dataStore
+    const [glossaryData, headerData, educationData, experienceData, projectsData, skillsData, scienceData, pressData, personalData, copyrightData] = results;
+
+    // 1. Asignar Glosarios primero (necesario para la traducción de la UI)
+    GLOSSARY_TERMS = glossaryData.ui || {};
+    DATA_GLOSSARY_TRANSLATIONS = glossaryData.content || {};
+    TITLES_GLOSSARY = glossaryData.titles || {};
+
+    // Actualizar el texto de carga inmediatamente con los glosarios recién cargados
+    updateLoadingText();
+
+    // 2. Asignar Contenido del CV al dataStore
+    dataStore.header = headerData || {};
+    dataStore.education = educationData || [];
+    dataStore.experience = experienceData || [];
+    dataStore.projects = projectsData || [];
+    dataStore.skills = skillsData || {};
+    dataStore.science = scienceData || [];
+    dataStore.press = pressData || [];
+    dataStore.personal = personalData || {};
+    dataStore.copyrightText = copyrightData.text || "© 2025 Italo Moletto Lobos — Remote Sensing & AI";
+  }
+
+
+  // --- Specific Renderers (Called by renderContent) ---
+
+  function renderHeader(data) {
+    const header = document.getElementById('header');
+    const phones = (data.phones || []).join(' / ');
+    const emails = (data.emails || []).join(' / ');
+    const translatedSubtitle = translateText(data.subtitle || '');
+
+    // Header compacta para impresión
+    const ph = document.getElementById('print-header');
+    ph.innerHTML = `
+      <img class="print-avatar" src="your-photo.jpg" alt="${T('Photo')}" crossorigin="anonymous" />
+      <div class="identity">
+        <h1>${data.name || ''}</h1>
+        <p>${translatedSubtitle || ''}</p>
+        <div class="contact-line">
+          ${phones ? `<span>📞 ${phones}</span>` : ''}
+          ${emails ? `<span>✉️ ${emails}</span>` : ''}
+        </div>
+      </div>
+    `;
+
+    // Header en pantalla (limpieza previa)
+    const existingContent = header.querySelector('.contact-info');
+    if (existingContent) {
+        header.querySelector('h1')?.remove();
+        header.querySelector('p:not(.lang-selector p)')?.remove();
+        existingContent.remove();
+    }
+
+    // Header pantalla (append to existing lang-selector wrapper)
+    header.insertAdjacentHTML('beforeend', `
+      <h1>${data.name || ''}</h1>
+      <p>${translatedSubtitle || ''}</p>
+      <div class="contact-info">
+        ${phones ? `<span><i class="fas fa-phone"></i> ${phones}</span>` : ''}
+        ${emails ? `<span><i class="fas fa-envelope"></i> ${emails}</span>` : ''}
+        ${data.linkedin ? `<a href="${data.linkedin}" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a>` : ''}
+      </div>
+    `);
+  }
+
+  function renderEducation(data) {
+    const list = document.getElementById('education-list');
+    list.innerHTML = '';
+    data.forEach(ed => {
+      const block = document.createElement('div');
+      block.className = 'edu-block';
+      const translatedDegree = getTitleTranslation(ed.degree);
+      const notes = (ed.notes || []).map(n => `<li>${translateText(n)}</li>`).join('');
+      block.innerHTML = `
+        <h3 class="edu-degree">${translatedDegree || ''}</h3>
+        <p class="meta">${ed.institution || ''}${ed.location ? ' · ' + ed.location : ''}</p>
+        <p class="date">${ed.date || ''}</p>
+        ${notes ? `<ul>${notes}</ul>` : ''}
+      `;
+      list.appendChild(block);
+    });
+  }
+
+  function renderExperience(data) {
+    const list = document.getElementById('experience-list');
+    list.innerHTML = '';
+    data.forEach(org => {
+      const block = document.createElement('div');
+      block.className = 'employer-block';
+
+      const rolesHTML = (org.roles || []).map(role => {
+        const translatedTitle = getTitleTranslation(role.title);
+        const items = (role.items || []).map(i => `<li>${translateText(i)}</li>`).join('');
+        return `
+          <div class="role">
+            <h4 class="role-title">${translatedTitle || ''}</h4>
+            <p class="date">${role.date || ''}</p>
+            ${items ? `<ul>${items}</ul>` : ''}
           </div>
         `;
+      }).join('');
 
-        // Header SOLO impresión (compacto)
-        const ph = document.getElementById('print-header');
-        ph.innerHTML = `
-          <img class="print-avatar" src="your-photo.jpg" alt="${data.name || 'Photo'}" crossorigin="anonymous" />
-          <div class="identity">
-            <h1>${data.name || ''}</h1>
-            <p>${data.subtitle || ''}</p>
-            <div class="contact-line">
-              ${phones ? `<span>📞 ${phones}</span>` : ''}
-              ${emails ? `<span>✉️ ${emails}</span>` : ''}
-            </div>
-          </div>
+      block.innerHTML = `
+        <h3 class="employer-name">${org.employer || ''}</h3>
+        ${org.location ? `<p class="meta">${org.location}</p>` : ''}
+        ${rolesHTML}
+      `;
+      list.appendChild(block);
+    });
+  }
+
+  function renderProjects(data) {
+    const details = document.getElementById('projects-details');
+    const list = document.getElementById('project-list');
+    list.innerHTML = '';
+
+    data.forEach(project => {
+      const block = document.createElement('div');
+      block.className = 'project-block';
+      const metaBits = [];
+      if (project.employer) metaBits.push(project.employer);
+      if (project.country)  metaBits.push(project.country);
+      const meta = metaBits.length ? `<span class="meta">${metaBits.join(' · ')}</span>` : '';
+      const code = project.code ? `<span class="code"><strong>${project.code}</strong></span>` : '';
+
+      const description = project.description ? `<p class="project-desc">${translateText(project.description)}</p>` : '';
+
+      block.innerHTML = `
+        <h3 class="project-title">${project.title || ''}</h3>
+        <div class="project-sub">
+          ${project.date ? `<span class="date">${project.date}</span>` : ''}
+          ${meta}${code ? ` · ${code}` : ''}
+        </div>
+        ${description}
+      `;
+      list.appendChild(block);
+    });
+
+    // Toggle logic for print (still needed, but outside loop)
+    const openForPrint = () => details.setAttribute('open', 'open');
+    const closeAfterPrint = () => details.removeAttribute('open');
+    if (window.matchMedia) {
+      window.matchMedia('print').addEventListener('change', e => {
+        if (e.matches) openForPrint(); else closeAfterPrint();
+      });
+    }
+    window.addEventListener('beforeprint', openForPrint);
+    window.addEventListener('afterprint', closeAfterPrint);
+  }
+
+  function renderSkills(data) {
+    const container = document.getElementById('skills-list');
+    container.innerHTML = '';
+    const card = document.createElement('div');
+    card.className = 'card';
+    let html = '';
+
+    if (data.technical?.length) {
+      html += `<h3>${T('Technical Skills')}</h3><ul>`;
+      data.technical.forEach(skill => html += `<li>${translateText(skill)}</li>`);
+      html += '</ul>';
+    }
+    if (data.languages?.length) {
+      html += `<h3>${T('Languages')}</h3><ul>`;
+      data.languages.forEach(lang => html += `<li>${lang}</li>`);
+      html += '</ul>';
+    }
+    card.innerHTML = html || `<p>${T('No skills listed')}</p>`;
+    container.appendChild(card);
+  }
+
+  function renderScience(data) {
+    const container = document.getElementById('science-list');
+    container.innerHTML = '';
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = '<ul>' +
+      (data || []).map(link => `<li><a href="${link.url}" target="_blank" rel="noopener">${link.label}</a></li>`).join('') +
+      '</ul>';
+    container.appendChild(card);
+  }
+
+  function renderPress(data) {
+    const container = document.getElementById('press-list');
+    container.innerHTML = '';
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.innerHTML = '<ul>' +
+      (data || []).map(link => `<li><a href="${link.url}" target="_blank" rel="noopener">${link.label}</a></li>`).join('') +
+      '</ul>';
+    container.appendChild(card);
+  }
+
+  /**
+   * Main function to update all UI elements that require translation.
+   * Renders static UI elements and reruns the header, skills, and personal data rendering.
+   */
+  function renderUI() {
+    document.documentElement.lang = currentLang;
+
+    // 1. Static Text Elements (using data-lang-key)
+    document.querySelectorAll('[data-lang-key]').forEach(el => {
+      const key = el.getAttribute('data-lang-key');
+      el.textContent = T(key);
+    });
+
+    // 2. Footer
+    const footerElement = document.getElementById('footer-text');
+    if (footerElement) {
+        footerElement.textContent = dataStore.copyrightText;
+    }
+
+    // 3. Special Cases (Dynamic/Alt Text)
+    const profilePic = document.querySelector('.profile-pic');
+    if (profilePic) {
+      profilePic.alt = T('Photo');
+    }
+
+    // 4. Personal Data (Rerendered for translated labels)
+    if (dataStore.personal) {
+      const container = document.getElementById('personal-data');
+      if (container) {
+          container.innerHTML = `
+            <p><strong>${T('Nationality Label')}:</strong> ${dataStore.personal.nationality || ''}</p>
+            <p><strong>${T('Born date Label')}:</strong> ${dataStore.personal.birthdate || ''}</p>
+          `;
+      }
+    }
+
+    // 5. Skills (Rerendered for translated content)
+    if (dataStore.skills) {
+        renderSkills(dataStore.skills);
+    }
+
+    // 6. Projects Summary text (needs count)
+    const summaryText = document.getElementById('projects-summary-text');
+    if (dataStore.projects) {
+        summaryText.textContent = `${T('Projects Summary')} (${dataStore.projects.length})`;
+    }
+
+    // 7. Header (Rerendered for print header and screen header content)
+    renderHeader(dataStore.header);
+  }
+
+  /**
+   * Main function to render all content and ensure it is updated
+   * for the current language.
+   */
+  function renderContent() {
+    // 1. Content that needs to be built with translated items
+    renderEducation(dataStore.education);
+    renderExperience(dataStore.experience);
+    renderProjects(dataStore.projects);
+    renderScience(dataStore.science);
+    renderPress(dataStore.press);
+
+    // 2. UI Rendering (Static labels and dynamic content that uses T())
+    renderUI();
+  }
+
+
+  // --- Event Listeners and Initial Load ---
+  document.addEventListener('DOMContentLoaded', async () => {
+
+    updateLoadingText();
+
+    try {
+        await loadData();
+
+        // Hide loader and show content
+        document.getElementById('loading-overlay').style.opacity = '0';
+        setTimeout(() => document.getElementById('loading-overlay').style.display = 'none', 300);
+        document.querySelector('.container').style.display = 'block';
+        document.querySelector('footer').style.display = 'block';
+
+        const langSelect = document.getElementById('lang-select');
+        langSelect.value = currentLang;
+
+        // 1. Initial Content and UI Rendering
+        renderContent();
+
+        // 2. Language change listener
+        langSelect.addEventListener('change', (e) => {
+          currentLang = e.target.value;
+          localStorage.setItem('cvLang', currentLang);
+          renderContent();
+        });
+
+        // 3. PDF Download (standard print)
+        const pdfBtn = document.getElementById('btn-pdf');
+        pdfBtn.addEventListener('click', () => {
+          window.print();
+        });
+
+        // 4. PDF Download (simplified print)
+        const pdfSimplifiedBtn = document.getElementById('btn-pdf-simplified');
+        pdfSimplifiedBtn.addEventListener('click', async () => {
+          // Build the simplified DOM in the current language
+          buildSimplifiedDOM();
+
+          const root = document.getElementById('pdf-simplified');
+          const elsToHide = [
+            document.querySelector('.container'),
+            document.querySelector('footer'),
+            document.querySelector('.header-wrapper'),
+            document.getElementById('print-header')
+          ];
+
+          // Ocultamos el CV normal directamente
+          elsToHide.forEach(el => { if (el) el.style.display = 'none'; });
+
+          // Mostramos el clon simplified
+          root.style.display = 'block';
+          document.body.classList.add('print-simplified');
+
+          window.print();
+
+          // Limpieza y restauración
+          const cleanup = () => {
+            document.body.classList.remove('print-simplified');
+            elsToHide.forEach(el => { if (el) el.style.display = ''; });
+            root.style.display = 'none';
+            root.innerHTML = '';
+          };
+
+          // Desktop suele disparar afterprint
+          const after = () => { cleanup(); window.removeEventListener('afterprint', after); };
+          window.addEventListener('afterprint', after);
+
+          // Fallback por si afterprint no se dispara en móvil
+          setTimeout(() => {
+            if (root.style.display === 'block') cleanup();
+          }, 1500);
+        });
+
+    } catch (error) {
+        console.error("Fatal Error during CV Load:", error);
+        document.getElementById('loading-overlay').innerHTML = `
+            <p style="color: red; font-size: 1.2em;">Error al cargar los datos esenciales del CV.</p>
+            <p style="color: #555; max-width: 80%; text-align: center;">Asegúrate de que todos los 10 archivos JSON (incluyendo <code style="font-weight: bold; color: var(--primary);">glossary.json</code>, <code style="font-weight: bold; color: var(--primary);">header.json</code>, etc.) estén presentes.</p>
         `;
-      })
-  );
-
-  // ------------ Education ------------
-  loaders.push(
-    fetch('education.json')
-      .then(r => r.json())
-      .then(data => {
-        educationData = data;
-        const list = document.getElementById('education-list');
-        data.forEach(ed => {
-          const block = document.createElement('div');
-          block.className = 'edu-block';
-          const notes = (ed.notes || []).map(n => `<li>${n}</li>`).join('');
-          block.innerHTML = `
-            <h3 class="edu-degree">${ed.degree || ''}</h3>
-            <p class="meta">${ed.institution || ''}${ed.location ? ' · ' + ed.location : ''}</p>
-            <p class="date">${ed.date || ''}</p>
-            ${notes ? `<ul>${notes}</ul>` : ''}
-          `;
-          list.appendChild(block);
-        });
-      })
-  );
-
-  // ------------ Experience ------------
-  loaders.push(
-    fetch('experience.json')
-      .then(r => r.json())
-      .then(data => {
-        experienceData = data;
-        const list = document.getElementById('experience-list');
-        data.forEach(org => {
-          const block = document.createElement('div');
-          block.className = 'employer-block';
-
-          const rolesHTML = (org.roles || []).map(role => {
-            const items = (role.items || []).map(i => `<li>${i}</li>`).join('');
-            return `
-              <div class="role">
-                <h4 class="role-title">${role.title || ''}</h4>
-                <p class="date">${role.date || ''}</p>
-                ${items ? `<ul>${items}</ul>` : ''}
-              </div>
-            `;
-          }).join('');
-
-          block.innerHTML = `
-            <h3 class="employer-name">${org.employer || ''}</h3>
-            ${org.location ? `<p class="meta">${org.location}</p>` : ''}
-            ${rolesHTML}
-          `;
-          list.appendChild(block);
-        });
-      })
-  );
-
-  // ------------ Projects ------------
-  loaders.push(
-    fetch('projects.json')
-      .then(r => r.json())
-      .then(data => {
-        const details = document.getElementById('projects-details');
-        const summaryText = document.getElementById('projects-summary-text');
-        const list = document.getElementById('project-list');
-
-        summaryText.textContent = `Projects (${data.length})`;
-
-        data.forEach(project => {
-          const block = document.createElement('div');
-          block.className = 'project-block';
-          const metaBits = [];
-          if (project.employer) metaBits.push(project.employer);
-          if (project.country)  metaBits.push(project.country);
-          const meta = metaBits.length ? `<span class="meta">${metaBits.join(' · ')}</span>` : '';
-          const code = project.code ? `<span class="code"><strong>${project.code}</strong></span>` : '';
-
-          block.innerHTML = `
-            <h3 class="project-title">${project.title || ''}</h3>
-            <div class="project-sub">
-              ${project.date ? `<span class="date">${project.date}</span>` : ''}
-              ${meta}${code ? ` · ${code}` : ''}
-            </div>
-            ${project.description ? `<p class="project-desc">${project.description}</p>` : ''}
-          `;
-          list.appendChild(block);
-        });
-
-        // Auto-open para imprimir y cerrar después (solo en vista normal)
-        const openForPrint = () => details.setAttribute('open', 'open');
-        const closeAfterPrint = () => details.removeAttribute('open');
-        if (window.matchMedia) {
-          window.matchMedia('print').addEventListener('change', e => {
-            if (e.matches) openForPrint(); else closeAfterPrint();
-          });
-        }
-        window.addEventListener('beforeprint', openForPrint);
-        window.addEventListener('afterprint', closeAfterPrint);
-      })
-  );
-
-  // ------------ Skills ------------
-  loaders.push(
-    fetch('skills.json')
-      .then(r => r.json())
-      .then(data => {
-        skillsData = data;
-        const container = document.getElementById('skills-list');
-        const card = document.createElement('div');
-        card.className = 'card';
-        let html = '';
-        if (data.technical?.length) {
-          html += '<h3>Technical Skills</h3><ul>';
-          data.technical.forEach(skill => html += `<li>${skill}</li>`);
-          html += '</ul>';
-        }
-        if (data.languages?.length) {
-          html += '<h3>Languages</h3><ul>';
-          data.languages.forEach(lang => html += `<li>${lang}</li>`);
-          html += '</ul>';
-        }
-        card.innerHTML = html;
-        container.appendChild(card);
-      })
-  );
-
-  // ------------ Personal Data ------------
-  loaders.push(
-    fetch('personal.json')
-      .then(r => r.json())
-      .then(data => {
-        personalData = data;
-        const container = document.getElementById('personal-data');
-        container.innerHTML = `
-          <p><strong>Nationality:</strong> ${data.nationality || ''}</p>
-          <p><strong>Born date:</strong> ${data.birthdate || ''}</p>
-        `;
-      })
-  );
-
-  // ------------ Scientific profile ------------
-  loaders.push(
-    fetch('science.json')
-      .then(r => r.json())
-      .then(data => {
-        scienceData = data;
-        const container = document.getElementById('science-list');
-        const card = document.createElement('div');
-        card.className = 'card';
-        card.innerHTML = '<ul>' +
-          data.map(link => `<li><a href="${link.url}" target="_blank" rel="noopener">${link.label}</a></li>`).join('') +
-          '</ul>';
-        container.appendChild(card);
-      })
-  );
-
-  // ------------ In press ------------
-  loaders.push(
-    fetch('press.json')
-      .then(r => r.json())
-      .then(data => {
-        const container = document.getElementById('press-list');
-        const card = document.createElement('div');
-        card.className = 'card';
-        card.innerHTML = '<ul>' +
-          data.map(link => `<li><a href="${link.url}" target="_blank" rel="noopener">${link.label}</a></li>`).join('') +
-          '</ul>';
-        container.appendChild(card);
-      })
-  );
-
-  // ------------ PDF Download (completo) ------------
-  const pdfBtn = document.getElementById('btn-pdf');
-  pdfBtn.addEventListener('click', async () => {
-    await Promise.all(loaders);
-    if (document.fonts?.ready) await document.fonts.ready;
-    window.print();
+    }
   });
 
-  // ------------ PDF Download (simplified) ------------
-  const pdfSimplifiedBtn = document.getElementById('btn-pdf-simplified');
-
+  // --- Simplified DOM Builder (Translated) ---
   function buildSimplifiedDOM() {
     const root = document.getElementById('pdf-simplified');
     root.innerHTML = ''; // limpiar
@@ -341,25 +860,40 @@
     const wrapper = document.createElement('div');
     wrapper.className = 'container simplified-container';
 
-    // Header compacto
+    // Header compacto (Translated)
     const printHeaderClone = document.createElement('div');
     printHeaderClone.className = 'print-header simplified-print-header';
-    printHeaderClone.innerHTML = document.getElementById('print-header').innerHTML;
+    const phones = (dataStore.header.phones || []).join(' / ');
+    const emails = (dataStore.header.emails || []).join(' / ');
+    const translatedSubtitle = translateText(dataStore.header.subtitle || '');
+
+    printHeaderClone.innerHTML = `
+        <img class="print-avatar" src="your-photo.jpg" alt="${T('Photo')}" crossorigin="anonymous" />
+        <div class="identity">
+          <h1>${dataStore.header.name || ''}</h1>
+          <p>${translatedSubtitle || ''}</p>
+          <div class="contact-line">
+            ${phones ? `<span>📞 ${phones}</span>` : ''}
+            ${emails ? `<span>✉️ ${emails}</span>` : ''}
+          </div>
+        </div>
+    `;
     wrapper.appendChild(printHeaderClone);
 
-    // Education (igual)
+    // Education (Translated Title and content)
     const secEdu = document.createElement('section');
-    secEdu.innerHTML = `<h2>Education</h2>`;
+    secEdu.innerHTML = `<h2>${T('Education')}</h2>`;
     const cardEdu = document.createElement('div');
     cardEdu.className = 'card';
     const listEdu = document.createElement('div');
 
-    (educationData || []).forEach(ed => {
+    (dataStore.education || []).forEach(ed => {
       const block = document.createElement('div');
       block.className = 'edu-block';
-      const notes = (ed.notes || []).map(n => `<li>${n}</li>`).join('');
+      const translatedDegree = getTitleTranslation(ed.degree); // Usar traducción de títulos
+      const notes = (ed.notes || []).map(n => `<li>${translateText(n)}</li>`).join('');
       block.innerHTML = `
-        <h3 class="edu-degree">${ed.degree || ''}</h3>
+        <h3 class="edu-degree">${translatedDegree || ''}</h3>
         <p class="meta">${ed.institution || ''}${ed.location ? ' · ' + ed.location : ''}</p>
         <p class="date">${ed.date || ''}</p>
         ${notes ? `<ul>${notes}</ul>` : ''}
@@ -370,20 +904,21 @@
     secEdu.appendChild(cardEdu);
     wrapper.appendChild(secEdu);
 
-    // Experience (sin bullets, solo títulos y fechas)
+    // Experience (Translated Title, slim roles, translated content)
     const secExp = document.createElement('section');
-    secExp.innerHTML = `<h2>Experience</h2>`;
+    secExp.innerHTML = `<h2>${T('Experience')}</h2>`;
     const cardExp = document.createElement('div');
     cardExp.className = 'card';
     const listExp = document.createElement('div');
 
-    (experienceData || []).forEach(org => {
+    (dataStore.experience || []).forEach(org => {
       const block = document.createElement('div');
       block.className = 'employer-block';
       const rolesHTML = (org.roles || []).map(role => {
+        const translatedTitle = getTitleTranslation(role.title); // Usar traducción de títulos
         return `
           <div class="role role-slim">
-            <h4 class="role-title">${role.title || ''}</h4>
+            <h4 class="role-title">${translatedTitle || ''}</h4>
             <p class="date">${role.date || ''}</p>
           </div>
         `;
@@ -399,98 +934,55 @@
     secExp.appendChild(cardExp);
     wrapper.appendChild(secExp);
 
-    // Skills (Technical Skills + Languages)
+    // Skills (Translated Titles and content)
     const secSkills = document.createElement('section');
-    secSkills.innerHTML = `<h2>Skills</h2>`;
+    secSkills.innerHTML = `<h2>${T('Skills')}</h2>`;
     const cardSkills = document.createElement('div');
     cardSkills.className = 'card';
 
     let skillsHTML = '';
-    if (skillsData?.technical?.length) {
-      skillsHTML += '<h3>Technical Skills</h3><ul>';
-      skillsData.technical.forEach(s => skillsHTML += `<li>${s}</li>`);
+    if (dataStore.skills?.technical?.length) {
+      skillsHTML += `<h3>${T('Technical Skills')}</h3><ul>`;
+      dataStore.skills.technical.forEach(s => skillsHTML += `<li>${translateText(s)}</li>`);
       skillsHTML += '</ul>';
     }
-    if (skillsData?.languages?.length) {
-      skillsHTML += '<h3>Languages</h3><ul>';
-      skillsData.languages.forEach(l => skillsHTML += `<li>${l}</li>`);
+    if (dataStore.skills?.languages?.length) {
+      skillsHTML += `<h3>${T('Languages')}</h3><ul>`;
+      dataStore.skills.languages.forEach(l => skillsHTML += `<li>${l}</li>`);
       skillsHTML += '</ul>';
     }
 
-    cardSkills.innerHTML = skillsHTML || '<p>(No skills listed)</p>';
+    cardSkills.innerHTML = skillsHTML || `<p>${T('No skills listed')}</p>`;
     secSkills.appendChild(cardSkills);
     wrapper.appendChild(secSkills);
 
 
-    // Scientific profiles
+    // Scientific profiles (Translated Title)
     const secSci = document.createElement('section');
-    secSci.innerHTML = `<h2>Scientific profiles</h2>`;
+    secSci.innerHTML = `<h2>${T('Scientific profiles')}</h2>`;
     const cardSci = document.createElement('div');
     cardSci.className = 'card';
     cardSci.innerHTML = '<ul>' +
-      (scienceData || []).map(link => `<li><a href="${link.url}" target="_blank" rel="noopener">${link.label}</a></li>`).join('') +
+      (dataStore.science || []).map(link => `<li><a href="${link.url}" target="_blank" rel="noopener">${link.label}</a></li>`).join('') +
       '</ul>';
     secSci.appendChild(cardSci);
     wrapper.appendChild(secSci);
 
-    // Personal Data
+    // Personal Data (Translated Title and Labels)
     const secPD = document.createElement('section');
     secPD.className = 'personal-data';
-    secPD.innerHTML = `<h2>Personal Data</h2>`;
+    secPD.innerHTML = `<h2>${T('Personal Data')}</h2>`;
     const cardPD = document.createElement('div');
     cardPD.className = 'card';
     cardPD.innerHTML = `
-      <p><strong>Nationality:</strong> ${personalData?.nationality || ''}</p>
-      <p><strong>Born date:</strong> ${personalData?.birthdate || ''}</p>
+      <p><strong>${T('Nationality Label')}:</strong> ${dataStore.personal?.nationality || ''}</p>
+      <p><strong>${T('Born date Label')}:</strong> ${dataStore.personal?.birthdate || ''}</p>
     `;
     secPD.appendChild(cardPD);
     wrapper.appendChild(secPD);
 
     root.appendChild(wrapper);
   }
-
-pdfSimplifiedBtn.addEventListener('click', async () => {
-  await Promise.all(loaders);
-  if (document.fonts?.ready) await document.fonts.ready;
-
-  // Construir clon simplificado (respeta tus reglas de qué incluir)
-  buildSimplifiedDOM();
-
-  const root = document.getElementById('pdf-simplified');
-  const elsToHide = [
-    document.querySelector('.container'),
-    document.querySelector('footer'),
-    document.querySelector('.header-wrapper'),
-    document.getElementById('print-header') // evita duplicar header compacto
-  ];
-
-  // Ocultamos el CV normal directamente (soluciona Chrome móvil)
-  elsToHide.forEach(el => { if (el) el.style.display = 'none'; });
-
-  // Mostramos el clon simplified
-  root.style.display = 'block';
-  document.body.classList.add('print-simplified');
-
-  // Imprimir
-  window.print();
-
-  // Limpieza y restauración
-  const cleanup = () => {
-    document.body.classList.remove('print-simplified');
-    elsToHide.forEach(el => { if (el) el.style.display = ''; });
-    root.style.display = 'none';
-    root.innerHTML = '';
-  };
-
-  // Desktop suele disparar afterprint
-  const after = () => { cleanup(); window.removeEventListener('afterprint', after); };
-  window.addEventListener('afterprint', after);
-
-  // Fallback por si afterprint no se dispara en móvil
-  setTimeout(() => {
-    if (root.style.display === 'block') cleanup();
-  }, 1500);
-  });
 </script>
 
 </body>
