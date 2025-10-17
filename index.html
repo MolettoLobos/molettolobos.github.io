@@ -238,8 +238,10 @@
       section { margin: 10px 0 14px !important; }
       .card { border: none !important; padding: 14px 16px !important; margin-bottom: 10px !important; }
       h2 { margin: 0 0 8px !important; }
-      ul { margin: 6px 0 0 18px !important; }
-      ul li { margin: 3px 0 !important; }
+
+      /* Ajuste de listas para hacerlo más compacto en general */
+      ul { margin: 4px 0 0 16px !important; } /* REDUCIDO: Era 6px 0 0 18px */
+      ul li { margin: 2px 0 !important; }     /* REDUCIDO: Era 3px 0 */
 
       /* Header compacto impresión */
       .profile-wrapper { display: none !important; }
@@ -278,7 +280,7 @@
       body.print-simplified #pdf-simplified {
         display: block !important;
         margin: 0 !important;
-        padding: 0.5cm 1cm !important;
+        padding: 0.2cm 0.5cm !important; /* MÁXIMA COMPACTACIÓN: Reducido de 0.5cm 1cm */
       }
 
       /* Asegura que el header compacto del clon se vea */
@@ -297,13 +299,13 @@
 
       body.print-simplified #pdf-simplified section {
         page-break-inside: avoid;
-        margin: 6px 0 10px !important;
+        margin: 4px 0 6px !important; /* MÁXIMA COMPACTACIÓN: Reducido de 6px 0 10px */
       }
 
       body.print-simplified #pdf-simplified .card {
         border: none !important;
-        padding: 10px 12px !important;
-        margin-bottom: 6px !important;
+        padding: 8px 10px !important;   /* MÁXIMA COMPACTACIÓN: Reducido de 10px 12px */
+        margin-bottom: 4px !important;  /* MÁXIMA COMPACTACIÓN: Reducido de 6px */
       }
 
       body.print-simplified #pdf-simplified h2 {
