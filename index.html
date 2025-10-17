@@ -63,7 +63,8 @@
       color: white;
       background:
         linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-        url('/images/header-footer-bg.png') center/cover no-repeat;
+        /* RUTA CORREGIDA: Apuntando a la carpeta 'images/' */
+        url('images/header-footer-bg.png') center/cover no-repeat;
     }
 
     header {
@@ -173,7 +174,8 @@
       color: white;
       background:
         linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-        url('/images/header-footer-bg.png') center/cover no-repeat;
+        /* RUTA CORREGIDA: Apuntando a la carpeta 'images/' */
+        url('images/header-footer-bg.png') center/cover no-repeat;
     }
     footer .print-btn {
       background: white;
@@ -342,8 +344,8 @@
         </div>
     </header>
     <div class="profile-wrapper">
-      <!-- Usando un placeholder de imagen -->
-      <img class="profile-pic" src="your-photo.jpg" alt="Italo Moletto" crossorigin="anonymous" />
+      <!-- RUTA CORREGIDA: Apuntando a la carpeta 'images/' -->
+      <img class="profile-pic" src="images/your-photo.jpg" alt="Italo Moletto" crossorigin="anonymous" />
     </div>
   </div>
 
@@ -421,12 +423,11 @@
 <script>
   // =========================================================================
   // --- CORE DATA (Glosarios y Almacenamiento) ---
-  // Se inicializan como variables vacías que se llenarán con la carga de glossary.json
   // =========================================================================
 
-  let GLOSSARY_TERMS = {};        // Glosario de UI (Cargado desde glossary.json -> ui)
-  let DATA_GLOSSARY_TRANSLATIONS = {}; // Glosario de Contenido (Cargado desde glossary.json -> content)
-  let TITLES_GLOSSARY = {};       // Glosario de Títulos (Cargado desde glossary.json -> titles)
+  let GLOSSARY_TERMS = {};
+  let DATA_GLOSSARY_TRANSLATIONS = {};
+  let TITLES_GLOSSARY = {};
 
   let currentLang = localStorage.getItem('cvLang') || 'en';
   let dataStore = {}; // Objeto para almacenar todos los datos JSON cargados
@@ -463,17 +464,14 @@
 
     let translatedText = text;
 
-    // Usamos las claves del mapa español como referencia estable (asumiendo que el contenido JSON original está en EN)
     const englishKeys = Object.keys(DATA_GLOSSARY_TRANSLATIONS['es'] || {});
 
     const targetMap = DATA_GLOSSARY_TRANSLATIONS[currentLang] || DATA_GLOSSARY_TRANSLATIONS['en'];
     if (!targetMap) return text;
 
-    // Ordenar claves por longitud DESCENDENTE para asegurar que las frases completas se reemplacen primero
     englishKeys.sort((a, b) => b.length - a.length);
 
     englishKeys.forEach(englishTerm => {
-        // Escapar caracteres especiales para la regex
         const escapedTerm = englishTerm.replace(/([.?*+^$[\]\\(){}|-])/g, "\\$1");
         const regex = new RegExp(escapedTerm, 'gi');
         const targetTranslation = targetMap[englishTerm];
@@ -542,7 +540,7 @@
     // Header compacta para impresión
     const ph = document.getElementById('print-header');
     ph.innerHTML = `
-      <img class="print-avatar" src="your-photo.jpg" alt="${T('Photo')}" crossorigin="anonymous" />
+      <img class="print-avatar" src="images/your-photo.jpg" alt="${T('Photo')}" crossorigin="anonymous" />
       <div class="identity">
         <h1>${data.name || ''}</h1>
         <p>${translatedSubtitle || ''}</p>
@@ -868,7 +866,7 @@
     const translatedSubtitle = translateText(dataStore.header.subtitle || '');
 
     printHeaderClone.innerHTML = `
-        <img class="print-avatar" src="your-photo.jpg" alt="${T('Photo')}" crossorigin="anonymous" />
+        <img class="print-avatar" src="images/your-photo.jpg" alt="${T('Photo')}" crossorigin="anonymous" />
         <div class="identity">
           <h1>${dataStore.header.name || ''}</h1>
           <p>${translatedSubtitle || ''}</p>
