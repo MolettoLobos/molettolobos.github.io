@@ -234,14 +234,18 @@
       section > h2 { break-after: avoid-page !important; }
       section > h2 + .card { break-inside: auto !important; }
 
-      /* Márgenes compactos */
-      section { margin: 10px 0 14px !important; }
-      .card { border: none !important; padding: 14px 16px !important; margin-bottom: 10px !important; }
+      /* Márgenes compactos - AJUSTES PARA IMPRESIÓN NORMAL */
+      section { margin: 10px 0 10px !important; } /* REDUCIDO: Era 14px de margen inferior */
+      .card {
+          border: none !important;
+          padding: 12px 14px !important; /* REDUCIDO: Era 14px 16px */
+          margin-bottom: 8px !important;  /* REDUCIDO: Era 10px */
+      }
       h2 { margin: 0 0 8px !important; }
 
       /* Ajuste de listas para hacerlo más compacto en general */
-      ul { margin: 4px 0 0 16px !important; } /* REDUCIDO: Era 6px 0 0 18px */
-      ul li { margin: 2px 0 !important; }     /* REDUCIDO: Era 3px 0 */
+      ul { margin: 4px 0 0 16px !important; }
+      ul li { margin: 2px 0 !important; }
 
       /* Header compacto impresión */
       .profile-wrapper { display: none !important; }
