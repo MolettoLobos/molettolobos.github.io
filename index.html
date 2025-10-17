@@ -224,26 +224,40 @@
         page-break-inside: auto !important;
       }
 
-      /* Bloques de contenido a evitar corte */
-      .edu-block, .role {
-        break-inside: avoid !important;
-        page-break-inside: avoid !important;
-      }
-
       /* Título de sección pegado a su primer bloque */
       section > h2 { break-after: avoid-page !important; }
       section > h2 + .card { break-inside: auto !important; }
 
       /* Márgenes compactos - AJUSTES PARA IMPRESIÓN NORMAL */
-      section { margin: 10px 0 10px !important; } /* REDUCIDO: Era 14px de margen inferior */
+      section { margin: 8px 0 !important; } /* REDUCIDO DE 10px */
       .card {
           border: none !important;
-          padding: 12px 14px !important; /* REDUCIDO: Era 14px 16px */
-          margin-bottom: 8px !important;  /* REDUCIDO: Era 10px */
+          padding: 12px 14px !important;
+          margin-bottom: 0px !important;  /* ELIMINADO EL MARGEN INFERIOR DE LA TARJETA */
       }
       h2 { margin: 0 0 8px !important; }
 
-      /* Ajuste de listas para hacerlo más compacto en general */
+      /* BLOQUES DE CONTENIDO: MODIFICADO PARA PERMITIR CORTES (COMPRESIÓN) */
+      .edu-block, .employer-block, .project-block {
+          /* Permitimos que el bloque completo se corte si es muy largo, para evitar el gran espacio en blanco */
+          break-inside: auto !important;
+          page-break-inside: auto !important;
+          padding: 10px 0 !important;
+      }
+
+      /* MANTENEMOS EL CONTROL DE CORTE EN ELEMENTOS MÁS PEQUEÑOS COMO EL ROL O LA LISTA DE PUNTOS */
+      .role, .edu-block ul, .employer-block ul {
+          break-inside: avoid !important;
+          page-break-inside: avoid !important;
+      }
+
+      .edu-block:last-child, .employer-block:last-child, .project-block:last-child {
+          padding-bottom: 0 !important;
+          margin-bottom: 0 !important;
+      }
+      .edu-block:first-child, .employer-block:first-child, .project-block:first-child {
+          padding-top: 0 !important;
+      }
       ul { margin: 4px 0 0 16px !important; }
       ul li { margin: 2px 0 !important; }
 
