@@ -494,15 +494,23 @@
       'personal.json', 'copyright.json'
     ];
 
-    // Ejecutamos todas las peticiones en paralelo para optimizar la carga
-    const promises = filePaths.map(path => fetch(path).then(res => {
-        if (!res.ok) {
-            console.error(`Error al cargar el archivo: ${path}`, res);
-            throw new Error(`Fallo de carga: ${path}`);
+    // Nueva lógica de carga robusta
+    const fetchAndMap = async (path, index) => {
+        try {
+            const res = await fetch(path);
+            if (!res.ok) {
+                // Si la respuesta no es OK (ej. 404), lanzamos un error que Promise.all atrapará
+                throw new Error(`Fallo de carga (HTTP ${res.status}): ${path}`);
+            }
+            return await res.json();
+        } catch (error) {
+            // Error de red o error de sintaxis JSON
+            console.error(`Error procesando archivo ${path}:`, error);
+            throw new Error(`Fallo de procesamiento: ${path}. Detalles: ${error.message}`);
         }
-        return res.json();
-    }));
+    };
 
+    const promises = filePaths.map(fetchAndMap);
     const results = await Promise.all(promises);
 
     // Mapear los resultados al dataStore
@@ -842,10 +850,12 @@
         });
 
     } catch (error) {
+        // ERROR FATAL: El error se propaga desde loadData() aquí.
+        const errorMsg = error.message || 'Error desconocido durante la carga.';
         console.error("Fatal Error during CV Load:", error);
         document.getElementById('loading-overlay').innerHTML = `
-            <p style="color: red; font-size: 1.2em;">Error al cargar los datos esenciales del CV.</p>
-            <p style="color: #555; max-width: 80%; text-align: center;">Asegúrate de que todos los 10 archivos JSON (incluyendo <code style="font-weight: bold; color: var(--primary);">glossary.json</code>, <code style="font-weight: bold; color: var(--primary);">header.json</code>, etc.) estén presentes.</p>
+            <p style="color: red; font-size: 1.2em;">Error fatal al cargar los datos esenciales del CV.</p>
+            <p style="color: #555; max-width: 80%; text-align: center;">Revisa la Consola para más detalles. Posiblemente falló: <code style="font-weight: bold; color: var(--primary);">${errorMsg}</code></p>
         `;
     }
   });
