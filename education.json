@@ -4,7 +4,10 @@
     "institution": "University of Valencia",
     "location": "Valencia, Spain",
     "date": "2022 – 2025",
-    "notes": ["Phenology-informed yield & climate risk", "Scholarship: Santiago Grisolía (CIGRIS 161)"]
+    "notes": [
+      "Thesis: Phenology-informed yield & climate risk using multi-source EO data.",
+      "High-Performance Computing: Optimized processing workflows on ARYA (UVEG) and ESA CEM-PAL.",
+      "Scholarship: Santiago Grisolía (CIGRIS 161)"]
   },
   {
     "degree": "Natural Resources Engineer",

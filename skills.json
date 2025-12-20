@@ -1,10 +1,11 @@
 {
   "technical": [
-    "Remote Sensing: Expert in Earth observation data processing.",
-    "GIS: Expert in Geographic Informatic Systems applied in Geospatial processing & GeoAI",
-    "Python & ML: Proficient in AI/ML/DL for geospatial applications.",
-    "Cloud & DB: GCP, SQL, NoSQL.",
-    "UAV: Pilot & data analyst."
+    "Remote Sensing & Earth Observation: Expert in multi-sensor processing (Sentinel 1/2/3/5, Landsat, MODIS, VIIRS, AVHRR, SDG-Sat).",
+    "Data Formats & Libraries: Expert in NetCDF4, HDF5, Zarr, and GeoTIFF. Proficient with xarray, dask, rasterio, and GDAL for scalable analysis.",
+    "HPC & Cloud Computing: Experience with large-scale processing on ARYA (UVEG), Polaris (Argonne), ESA CEM-PAL, and DLR TerraByte.",
+    "Programming & GeoAI: Advanced Python (PyTorch/TensorFlow) for geospatial deep learning and workflow automation.",
+    "Data Management: Knowledge of FAIR principles, metadata standards (STAC), and data quality control for petabyte-scale datasets, Github documentation & Zenodo.",
+    "UAV & VHR: Pilot and analyst for Parrot-SQ, Micasense, MAIA, and satellite constellations (PlanetScope, Pleiades, WorldView)."
   ],
   "languages": [
     "Spanish (Native)",
