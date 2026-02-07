@@ -692,7 +692,7 @@
     let html = '';
 
     if (data.technical?.length) {
-      html += `<h3>${T('Technical Skills')}</h3><ul>`;
+      html += `<h3>${T('Skills & Leadership')}</h3><ul>`;
       data.technical.forEach(skill => html += `<li>${translateText(skill)}</li>`);
       html += '</ul>';
     }
@@ -970,7 +970,7 @@
 
     let skillsHTML = '';
     if (dataStore.skills?.technical?.length) {
-      skillsHTML += `<h3>${T('Technical Skills')}</h3><ul>`;
+      skillsHTML += `<h3>${T('Skills & Leadership')}</h3><ul>`;
       dataStore.skills.technical.forEach(s => skillsHTML += `<li>${translateText(s)}</li>`);
       skillsHTML += '</ul>';
     }

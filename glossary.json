@@ -2,7 +2,7 @@
 "ui": {
 "es": {
 "Education": "Educación", "Experience": "Experiencia", "Projects": "Proyectos", "Projects Summary": "Proyectos",
-"Click to expand": "— clic para expandir", "Skills": "Habilidades", "Technical Skills": "Habilidades Técnicas",
+"Click to expand": "— clic para expandir", "Skills": "Habilidades", "Technical Skills": "Habilidades Técnicas", "Skills & Leadership": "Habilidades y liderazgo",
 "Languages": "Idiomas", "Scientific profiles": "Perfiles Científicos", "In press": "En Prensa",
 "Personal Data": "Datos Personales", "Nationality": "Nacionalidad", "Born date": "Fecha de Nacimiento",
 "Download PDF": "Descargar PDF", "Download PDF (simplified)": "Descargar PDF (simplificado)", "Photo": "Foto",
@@ -11,7 +11,7 @@
 },
 "en": {
 "Education": "Education", "Experience": "Experience", "Projects": "Projects", "Projects Summary": "Projects",
-"Click to expand": "— click to expand", "Skills": "Skills", "Technical Skills": "Technical Skills",
+"Click to expand": "— click to expand", "Skills": "Skills", "Technical Skills": "Technical Skills", "Skills & Leadership": "Skills & Leadership",
 "Languages": "Languages", "Scientific profiles": "Scientific profiles", "In press": "In press",
 "Personal Data": "Personal Data", "Nationality": "Nationality", "Born date": "Born date",
 "Download PDF": "Download PDF", "Download PDF (simplified)": "Download PDF (simplified)", "Photo": "Photo",
@@ -20,7 +20,7 @@
 },
 "it": {
 "Education": "Formazione", "Experience": "Esperienza", "Projects": "Progetti", "Projects Summary": "Progetti",
-"Click to expand": "— clicca per espandere", "Skills": "Competenze", "Technical Skills": "Competenze Tecniche",
+"Click to expand": "— clicca per espandere", "Skills": "Competenze", "Technical Skills": "Competenze Tecniche", "Skills & Leadership": "Competenze e leadership",
 "Languages": "Lingue", "Scientific profiles": "Profili Scientifici", "In press": "In Stampa",
 "Personal Data": "Dati Personali", "Nationality": "Nazionalità", "Born date": "Data di Nascita",
 "Download PDF": "Scarica PDF", "Download PDF (simplified)": "Scarica PDF (semplificato)", "Photo": "Foto",
@@ -29,7 +29,7 @@
 },
 "fr": {
 "Education": "Formation", "Experience": "Expérience", "Projects": "Projets", "Projects Summary": "Projets",
-"Click to expand": "— cliquez pour développer", "Skills": "Compétences", "Technical Skills": "Compétences Techniques",
+"Click to expand": "— cliquez pour développer", "Skills": "Compétences", "Technical Skills": "Compétences Techniques", "Skills & Leadership": "Compétences et leadership",
 "Languages": "Langues", "Scientific profiles": "Profils Scientifiques", "In press": "Dans la Presse",
 "Personal Data": "Données Personnelles", "Nationality": "Nationalité", "Born date": "Date de Naissance",
 "Download PDF": "Télécharger PDF", "Download PDF (simplified)": "Télécharger PDF (simplifié)", "Photo": "Photo",
@@ -38,7 +38,7 @@
 },
 "de": {
 "Education": "Ausbildung", "Experience": "Erfahrung", "Projects": "Projekte", "Projects Summary": "Projekte",
-"Click to expand": "— klicken zum Erweitern", "Skills": "Fähigkeiten", "Technical Skills": "Technische Fähigkeiten",
+"Click to expand": "— klicken zum Erweitern", "Skills": "Fähigkeiten", "Technical Skills": "Technische Fähigkeiten", "Skills & Leadership": "Fähigkeiten und Führung",
 "Languages": "Sprachen", "Scientific profiles": "Wissenschaftliche Profile", "In press": "In der Presse",
 "Personal Data": "Persönliche Daten", "Nationality": "Nationalität", "Born date": "Geburtsdatum",
 "Download PDF": "PDF Herunterladen", "Download PDF (simplified)": "PDF Herunterladen (vereinfacht)", "Photo": "Foto",
@@ -47,7 +47,7 @@
 },
 "pt": {
 "Education": "Formação", "Experience": "Experiência", "Projects": "Projetos", "Projects Summary": "Projetos",
-"Click to expand": "— clique para expandir", "Skills": "Habilidades", "Technical Skills": "Habilidades Técnicas",
+"Click to expand": "— clique para expandir", "Skills": "Habilidades", "Technical Skills": "Habilidades Técnicas", "Skills & Leadership": "Habilidades e liderança",
 "Languages": "Idiomas", "Scientific profiles": "Perfis Científicos", "In press": "Na Imprensa",
 "Personal Data": "Dados Pessoais", "Nationality": "Nacionalidade", "Born date": "Data de Nascimento",
 "Download PDF": "Baixar PDF", "Download PDF (simplified)": "Baixar PDF (simplificado)", "Photo": "Foto",
@@ -56,7 +56,7 @@
 },
 "ru": {
 "Education": "Образование", "Experience": "Опыт", "Projects": "Проекты", "Projects Summary": "Проекты",
-"Click to expand": "— нажмите, чтобы развернуть", "Skills": "Навыки", "Technical Skills": "Технические навыки",
+"Click to expand": "— нажмите, чтобы развернуть", "Skills": "Навыки", "Technical Skills": "Технические навыки", "Skills & Leadership": "Навыки и лидерство",
 "Languages": "Языки", "Scientific profiles": "Научные профили", "In press": "В прессе",
 "Personal Data": "Личные данные", "Nationality": "Национальность", "Born date": "Дата рождения",
 "Download PDF": "Скачать PDF", "Download PDF (simplified)": "Скачать PDF (упрощенный)", "Photo": "Фото",
@@ -65,7 +65,7 @@
 },
 "uk": {
 "Education": "Освіта", "Experience": "Досвід", "Projects": "Проєкти", "Projects Summary": "Проєкти",
-"Click to expand": "— натисніть, щоб розгорнути", "Skills": "Навички", "Technical Skills": "Технічні навички",
+"Click to expand": "— натисніть, щоб розгорнути", "Skills": "Навички", "Technical Skills": "Технічні навички", "Skills & Leadership": "Навички та лідерство",
 "Languages": "Мови", "Scientific profiles": "Наукові профілі", "In press": "У пресі",
 "Personal Data": "Особисті дані", "Nationality": "Національність", "Born date": "Дата народження",
 "Download PDF": "Завантажити PDF", "Download PDF (simplified)": "Завантажити PDF (спрощений)", "Photo": "Фото",
@@ -74,7 +74,7 @@
 },
 "nl": {
 "Education": "Opleiding", "Experience": "Ervaring", "Projects": "Projecten", "Projects Summary": "Projecten",
-"Click to expand": "— klik om uit te breiden", "Skills": "Vaardigheden", "Technical Skills": "Technische Vaardigheden",
+"Click to expand": "— klik om uit te breiden", "Skills": "Vaardigheden", "Technical Skills": "Technische Vaardigheden", "Skills & Leadership": "Vaardigheden en leiderschap",
 "Languages": "Talen", "Scientific profiles": "Wetenschappelijke profielen", "In press": "In de pers",
 "Personal Data": "Persoonlijke gegevens", "Nationality": "Nationaliteit", "Born date": "Geboortedatum",
 "Download PDF": "PDF downloaden", "Download PDF (simplified)": "PDF downloaden (vereenvoudigd)", "Photo": "Foto",
@@ -83,7 +83,7 @@
 },
 "sv": {
 "Education": "Utbildning", "Experience": "Erfarenhet", "Projects": "Projekt", "Projects Summary": "Projecten",
-"Click to expand": "— klicka för att expandera", "Skills": "Färdigheter", "Technical Skills": "Tekniska Färdigheter",
+"Click to expand": "— klicka för att expandera", "Skills": "Färdigheter", "Technical Skills": "Tekniska Färdigheter", "Skills & Leadership": "Färdigheter och ledarskap",
 "Languages": "Språk", "Scientific profiles": "Vetenskapliga profiler", "In press": "I press",
 "Personal Data": "Personuppgifter", "Nationality": "Nationalitet", "Born date": "Födelsedatum",
 "Download PDF": "Ladda ner PDF", "Download PDF (simplified)": "Ladda ner PDF (förenklad)", "Photo": "Foto",
@@ -92,7 +92,7 @@
 },
 "pl": {
 "Education": "Edukacja", "Experience": "Doświadczenie", "Projects": "Projekty", "Projects Summary": "Projekty",
-"Click to expand": "— kliknij, aby rozwinąć", "Skills": "Umiejętności", "Technical Skills": "Umiejętności Techniczne",
+"Click to expand": "— kliknij, aby rozwinąć", "Skills": "Umiejętności", "Technical Skills": "Umiejętności Techniczne", "Skills & Leadership": "Umiejętności i przywództwo",
 "Languages": "Języki", "Scientific profiles": "Profile naukowe", "In press": "W prasie",
 "Personal Data": "Dane osobowe", "Nationality": "Narodowość", "Born date": "Data urodzenia",
 "Download PDF": "Pobierz PDF", "Download PDF (simplified)": "Pobierz PDF (uproszczony)", "Photo": "Zdjęcie",
@@ -101,7 +101,7 @@
 },
 "ja": {
 "Education": "学歴", "Experience": "職務経歴", "Projects": "プロジェクト", "Projects Summary": "プロジェクト",
-"Click to expand": "— クリックして展開", "Skills": "スキル", "Technical Skills": "技術スキル",
+"Click to expand": "— クリックして展開", "Skills": "スキル", "Technical Skills": "技術スキル", "Skills & Leadership": "スキルとリーダーシップ",
 "Languages": "言語", "Scientific profiles": "研究者情報", "In press": "プレス",
 "Personal Data": "個人情報", "Nationality": "国籍", "Born date": "生年月日",
 "Download PDF": "PDFダウンロード", "Download PDF (simplified)": "PDFダウンロード（簡易）", "Photo": "写真",
@@ -110,7 +110,7 @@
 },
 "ko": {
 "Education": "학력", "Experience": "경력", "Projects": "프로젝트", "Projects Summary": "프로젝트",
-"Click to expand": "— 클릭하여 펼치기", "Skills": "기술", "Technical Skills": "기술 능력",
+"Click to expand": "— 클릭하여 펼치기", "Skills": "기술", "Technical Skills": "기술 능력", "Skills & Leadership": "기술 및 리더십",
 "Languages": "언어", "Scientific profiles": "연구 프로필", "In press": "언론 보도",
 "Personal Data": "개인 정보", "Nationality": "국적", "Born date": "생년월일",
 "Download PDF": "PDF 다운로드", "Download PDF (simplified)": "PDF 다운로드 (간소화)", "Photo": "사진",
@@ -120,6 +120,7 @@
 },
 "content": {
 "es": {
+"Leadership & Team Management: Proven ability to lead multidisciplinary teams and coordinate stakeholders to deliver EO products.": "Liderazgo y gestión de equipos: Capacidad comprobada para liderar equipos multidisciplinarios y coordinar actores para entregar productos de EO.",
 "Remote Sensing": "Teledetección", "Earth Observation": "Observación de la Tierra", "Phenology": "Fenología",
 "Yield forecasting": "Predicción de rendimiento", "climate risk": "riesgo climático", "actual ET": "ET real",
 "Ag Yield": "Rendimiento Agrícola", "GeoAI": "GeoIA", "mining tailings": "relaves mineros", "AI": "IA",
@@ -181,6 +182,7 @@
 "Technical staff on interdisciplinary research about socio-environmental conflicts in forest territories.": "Personal técnico en investigación interdisciplinaria sobre conflictos socioambientales en territorios forestales."
 },
 "en": {
+"Leadership & Team Management: Proven ability to lead multidisciplinary teams and coordinate stakeholders to deliver EO products.": "Leadership & Team Management: Proven ability to lead multidisciplinary teams and coordinate stakeholders to deliver EO products.",
 "Yield Forecasting Specialist, NASA Harvest": "Yield Forecasting Specialist, NASA Harvest",
 "Detect extreme climate events and assess impacts on agricultural yield at global scale.": "Detect extreme climate events and assess impacts on agricultural yield at global scale.",
 "Integrate satellite observations (S1/S2, MODIS, PlanetScope) with climate datasets (e.g., ERA5).": "Integrate satellite observations (S1/S2, MODIS, PlanetScope) with climate datasets (e.g., ERA5).",
@@ -222,6 +224,7 @@
 "Technical staff on interdisciplinary research about socio-environmental conflicts in forest territories.": "Technical staff on interdisciplinary research about socio-environmental conflicts in forest territories."
 },
 "it": {
+"Leadership & Team Management: Proven ability to lead multidisciplinary teams and coordinate stakeholders to deliver EO products.": "Leadership e gestione dei team: comprovata capacità di guidare team multidisciplinari e coordinare gli stakeholder per consegnare prodotti EO.",
 "Remote Sensing": "Telerilevamento", "Earth Observation": "Osservazione della Terra", "Phenology": "Fenologia",
 "Yield forecasting": "Previsione della resa", "climate risk": "rischio climatico", "actual ET": "ET reale",
 "Ag Yield": "Resa Agricola", "GeoAI": "GeoIA", "mining tailings": "sterili di miniera", "AI": "IA",
@@ -283,6 +286,7 @@
 "Technical staff on interdisciplinary research about socio-environmental conflicts in forest territories.": "Personale tecnico in ricerca interdisciplinare sui conflitti socio-ambientali nei territori forestali."
 },
 "fr": {
+"Leadership & Team Management: Proven ability to lead multidisciplinary teams and coordinate stakeholders to deliver EO products.": "Leadership et gestion d’équipe : capacité avérée à diriger des équipes pluridisciplinaires et à coordonner les parties prenantes pour livrer des produits EO.",
 "Remote Sensing": "Télédétection", "Earth Observation": "Observation de la Terre", "Phenology": "Phénologie",
 "Yield forecasting": "Prévision de rendement", "climate risk": "risque climatique", "actual ET": "ET réelle",
 "Ag Yield": "Rendement Agricole", "GeoAI": "GeoIA", "mining tailings": "résidus miniers", "AI": "IA",
@@ -344,6 +348,7 @@
 "Technical staff on interdisciplinary research about socio-environmental conflicts in forest territories.": "Personnel technique en recherche interdisciplinaire sur les conflits socio-environnementaux dans les territoires forestiers."
 },
 "de": {
+"Leadership & Team Management: Proven ability to lead multidisciplinary teams and coordinate stakeholders to deliver EO products.": "Führung & Teammanagement: Nachgewiesene Fähigkeit, multidisziplinäre Teams zu leiten und Stakeholder zu koordinieren, um EO-Produkte zu liefern.",
 "Remote Sensing": "Fernerkundung", "Earth Observation": "Erdbeobachtung", "Phenology": "Phänologie",
 "Yield forecasting": "Ertragsvorhersage", "climate risk": "Klimarisiko", "actual ET": "tatsächliche ET",
 "Ag Yield": "Landwirtschaftlicher Ertrag", "GeoAI": "GeoAI", "mining tailings": "Bergbauabgänge", "AI": "KI",
@@ -405,6 +410,7 @@
 "Technical staff on interdisciplinary research about socio-environmental conflicts in forest territories.": "Technisches Personal in interdisziplinärer Forschung zu sozio-ökologischen Konflikten in Waldgebieten."
 },
 "pt": {
+"Leadership & Team Management: Proven ability to lead multidisciplinary teams and coordinate stakeholders to deliver EO products.": "Liderança e gestão de equipes: capacidade comprovada de liderar equipes multidisciplinares e coordenar partes interessadas para entregar produtos de EO.",
 "Remote Sensing": "Detecção Remota", "Earth Observation": "Observação da Terra", "Phenology": "Fenologia",
 "Yield forecasting": "Previsão de rendimento", "climate risk": "risco climático", "actual ET": "ET real",
 "Ag Yield": "Rendimento Agrícola", "GeoAI": "GeoIA", "mining tailings": "rejeitos de mineração", "AI": "IA",
@@ -466,6 +472,7 @@
 "Technical staff on interdisciplinary research about socio-environmental conflicts in forest territories.": "Equipe técnica em pesquisa interdisciplinar sobre conflitos socioambientais em territórios florestais."
 },
 "ru": {
+"Leadership & Team Management: Proven ability to lead multidisciplinary teams and coordinate stakeholders to deliver EO products.": "Лидерство и управление командой: подтвержденная способность руководить междисциплинарными командами и координировать заинтересованные стороны для поставки продуктов EO.",
 "Remote Sensing": "Дистанционное зондирование", "Earth Observation": "Наблюдение Земли", "Phenology": "Фенология",
 "Yield forecasting": "Прогнозирование урожайности", "climate risk": "климатический риск", "actual ET": "фактическая ЭТ",
 "Ag Yield": "Урожайность с/х культур", "GeoAI": "ГеоИИ", "mining tailings": "хвостохранилища", "AI": "ИИ",
@@ -527,6 +534,7 @@
 "Technical staff on interdisciplinary research about socio-environmental conflicts in forest territories.": "Технический персонал в междисциплинарных исследованиях по социально-экологическим конфликтам в лесных районах."
 },
 "uk": {
+"Leadership & Team Management: Proven ability to lead multidisciplinary teams and coordinate stakeholders to deliver EO products.": "Лідерство та управління командами: підтверджена здатність керувати міждисциплінарними командами та координувати зацікавлені сторони для надання продуктів EO.",
 "Remote Sensing": "Дистанційне зондування", "Earth Observation": "Спостереження Землі", "Phenology": "Фенологія",
 "Yield forecasting": "Прогнозування врожайності", "climate risk": "кліматичний ризик", "actual ET": "фактична ЕТ",
 "Ag Yield": "Врожайність с/г культур", "GeoAI": "ГеоШІ", "mining tailings": "хвостосховища", "AI": "ШІ",
@@ -588,6 +596,7 @@
 "Technical staff on interdisciplinary research about socio-environmental conflicts in forest territories.": "Технічний персонал у міждисциплінарних дослідженнях щодо соціально-екологічних конфліктів у лісових районах."
 },
 "nl": {
+"Leadership & Team Management: Proven ability to lead multidisciplinary teams and coordinate stakeholders to deliver EO products.": "Leiderschap en teammanagement: bewezen vermogen om multidisciplinaire teams te leiden en stakeholders te coördineren om EO-producten te leveren.",
 "Remote Sensing": "Teledetectie", "Earth Observation": "Aardobservatie", "Phenology": "Fenologie",
 "Yield forecasting": "Opbrengstvoorspelling", "climate risk": "klimaatrisico", "actual ET": "werkelijke ET",
 "Ag Yield": "Landbouwopbrengst", "GeoAI": "GeoAI", "mining tailings": "mijnbouwafval", "AI": "AI",
@@ -649,6 +658,7 @@
 "Technical staff on interdisciplinary research about socio-environmental conflicts in forest territories.": "Technisch personeel bij interdisciplinair onderzoek naar sociaal-ecologische conflicten in bosgebieden."
 },
 "sv": {
+"Leadership & Team Management: Proven ability to lead multidisciplinary teams and coordinate stakeholders to deliver EO products.": "Ledarskap och teamledning: bevisad förmåga att leda multidisciplinära team och samordna intressenter för att leverera EO-produkter.",
 "Remote Sensing": "Fjärranalys", "Earth Observation": "Jordobservation", "Phenology": "Fenologi",
 "Yield forecasting": "Skördeprognos", "climate risk": "klimatrisk", "actual ET": "faktisk ET",
 "Ag Yield": "Jordbruksavkastning", "GeoAI": "GeoAI", "mining tailings": "gruvavfall", "AI": "AI",
@@ -710,6 +720,7 @@
 "Technical staff on interdisciplinary research about socio-environmental conflicts in forest territories.": "Teknisk personal i tvärvetenskaplig forskning om socio-miljökonflikter i skogsområden."
 },
 "pl": {
+"Leadership & Team Management: Proven ability to lead multidisciplinary teams and coordinate stakeholders to deliver EO products.": "Przywództwo i zarządzanie zespołem: potwierdzona umiejętność prowadzenia zespołów interdyscyplinarnych i koordynowania interesariuszy w celu dostarczenia produktów EO.",
 "Remote Sensing": "Teledetekcja", "Earth Observation": "Obserwacja Ziemi", "Phenology": "Fenologia",
 "Yield forecasting": "Prognozowanie plonów", "climate risk": "ryzyko klimatyczne", "actual ET": "rzeczywista ET",
 "Ag Yield": "Plony rolne", "GeoAI": "GeoAI", "mining tailings": "odpady górnicze", "AI": "SI",
@@ -771,6 +782,7 @@
 "Technical staff on interdisciplinary research about socio-environmental conflicts in forest territories.": "Personel techniczny w interdyscyplinarnych badaniach nad konfliktami społeczno-środowiskowymi na terenach leśnych."
 },
 "ja": {
+"Leadership & Team Management: Proven ability to lead multidisciplinary teams and coordinate stakeholders to deliver EO products.": "リーダーシップとチームマネジメント: 学際的なチームを率い、関係者を調整してEO製品を提供する実績。",
 "Remote Sensing": "リモートセンシング", "Earth Observation": "地球観測", "Phenology": "フェノロジー",
 "Yield forecasting": "収量予測", "climate risk": "気候リスク", "actual ET": "実蒸発散量",
 "Ag Yield": "農業収量", "GeoAI": "地理的AI", "mining tailings": "鉱山尾鉱", "AI": "AI",
@@ -832,6 +844,7 @@
 "Technical staff on interdisciplinary research about socio-environmental conflicts in forest territories.": "森林地域における社会環境紛争に関する学際的研究の技術スタッフ。"
 },
 "ko": {
+"Leadership & Team Management: Proven ability to lead multidisciplinary teams and coordinate stakeholders to deliver EO products.": "리더십 및 팀 관리: 학제적 팀을 이끌고 이해관계자를 조정하여 EO 제품을 제공한 검증된 역량.",
 "Remote Sensing": "원격 감지", "Earth Observation": "지구 관측", "Phenology": "계절학",
 "Yield forecasting": "수확량 예측", "climate risk": "기후 위험", "actual ET": "실제 증발산량",
 "Ag Yield": "농업 수확량", "GeoAI": "지리적 AI", "mining tailings": "광미", "AI": "AI",
