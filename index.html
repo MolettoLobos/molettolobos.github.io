@@ -606,7 +606,7 @@
       const block = document.createElement('div');
       block.className = 'edu-block';
       const translatedDegree = getTitleTranslation(ed.degree);
-      const notes = ''; // Simplified PDF: omit education notes to keep it short
+      const notes = (ed.notes || []).map(n => `<li>${translateText(n)}</li>`).join('');
       block.innerHTML = `
         <h3 class="edu-degree">${translatedDegree || ''}</h3>
         <p class="meta">${ed.institution || ''}${ed.location ? ' · ' + ed.location : ''}</p>
@@ -919,7 +919,7 @@
       const block = document.createElement('div');
       block.className = 'edu-block';
       const translatedDegree = getTitleTranslation(ed.degree); // Usar traducción de títulos
-      const notes = (ed.notes || []).map(n => `<li>${translateText(n)}</li>`).join('');
+      const notes = ''; // Simplified PDF: omit education notes to keep it short
       block.innerHTML = `
         <h3 class="edu-degree">${translatedDegree || ''}</h3>
         <p class="meta">${ed.institution || ''}${ed.location ? ' · ' + ed.location : ''}</p>
