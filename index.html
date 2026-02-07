@@ -606,9 +606,7 @@
       const block = document.createElement('div');
       block.className = 'edu-block';
       const translatedDegree = getTitleTranslation(ed.degree);
-      const isNaturalResources = ed.degree === 'Natural Resources Engineer';
-      const simplifiedNotes = isNaturalResources ? [] : (ed.notes || []);
-      const notes = simplifiedNotes.map(n => `<li>${translateText(n)}</li>`).join('');
+      const notes = ''; // Simplified PDF: omit education notes to keep it short
       block.innerHTML = `
         <h3 class="edu-degree">${translatedDegree || ''}</h3>
         <p class="meta">${ed.institution || ''}${ed.location ? ' · ' + ed.location : ''}</p>
