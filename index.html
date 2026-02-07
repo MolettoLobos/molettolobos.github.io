@@ -606,7 +606,8 @@
       const block = document.createElement('div');
       block.className = 'edu-block';
       const translatedDegree = getTitleTranslation(ed.degree);
-      const simplifiedNotes = (ed.notes || []).filter(n => n !== 'Thesis on Estimating actual ET in grasslands using remote sensing data');
+      const isNaturalResources = ed.degree === 'Natural Resources Engineer';
+      const simplifiedNotes = isNaturalResources ? [] : (ed.notes || []);
       const notes = simplifiedNotes.map(n => `<li>${translateText(n)}</li>`).join('');
       block.innerHTML = `
         <h3 class="edu-degree">${translatedDegree || ''}</h3>
