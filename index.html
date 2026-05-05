@@ -448,6 +448,22 @@
   let GLOSSARY_TERMS = {};
   let DATA_GLOSSARY_TRANSLATIONS = {};
   let TITLES_GLOSSARY = {};
+  const DATE_TRANSLATIONS = {
+    en: {
+      Jan: 'Jan', Feb: 'Feb', Mar: 'Mar', Apr: 'Apr', May: 'May', Jun: 'Jun',
+      Jul: 'Jul', Aug: 'Aug', Sep: 'Sep', Oct: 'Oct', Nov: 'Nov', Dec: 'Dec',
+      January: 'January', February: 'February', March: 'March', April: 'April', MayFull: 'May', June: 'June',
+      July: 'July', August: 'August', September: 'September', October: 'October', November: 'November', December: 'December',
+      Present: 'Present'
+    },
+    es: {
+      Jan: 'Ene', Feb: 'Feb', Mar: 'Mar', Apr: 'Abr', May: 'May', Jun: 'Jun',
+      Jul: 'Jul', Aug: 'Ago', Sep: 'Sep', Oct: 'Oct', Nov: 'Nov', Dec: 'Dic',
+      January: 'Enero', February: 'Febrero', March: 'Marzo', April: 'Abril', MayFull: 'Mayo', June: 'Junio',
+      July: 'Julio', August: 'Agosto', September: 'Septiembre', October: 'Octubre', November: 'Noviembre', December: 'Diciembre',
+      Present: 'Actualidad'
+    }
+  };
 
   let currentLang = localStorage.getItem('cvLang') || 'en';
   let dataStore = {}; // Objeto para almacenar todos los datos JSON cargados
@@ -462,6 +478,14 @@
     return originalTitle;
   }
 
+  function getExactTitleTranslation(originalTitle) {
+    const map = TITLES_GLOSSARY[originalTitle];
+    if (map && map[currentLang]) {
+      return map[currentLang];
+    }
+    return null;
+  }
+
   function T(key) {
     const currentMap = GLOSSARY_TERMS[currentLang];
     const englishMap = GLOSSARY_TERMS['en'];
@@ -470,6 +494,31 @@
         return currentMap[key];
     }
     return englishMap ? englishMap[key] || key : key;
+  }
+
+  function translateDateText(text) {
+    if (!text) return '';
+
+    const langDates = DATE_TRANSLATIONS[currentLang] || DATE_TRANSLATIONS.en;
+    let translated = text;
+
+    const replacements = [
+      ['January', langDates.January], ['February', langDates.February], ['March', langDates.March],
+      ['April', langDates.April], ['May', langDates.MayFull], ['June', langDates.June],
+      ['July', langDates.July], ['August', langDates.August], ['September', langDates.September],
+      ['October', langDates.October], ['November', langDates.November], ['December', langDates.December],
+      ['Jan', langDates.Jan], ['Feb', langDates.Feb], ['Mar', langDates.Mar],
+      ['Apr', langDates.Apr], ['Jun', langDates.Jun], ['Jul', langDates.Jul],
+      ['Aug', langDates.Aug], ['Sep', langDates.Sep], ['Oct', langDates.Oct],
+      ['Nov', langDates.Nov], ['Dec', langDates.Dec],
+      ['Present', langDates.Present]
+    ];
+
+    replacements.forEach(([source, target]) => {
+      translated = translated.replace(new RegExp(`\\b${source}\\b`, 'g'), target);
+    });
+
+    return translated.replace(/\b(\d{1,2})(st|nd|rd|th)\b/g, '$1');
   }
 
   function updateLoadingText() {
@@ -484,16 +533,27 @@
 
     const contentMap = DATA_GLOSSARY_TRANSLATIONS[currentLang] || DATA_GLOSSARY_TRANSLATIONS['en'] || {};
     const uiMap = GLOSSARY_TERMS[currentLang] || GLOSSARY_TERMS['en'] || {};
+    const titleTranslation = getExactTitleTranslation(text);
 
+    if (titleTranslation) return titleTranslation;
     if (contentMap[text]) return contentMap[text];
     if (uiMap[text]) return uiMap[text];
 
     let translatedText = text;
+    const titleKeys = Object.keys(TITLES_GLOSSARY || {});
 
     const englishKeys = Object.keys(DATA_GLOSSARY_TRANSLATIONS['es'] || {});
 
     const targetMap = contentMap;
     if (!targetMap) return text;
+
+    titleKeys.sort((a, b) => b.length - a.length);
+    titleKeys.forEach(titleKey => {
+      const translatedTitle = getExactTitleTranslation(titleKey);
+      if (!translatedTitle) return;
+      const escapedTitle = titleKey.replace(/([.?*+^$[\]\\(){}|-])/g, "\\$1");
+      translatedText = translatedText.replace(new RegExp(escapedTitle, 'g'), translatedTitle);
+    });
 
     englishKeys.sort((a, b) => b.length - a.length);
 
@@ -616,7 +676,7 @@
       block.innerHTML = `
         <h3 class="edu-degree">${translatedDegree || ''}</h3>
         <p class="meta">${ed.institution || ''}${ed.location ? ' · ' + ed.location : ''}</p>
-        <p class="date">${ed.date || ''}</p>
+        <p class="date">${translateDateText(ed.date || '')}</p>
         ${notes ? `<ul>${notes}</ul>` : ''}
       `;
       list.appendChild(block);
@@ -636,7 +696,7 @@
         return `
           <div class="role">
             <h4 class="role-title">${translatedTitle || ''}</h4>
-            <p class="date">${role.date || ''}</p>
+            <p class="date">${translateDateText(role.date || '')}</p>
             ${items ? `<ul>${items}</ul>` : ''}
           </div>
         `;
@@ -659,6 +719,7 @@
     data.forEach(project => {
       const block = document.createElement('div');
       block.className = 'project-block';
+      const translatedProjectTitle = getExactTitleTranslation(project.title) || translateText(project.title || '');
       const metaBits = [];
       if (project.employer) metaBits.push(project.employer);
       if (project.country)  metaBits.push(project.country);
@@ -668,9 +729,9 @@
       const description = project.description ? `<p class="project-desc">${translateText(project.description)}</p>` : '';
 
       block.innerHTML = `
-        <h3 class="project-title">${project.title || ''}</h3>
+        <h3 class="project-title">${translatedProjectTitle || ''}</h3>
         <div class="project-sub">
-          ${project.date ? `<span class="date">${project.date}</span>` : ''}
+          ${project.date ? `<span class="date">${translateDateText(project.date)}</span>` : ''}
           ${meta}${code ? ` · ${code}` : ''}
         </div>
         ${description}
@@ -764,7 +825,7 @@
       if (container) {
           container.innerHTML = `
             <p><strong>${T('Nationality Label')}:</strong> ${dataStore.personal.nationality || ''}</p>
-            <p><strong>${T('Born date Label')}:</strong> ${dataStore.personal.birthdate || ''}</p>
+            <p><strong>${T('Born date Label')}:</strong> ${translateDateText(dataStore.personal.birthdate || '')}</p>
           `;
       }
     }
@@ -929,7 +990,7 @@
       block.innerHTML = `
         <h3 class="edu-degree">${translatedDegree || ''}</h3>
         <p class="meta">${ed.institution || ''}${ed.location ? ' · ' + ed.location : ''}</p>
-        <p class="date">${ed.date || ''}</p>
+        <p class="date">${translateDateText(ed.date || '')}</p>
         ${notes ? `<ul>${notes}</ul>` : ''}
       `;
       listEdu.appendChild(block);
@@ -953,7 +1014,7 @@
         return `
           <div class="role role-slim">
             <h4 class="role-title">${translatedTitle || ''}</h4>
-            <p class="date">${role.date || ''}</p>
+            <p class="date">${translateDateText(role.date || '')}</p>
           </div>
         `;
       }).join('');
@@ -1010,7 +1071,7 @@
     cardPD.className = 'card';
     cardPD.innerHTML = `
       <p><strong>${T('Nationality Label')}:</strong> ${dataStore.personal?.nationality || ''}</p>
-      <p><strong>${T('Born date Label')}:</strong> ${dataStore.personal?.birthdate || ''}</p>
+      <p><strong>${T('Born date Label')}:</strong> ${translateDateText(dataStore.personal?.birthdate || '')}</p>
     `;
     secPD.appendChild(cardPD);
     wrapper.appendChild(secPD);
