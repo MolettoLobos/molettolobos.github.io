@@ -1,5 +1,18 @@
 [
   {
+    "employer": "AgroSpace SpA",
+    "roles": [
+      {
+        "title": "Chief Science Officer (CSO)",
+        "date": "Aug 2016 – Present",
+        "items": [
+          "Cofounder leading scientific solutions with EO, weather stations, and ML/AI.",
+          "Winner of AIM for Climate Challenge: $5,000,000 prize (COP28)."
+        ]
+      }
+    ]
+  },
+  {
     "employer": "University of Valencia / Image Processing Laboratory - Global Change Unit",
     "roles": [
       {
@@ -28,19 +41,6 @@
         "items": [
           "Sen2Like BRDF algorithm development and harmonisation workflows.",
           "High-performance server (ARYA) management and EO pipelines."
-        ]
-      }
-    ]
-  },
-  {
-    "employer": "AgroSpace SpA",
-    "roles": [
-      {
-        "title": "Chief Science Officer (CSO)",
-        "date": "Aug 2016 – Aug 2025",
-        "items": [
-          "Cofounder leading scientific solutions with EO, weather stations, and ML/AI.",
-          "Winner of AIM for Climate Challenge: $5,000,000 prize (COP28)."
         ]
       }
     ]

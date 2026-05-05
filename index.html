@@ -482,11 +482,17 @@
   function translateText(text) {
     if (!text) return '';
 
+    const contentMap = DATA_GLOSSARY_TRANSLATIONS[currentLang] || DATA_GLOSSARY_TRANSLATIONS['en'] || {};
+    const uiMap = GLOSSARY_TERMS[currentLang] || GLOSSARY_TERMS['en'] || {};
+
+    if (contentMap[text]) return contentMap[text];
+    if (uiMap[text]) return uiMap[text];
+
     let translatedText = text;
 
     const englishKeys = Object.keys(DATA_GLOSSARY_TRANSLATIONS['es'] || {});
 
-    const targetMap = DATA_GLOSSARY_TRANSLATIONS[currentLang] || DATA_GLOSSARY_TRANSLATIONS['en'];
+    const targetMap = contentMap;
     if (!targetMap) return text;
 
     englishKeys.sort((a, b) => b.length - a.length);
