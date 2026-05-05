@@ -675,7 +675,7 @@
       const notes = (ed.notes || []).map(n => `<li>${translateText(n)}</li>`).join('');
       block.innerHTML = `
         <h3 class="edu-degree">${translatedDegree || ''}</h3>
-        <p class="meta">${ed.institution || ''}${ed.location ? ' · ' + ed.location : ''}</p>
+        <p class="meta">${translateText(ed.institution || '')}${ed.location ? ' · ' + translateText(ed.location) : ''}</p>
         <p class="date">${translateDateText(ed.date || '')}</p>
         ${notes ? `<ul>${notes}</ul>` : ''}
       `;
@@ -703,8 +703,8 @@
       }).join('');
 
       block.innerHTML = `
-        <h3 class="employer-name">${org.employer || ''}</h3>
-        ${org.location ? `<p class="meta">${org.location}</p>` : ''}
+        <h3 class="employer-name">${translateText(org.employer || '')}</h3>
+        ${org.location ? `<p class="meta">${translateText(org.location)}</p>` : ''}
         ${rolesHTML}
       `;
       list.appendChild(block);
@@ -721,8 +721,8 @@
       block.className = 'project-block';
       const translatedProjectTitle = getExactTitleTranslation(project.title) || translateText(project.title || '');
       const metaBits = [];
-      if (project.employer) metaBits.push(project.employer);
-      if (project.country)  metaBits.push(project.country);
+      if (project.employer) metaBits.push(translateText(project.employer));
+      if (project.country)  metaBits.push(translateText(project.country));
       const meta = metaBits.length ? `<span class="meta">${metaBits.join(' · ')}</span>` : '';
       const code = project.code ? `<span class="code"><strong>${project.code}</strong></span>` : '';
 
@@ -765,7 +765,7 @@
     }
     if (data.languages?.length) {
       html += `<h3>${T('Languages')}</h3><ul>`;
-      data.languages.forEach(lang => html += `<li>${lang}</li>`);
+      data.languages.forEach(lang => html += `<li>${translateText(lang)}</li>`);
       html += '</ul>';
     }
     card.innerHTML = html || `<p>${T('No skills listed')}</p>`;
@@ -778,7 +778,7 @@
     const card = document.createElement('div');
     card.className = 'card';
     card.innerHTML = '<ul>' +
-      (data || []).map(link => `<li><a href="${link.url}" target="_blank" rel="noopener">${link.label}</a></li>`).join('') +
+      (data || []).map(link => `<li><a href="${link.url}" target="_blank" rel="noopener">${translateText(link.label)}</a></li>`).join('') +
       '</ul>';
     container.appendChild(card);
   }
@@ -789,7 +789,7 @@
     const card = document.createElement('div');
     card.className = 'card';
     card.innerHTML = '<ul>' +
-      (data || []).map(link => `<li><a href="${link.url}" target="_blank" rel="noopener">${link.label}</a></li>`).join('') +
+      (data || []).map(link => `<li><a href="${link.url}" target="_blank" rel="noopener">${translateText(link.label)}</a></li>`).join('') +
       '</ul>';
     container.appendChild(card);
   }
@@ -810,7 +810,7 @@
     // 2. Footer
     const footerElement = document.getElementById('footer-text');
     if (footerElement) {
-        footerElement.textContent = dataStore.copyrightText;
+        footerElement.textContent = translateText(dataStore.copyrightText);
     }
 
     // 3. Special Cases (Dynamic/Alt Text)
@@ -824,8 +824,8 @@
       const container = document.getElementById('personal-data');
       if (container) {
           container.innerHTML = `
-            <p><strong>${T('Nationality Label')}:</strong> ${dataStore.personal.nationality || ''}</p>
-            <p><strong>${T('Born date Label')}:</strong> ${translateDateText(dataStore.personal.birthdate || '')}</p>
+            <p><strong>${T('Nationality Label')}:</strong> ${translateText(dataStore.personal.nationality || '')}</p>
+            <p><strong>${T('Born date Label')}:</strong> ${translateText(dataStore.personal.birthdate || '') || translateDateText(dataStore.personal.birthdate || '')}</p>
           `;
       }
     }
@@ -989,7 +989,7 @@
       const notes = ''; // Simplified PDF: omit education notes to keep it short
       block.innerHTML = `
         <h3 class="edu-degree">${translatedDegree || ''}</h3>
-        <p class="meta">${ed.institution || ''}${ed.location ? ' · ' + ed.location : ''}</p>
+        <p class="meta">${translateText(ed.institution || '')}${ed.location ? ' · ' + translateText(ed.location) : ''}</p>
         <p class="date">${translateDateText(ed.date || '')}</p>
         ${notes ? `<ul>${notes}</ul>` : ''}
       `;
@@ -1019,8 +1019,8 @@
         `;
       }).join('');
       block.innerHTML = `
-        <h3 class="employer-name">${org.employer || ''}</h3>
-        ${org.location ? `<p class="meta">${org.location}</p>` : ''}
+        <h3 class="employer-name">${translateText(org.employer || '')}</h3>
+        ${org.location ? `<p class="meta">${translateText(org.location)}</p>` : ''}
         ${rolesHTML}
       `;
       listExp.appendChild(block);
@@ -1043,7 +1043,7 @@
     }
     if (dataStore.skills?.languages?.length) {
       skillsHTML += `<h3>${T('Languages')}</h3><ul>`;
-      dataStore.skills.languages.forEach(l => skillsHTML += `<li>${l}</li>`);
+      dataStore.skills.languages.forEach(l => skillsHTML += `<li>${translateText(l)}</li>`);
       skillsHTML += '</ul>';
     }
 
@@ -1058,7 +1058,7 @@
     const cardSci = document.createElement('div');
     cardSci.className = 'card';
     cardSci.innerHTML = '<ul>' +
-      (dataStore.science || []).map(link => `<li><a href="${link.url}" target="_blank" rel="noopener">${link.label}</a></li>`).join('') +
+      (dataStore.science || []).map(link => `<li><a href="${link.url}" target="_blank" rel="noopener">${translateText(link.label)}</a></li>`).join('') +
       '</ul>';
     secSci.appendChild(cardSci);
     wrapper.appendChild(secSci);
@@ -1070,8 +1070,8 @@
     const cardPD = document.createElement('div');
     cardPD.className = 'card';
     cardPD.innerHTML = `
-      <p><strong>${T('Nationality Label')}:</strong> ${dataStore.personal?.nationality || ''}</p>
-      <p><strong>${T('Born date Label')}:</strong> ${translateDateText(dataStore.personal?.birthdate || '')}</p>
+      <p><strong>${T('Nationality Label')}:</strong> ${translateText(dataStore.personal?.nationality || '')}</p>
+      <p><strong>${T('Born date Label')}:</strong> ${translateText(dataStore.personal?.birthdate || '') || translateDateText(dataStore.personal?.birthdate || '')}</p>
     `;
     secPD.appendChild(cardPD);
     wrapper.appendChild(secPD);
