@@ -25,6 +25,7 @@
 "it": {
 "Leadership & Team Management: Led multidisciplinary teams, coordinated international partners, and delivered EO products end-to-end.": "Leadership e gestione dei team: ho guidato team multidisciplinari, coordinato partner internazionali e consegnato prodotti EO end-to-end.",
 "Education": "Formazione", "Experience": "Esperienza", "Projects": "Progetti", "Projects Summary": "Progetti",
+"Language": "Lingua",
 "Click to expand": "— clicca per espandere", "Skills": "Competenze", "Technical Skills": "Competenze Tecniche", "Skills & Leadership": "Competenze e leadership",
 "Languages": "Lingue", "Scientific profiles": "Profili Scientifici", "In press": "In Stampa",
 "Personal Data": "Dati Personali", "Nationality": "Nazionalità", "Born date": "Data di Nascita",
@@ -35,6 +36,7 @@
 "fr": {
 "Leadership & Team Management: Led multidisciplinary teams, coordinated international partners, and delivered EO products end-to-end.": "Leadership et gestion d’équipe : j’ai dirigé des équipes pluridisciplinaires, coordonné des partenaires internationaux et livré des produits EO de bout en bout.",
 "Education": "Formation", "Experience": "Expérience", "Projects": "Projets", "Projects Summary": "Projets",
+"Language": "Langue",
 "Click to expand": "— cliquez pour développer", "Skills": "Compétences", "Technical Skills": "Compétences Techniques", "Skills & Leadership": "Compétences et leadership",
 "Languages": "Langues", "Scientific profiles": "Profils Scientifiques", "In press": "Dans la Presse",
 "Personal Data": "Données Personnelles", "Nationality": "Nationalité", "Born date": "Date de Naissance",
@@ -45,6 +47,7 @@
 "de": {
 "Leadership & Team Management: Led multidisciplinary teams, coordinated international partners, and delivered EO products end-to-end.": "Führung & Teammanagement: Leitung multidisziplinärer Teams, Koordination internationaler Partner und End-to-End-Lieferung von EO-Produkten.",
 "Education": "Ausbildung", "Experience": "Erfahrung", "Projects": "Projekte", "Projects Summary": "Projekte",
+"Language": "Sprache",
 "Click to expand": "— klicken zum Erweitern", "Skills": "Fähigkeiten", "Technical Skills": "Technische Fähigkeiten", "Skills & Leadership": "Fähigkeiten und Führung",
 "Languages": "Sprachen", "Scientific profiles": "Wissenschaftliche Profile", "In press": "In der Presse",
 "Personal Data": "Persönliche Daten", "Nationality": "Nationalität", "Born date": "Geburtsdatum",
@@ -55,6 +58,7 @@
 "pt": {
 "Leadership & Team Management: Led multidisciplinary teams, coordinated international partners, and delivered EO products end-to-end.": "Liderança e gestão de equipes: liderei equipes multidisciplinares, coordenei parceiros internacionais e entreguei produtos EO ponta a ponta.",
 "Education": "Formação", "Experience": "Experiência", "Projects": "Projetos", "Projects Summary": "Projetos",
+"Language": "Idioma",
 "Click to expand": "— clique para expandir", "Skills": "Habilidades", "Technical Skills": "Habilidades Técnicas", "Skills & Leadership": "Habilidades e liderança",
 "Languages": "Idiomas", "Scientific profiles": "Perfis Científicos", "In press": "Na Imprensa",
 "Personal Data": "Dados Pessoais", "Nationality": "Nacionalidade", "Born date": "Data de Nascimento",
@@ -65,6 +69,7 @@
 "ru": {
 "Leadership & Team Management: Led multidisciplinary teams, coordinated international partners, and delivered EO products end-to-end.": "Лидерство и управление командой: руководил междисциплинарными командами, координировал международных партнеров и обеспечивал поставку EO-продуктов end-to-end.",
 "Education": "Образование", "Experience": "Опыт", "Projects": "Проекты", "Projects Summary": "Проекты",
+"Language": "Язык",
 "Click to expand": "— нажмите, чтобы развернуть", "Skills": "Навыки", "Technical Skills": "Технические навыки", "Skills & Leadership": "Навыки и лидерство",
 "Languages": "Языки", "Scientific profiles": "Научные профили", "In press": "В прессе",
 "Personal Data": "Личные данные", "Nationality": "Национальность", "Born date": "Дата рождения",
@@ -75,6 +80,7 @@
 "uk": {
 "Leadership & Team Management: Led multidisciplinary teams, coordinated international partners, and delivered EO products end-to-end.": "Лідерство та управління командами: керував міждисциплінарними командами, координував міжнародних партнерів і забезпечував доставку EO-продуктів end-to-end.",
 "Education": "Освіта", "Experience": "Досвід", "Projects": "Проєкти", "Projects Summary": "Проєкти",
+"Language": "Мова",
 "Click to expand": "— натисніть, щоб розгорнути", "Skills": "Навички", "Technical Skills": "Технічні навички", "Skills & Leadership": "Навички та лідерство",
 "Languages": "Мови", "Scientific profiles": "Наукові профілі", "In press": "У пресі",
 "Personal Data": "Особисті дані", "Nationality": "Національність", "Born date": "Дата народження",
@@ -85,6 +91,7 @@
 "nl": {
 "Leadership & Team Management: Led multidisciplinary teams, coordinated international partners, and delivered EO products end-to-end.": "Leiderschap en teammanagement: multidisciplinaire teams geleid, internationale partners gecoördineerd en EO-producten end-to-end opgeleverd.",
 "Education": "Opleiding", "Experience": "Ervaring", "Projects": "Projecten", "Projects Summary": "Projecten",
+"Language": "Taal",
 "Click to expand": "— klik om uit te breiden", "Skills": "Vaardigheden", "Technical Skills": "Technische Vaardigheden", "Skills & Leadership": "Vaardigheden en leiderschap",
 "Languages": "Talen", "Scientific profiles": "Wetenschappelijke profielen", "In press": "In de pers",
 "Personal Data": "Persoonlijke gegevens", "Nationality": "Nationaliteit", "Born date": "Geboortedatum",
@@ -95,6 +102,7 @@
 "sv": {
 "Leadership & Team Management: Led multidisciplinary teams, coordinated international partners, and delivered EO products end-to-end.": "Ledarskap och teamledning: ledde multidisciplinära team, samordnade internationella partners och levererade EO-produkter end-to-end.",
 "Education": "Utbildning", "Experience": "Erfarenhet", "Projects": "Projekt", "Projects Summary": "Projecten",
+"Language": "Språk",
 "Click to expand": "— klicka för att expandera", "Skills": "Färdigheter", "Technical Skills": "Tekniska Färdigheter", "Skills & Leadership": "Färdigheter och ledarskap",
 "Languages": "Språk", "Scientific profiles": "Vetenskapliga profiler", "In press": "I press",
 "Personal Data": "Personuppgifter", "Nationality": "Nationalitet", "Born date": "Födelsedatum",
@@ -105,6 +113,7 @@
 "pl": {
 "Leadership & Team Management: Led multidisciplinary teams, coordinated international partners, and delivered EO products end-to-end.": "Przywództwo i zarządzanie zespołem: prowadziłem zespoły interdyscyplinarne, koordynowałem partnerów międzynarodowych i dostarczałem produkty EO end-to-end.",
 "Education": "Edukacja", "Experience": "Doświadczenie", "Projects": "Projekty", "Projects Summary": "Projekty",
+"Language": "Język",
 "Click to expand": "— kliknij, aby rozwinąć", "Skills": "Umiejętności", "Technical Skills": "Umiejętności Techniczne", "Skills & Leadership": "Umiejętności i przywództwo",
 "Languages": "Języki", "Scientific profiles": "Profile naukowe", "In press": "W prasie",
 "Personal Data": "Dane osobowe", "Nationality": "Narodowość", "Born date": "Data urodzenia",
@@ -115,6 +124,7 @@
 "ja": {
 "Leadership & Team Management: Led multidisciplinary teams, coordinated international partners, and delivered EO products end-to-end.": "リーダーシップとチームマネジメント: 学際的チームを率い、国際パートナーを調整し、EO製品をエンドツーエンドで提供。",
 "Education": "学歴", "Experience": "職務経歴", "Projects": "プロジェクト", "Projects Summary": "プロジェクト",
+"Language": "言語",
 "Click to expand": "— クリックして展開", "Skills": "スキル", "Technical Skills": "技術スキル", "Skills & Leadership": "スキルとリーダーシップ",
 "Languages": "言語", "Scientific profiles": "研究者情報", "In press": "プレス",
 "Personal Data": "個人情報", "Nationality": "国籍", "Born date": "生年月日",
@@ -125,6 +135,7 @@
 "ko": {
 "Leadership & Team Management: Led multidisciplinary teams, coordinated international partners, and delivered EO products end-to-end.": "리더십 및 팀 관리: 학제적 팀을 이끌고 국제 파트너를 조정했으며 EO 제품을 엔드투엔드로 제공.",
 "Education": "학력", "Experience": "경력", "Projects": "프로젝트", "Projects Summary": "프로젝트",
+"Language": "언어",
 "Click to expand": "— 클릭하여 펼치기", "Skills": "기술", "Technical Skills": "기술 능력", "Skills & Leadership": "기술 및 리더십",
 "Languages": "언어", "Scientific profiles": "연구 프로필", "In press": "언론 보도",
 "Personal Data": "개인 정보", "Nationality": "국적", "Born date": "생년월일",
@@ -173,13 +184,13 @@
 "Cofounder leading scientific solutions with EO, weather stations, and ML/AI.": "Cofundador liderando soluciones científicas con EO, estaciones meteorológicas e ML/IA.",
 "Winner of AIM for Climate Challenge: $5,000,000 prize (COP28).": "Ganador del Desafío AIM for Climate: premio de $5,000,000 (COP28).",
 "Research in climate and remote sensing for food and water security projects.": "Investigación en clima y teledetección para proyectos de seguridad alimentaria e hídrica.",
-"PhD in Remote Sensing | Earth System Data Engineer | GeoAI | HPC & Cloud Expert": "Doctorado en Teledetección | Ingeniero de Datos del Sistema Tierra | GeoIA | Experto en HPC y computación en la nube",
+"PhD in Remote Sensing | Earth System Data Engineer | GeoAI | HPC & Cloud Expert": "Doctorado en Teledetección | Ingeniero experto en observación de la tierra | GeoIA | Experto en HPC y computación en la nube",
 "University of Valencia": "Universidad de Valencia",
 "University of Chile": "Universidad de Chile",
 "University of Valencia / Image Processing Laboratory - Global Change Unit": "Universidad de Valencia / Laboratorio de Procesamiento de Imágenes - Unidad de Cambio Global",
 "University of Chile / Laboratory for Analysis of the Biosphere (LAB)": "Universidad de Chile / Laboratorio para el Análisis de la Biosfera (LAB)",
 "Univ. of Chile / Center for Climate and Resilience Research (CR2)": "Univ. de Chile / Centro de Ciencia del Clima y la Resiliencia (CR2)",
-"University of Aysén / Lab. of Geosciences": "Universidad de Aysén / Lab. de Geociencias",
+"University of Aysén / Lab. of Geosciences": "Universidad de Aysén / Laboratorio de Geociencias",
 "Valencia, Spain": "Valencia, España",
 "Spain": "España",
 "Spain · EU": "España · UE",

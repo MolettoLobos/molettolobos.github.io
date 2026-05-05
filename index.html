@@ -9,9 +9,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
 
-  <!-- PDF library -->
-  <script src="https://cdn.jsdelivr.net/npm/html2pdf.js@0.10.1/dist/html2pdf.bundle.min.js"></script>
-
   <style>
     :root {
       --primary: #2c3e50;
@@ -448,6 +445,7 @@
   let GLOSSARY_TERMS = {};
   let DATA_GLOSSARY_TRANSLATIONS = {};
   let TITLES_GLOSSARY = {};
+  const DATA_VERSION = '2026-05-05-1';
   const DATE_TRANSLATIONS = {
     en: {
       Jan: 'Jan', Feb: 'Feb', Mar: 'Mar', Apr: 'Apr', May: 'May', Jun: 'Jun',
@@ -521,6 +519,35 @@
     return translated.replace(/\b(\d{1,2})(st|nd|rd|th)\b/g, '$1');
   }
 
+  function translateTitleLike(text) {
+    return getExactTitleTranslation(text) || translateText(text || '');
+  }
+
+  function formatMetaLine(primary, secondary) {
+    const translatedPrimary = translateText(primary || '');
+    const translatedSecondary = translateText(secondary || '');
+    return translatedSecondary ? `${translatedPrimary} · ${translatedSecondary}` : translatedPrimary;
+  }
+
+  function renderTranslatedItems(items = []) {
+    if (!items.length) return '';
+    return `<ul>${items.map(item => `<li>${translateText(item)}</li>`).join('')}</ul>`;
+  }
+
+  function renderTranslatedLinks(links = []) {
+    return '<ul>' +
+      links.map(link => `<li><a href="${link.url}" target="_blank" rel="noopener">${translateText(link.label)}</a></li>`).join('') +
+      '</ul>';
+  }
+
+  async function fetchJson(path) {
+    const res = await fetch(`${path}?v=${encodeURIComponent(DATA_VERSION)}`);
+    if (!res.ok) {
+      throw new Error(`Fallo de carga (HTTP ${res.status}): ${path}`);
+    }
+    return await res.json();
+  }
+
   function updateLoadingText() {
     const loadingTextEl = document.getElementById('loading-text');
     if (loadingTextEl) {
@@ -581,14 +608,9 @@
     ];
 
     // Nueva lógica de carga robusta
-    const fetchAndMap = async (path, index) => {
+    const fetchAndMap = async (path) => {
         try {
-            const res = await fetch(path);
-            if (!res.ok) {
-                // Si la respuesta no es OK (ej. 404), lanzamos un error que Promise.all atrapará
-                throw new Error(`Fallo de carga (HTTP ${res.status}): ${path}`);
-            }
-            return await res.json();
+            return await fetchJson(path);
         } catch (error) {
             // Error de red o error de sintaxis JSON
             console.error(`Error procesando archivo ${path}:`, error);
@@ -634,7 +656,7 @@
     // Header compacta para impresión
     const ph = document.getElementById('print-header');
     ph.innerHTML = `
-      <img class="print-avatar" src="images/your-photo.jpg" alt="${T('Photo')}" crossorigin="anonymous" />
+      <img class="print-avatar" src="images/your-photo-print.jpg" alt="${T('Photo')}" crossorigin="anonymous" />
       <div class="identity">
         <h1>${data.name || ''}</h1>
         <p>${translatedSubtitle || ''}</p>
@@ -671,13 +693,12 @@
     data.forEach(ed => {
       const block = document.createElement('div');
       block.className = 'edu-block';
-      const translatedDegree = getTitleTranslation(ed.degree);
-      const notes = (ed.notes || []).map(n => `<li>${translateText(n)}</li>`).join('');
+      const translatedDegree = translateTitleLike(ed.degree);
       block.innerHTML = `
         <h3 class="edu-degree">${translatedDegree || ''}</h3>
-        <p class="meta">${translateText(ed.institution || '')}${ed.location ? ' · ' + translateText(ed.location) : ''}</p>
+        <p class="meta">${formatMetaLine(ed.institution, ed.location)}</p>
         <p class="date">${translateDateText(ed.date || '')}</p>
-        ${notes ? `<ul>${notes}</ul>` : ''}
+        ${renderTranslatedItems(ed.notes)}
       `;
       list.appendChild(block);
     });
@@ -691,13 +712,12 @@
       block.className = 'employer-block';
 
       const rolesHTML = (org.roles || []).map(role => {
-        const translatedTitle = getTitleTranslation(role.title);
-        const items = (role.items || []).map(i => `<li>${translateText(i)}</li>`).join('');
+        const translatedTitle = translateTitleLike(role.title);
         return `
           <div class="role">
             <h4 class="role-title">${translatedTitle || ''}</h4>
             <p class="date">${translateDateText(role.date || '')}</p>
-            ${items ? `<ul>${items}</ul>` : ''}
+            ${renderTranslatedItems(role.items)}
           </div>
         `;
       }).join('');
@@ -777,9 +797,7 @@
     container.innerHTML = '';
     const card = document.createElement('div');
     card.className = 'card';
-    card.innerHTML = '<ul>' +
-      (data || []).map(link => `<li><a href="${link.url}" target="_blank" rel="noopener">${translateText(link.label)}</a></li>`).join('') +
-      '</ul>';
+    card.innerHTML = renderTranslatedLinks(data);
     container.appendChild(card);
   }
 
@@ -788,9 +806,7 @@
     container.innerHTML = '';
     const card = document.createElement('div');
     card.className = 'card';
-    card.innerHTML = '<ul>' +
-      (data || []).map(link => `<li><a href="${link.url}" target="_blank" rel="noopener">${translateText(link.label)}</a></li>`).join('') +
-      '</ul>';
+    card.innerHTML = renderTranslatedLinks(data);
     container.appendChild(card);
   }
 
@@ -963,7 +979,7 @@
     const translatedSubtitle = translateText(dataStore.header.subtitle || '');
 
     printHeaderClone.innerHTML = `
-        <img class="print-avatar" src="images/your-photo.jpg" alt="${T('Photo')}" crossorigin="anonymous" />
+        <img class="print-avatar" src="images/your-photo-print.jpg" alt="${T('Photo')}" crossorigin="anonymous" />
         <div class="identity">
           <h1>${dataStore.header.name || ''}</h1>
           <p>${translatedSubtitle || ''}</p>
@@ -985,11 +1001,11 @@
     (dataStore.education || []).forEach(ed => {
       const block = document.createElement('div');
       block.className = 'edu-block';
-      const translatedDegree = getTitleTranslation(ed.degree); // Usar traducción de títulos
+      const translatedDegree = translateTitleLike(ed.degree);
       const notes = ''; // Simplified PDF: omit education notes to keep it short
       block.innerHTML = `
         <h3 class="edu-degree">${translatedDegree || ''}</h3>
-        <p class="meta">${translateText(ed.institution || '')}${ed.location ? ' · ' + translateText(ed.location) : ''}</p>
+        <p class="meta">${formatMetaLine(ed.institution, ed.location)}</p>
         <p class="date">${translateDateText(ed.date || '')}</p>
         ${notes ? `<ul>${notes}</ul>` : ''}
       `;
@@ -1010,7 +1026,7 @@
       const block = document.createElement('div');
       block.className = 'employer-block';
       const rolesHTML = (org.roles || []).map(role => {
-        const translatedTitle = getTitleTranslation(role.title); // Usar traducción de títulos
+        const translatedTitle = translateTitleLike(role.title);
         return `
           <div class="role role-slim">
             <h4 class="role-title">${translatedTitle || ''}</h4>
@@ -1057,9 +1073,7 @@
     secSci.innerHTML = `<h2>${T('Scientific profiles')}</h2>`;
     const cardSci = document.createElement('div');
     cardSci.className = 'card';
-    cardSci.innerHTML = '<ul>' +
-      (dataStore.science || []).map(link => `<li><a href="${link.url}" target="_blank" rel="noopener">${translateText(link.label)}</a></li>`).join('') +
-      '</ul>';
+    cardSci.innerHTML = renderTranslatedLinks(dataStore.science);
     secSci.appendChild(cardSci);
     wrapper.appendChild(secSci);
 
