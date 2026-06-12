@@ -1,17 +1,38 @@
 {
-  "technical": [
-    "Leadership & Team Management: Led multidisciplinary teams, coordinated international partners, and delivered EO products end-to-end.",
-    "Remote Sensing & Earth Observation: Expert in multi-sensor processing (Sentinel 1/2/3/5, Landsat, MODIS, VIIRS, AVHRR, SDG-Sat).",
-    "Data Formats & Libraries: Expert in NetCDF4, HDF5, Zarr, and GeoTIFF. Proficient with xarray, dask, rasterio, and GDAL for scalable analysis.",
-    "HPC & Cloud Computing: Experience with large-scale processing on ARYA (UVEG), Polaris (Argonne), ESA CEM-PAL, and DLR TerraByte.",
-    "Programming & GeoAI: Advanced Python (PyTorch/TensorFlow) for geospatial deep learning and workflow automation.",
-    "Data Management: Knowledge of FAIR principles, metadata standards (STAC), and data quality control for petabyte-scale datasets, Github documentation & Zenodo.",
-    "UAV & VHR: Pilot and analyst for Parrot-SQ, Micasense, MAIA, and satellite constellations (PlanetScope, Pleiades, WorldView)."
+  "technical_skills": [
+    {
+      "category": "Data Engineering & Cloud",
+      "items": [
+        "PostgreSQL / PostGIS (Advanced)",
+        "AWS (S3, Lambda, RDS, EC2, VPC)",
+        "Automated ETL/ELT Pipelines",
+        "Infrastructure as Code (IaC) & CI/CD",
+        "HPC Management (ARYA, Polaris)"
+      ]
+    },
+    {
+      "category": "Geospatial & Remote Sensing",
+      "items": [
+        "Earth Observation (Sentinel, MODIS, Planet)",
+        "Ag Remote Sensing & Spatiotemporal Deep Learning",
+        "OGC APIs & Cloud-Native Formats (Zarr, COG, GeoParquet)",
+        "Digital Agriculture & Food Security Analysis"
+      ]
+    },
+    {
+      "category": "Languages & Tools",
+      "items": [
+        "Python (Expert: PyTorch, Dask, Xarray)",
+        "SQL & Database Design",
+        "Linux/Bash & Git",
+        "Docker & Containerization"
+      ]
+    }
   ],
   "languages": [
     "Spanish (Native)",
-    "English (C1)",
-    "Italian (B2)",
+    "English (C1/Fluency)",
+    "Italian (B2/Fluent)",
     "Korean (A2)"
   ]
 }
