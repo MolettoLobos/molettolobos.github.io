@@ -1,5 +1,13 @@
 [
   {
+    "employer": "University of Valencia · ESA",
+    "code": "ESA WorldCereal",
+    "country": "EU · Global",
+    "title": "ESA-WorldCereal: Global Crop Calendars & Land Surface Phenology",
+    "date": "2023 – 2025",
+    "description": "Lead developer for global crop calendars, integrating Land Surface Phenology (LSP) and Machine Learning to characterising agricultural land conditions at scale."
+  },
+  {
     "employer": "University of Valencia",
     "code": "CIGRIS 161",
     "country": "Spain",
@@ -24,60 +32,12 @@
     "description": "Developed and tested BRDF harmonisation workflows for the Sen2Like virtual constellation."
   },
   {
-    "employer": "AgroSpace",
-    "code": "TrankET",
-    "country": "Chile",
-    "title": "TrankET",
-    "date": "2024 – Ongoing",
-    "description": "Satellite- and AI-based monitoring system for water reuse in mining tailings. Integrates Sen2Like to predict evaporation and map wet/dry zones in near real time."
-  },
-  {
-    "employer": "AgroSpace",
-    "code": "SMA Res.Ex.N°2099",
-    "country": "Chile",
-    "title": "Change Detection Models for Sand Extraction Monitoring (SMA)",
-    "date": "2023 – 2024",
-    "description": "Lead investigator developing ML/remote sensing models to support remote enforcement of sand extraction projects for the Environmental Authority."
-  },
-  {
-    "employer": "AgroSpace",
-    "code": "21CV2-183244",
-    "country": "Chile",
-    "title": "FertiPro",
-    "date": "2021 – 2023",
-    "description": "Geo-spatial platform integrating soil chemistry and mapping to optimise fertiliser recommendations. Funded by CORFO."
-  },
-  {
-    "employer": "AgroSpace",
-    "code": "21IR-176557",
-    "country": "Chile",
-    "title": "AI-based Smart Irrigation System",
-    "date": "2021 – 2023",
-    "description": "Co-developed 'Irrismart', an integrated platform using EO, IoT, and AI to optimise irrigation scheduling."
-  },
-  {
-    "employer": "AgroSpace",
-    "code": "20SN-139594",
-    "country": "Chile",
-    "title": "Pastoreo de Praderas sin Efecto de Nubes",
-    "date": "2020 – 2021",
-    "description": "Biomass mapping service for grasslands using cloud-free satellite indices calibrated to local conditions."
-  },
-  {
     "employer": "University of Chile — Center for Climate and Resilience Research (CR2)",
     "code": "Res. Ex RA 311/71/2020",
     "country": "Chile",
     "title": "ARClim (Climate Risk Atlas)",
     "date": "2019",
     "description": "Technical staff contributor for the national climate risk atlas combining satellite and climate data."
-  },
-  {
-    "employer": "AgroSpace",
-    "code": "1154-30-L120",
-    "country": "Chile",
-    "title": "Glacial Lake Outburst Flood Early Warning System",
-    "date": "2019 – 2021",
-    "description": "Project manager for remote monitoring of glaciers and lakes in Aysén to anticipate flood risks."
   },
   {
     "employer": "University of Chile — Laboratory for the Analysis of the Biosphere (LAB)",

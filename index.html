@@ -872,10 +872,32 @@
 
   function renderScience(data) {
     const container = document.getElementById('science-list');
+    if (!container) return;
     container.innerHTML = '';
     const card = document.createElement('div');
     card.className = 'card';
-    card.innerHTML = renderTranslatedLinks(data);
+
+    if (Array.isArray(data)) {
+        card.innerHTML = renderTranslatedLinks(data);
+    } else {
+        let html = '';
+        if (data.metrics) {
+            html += `<p style="margin-bottom: 15px; font-style: italic; font-size: 0.9em; color: #555;">
+                <strong>${T('Citations')}:</strong> ${data.metrics.citations} · 
+                <strong>h-index:</strong> ${data.metrics.h_index} · 
+                <strong>i10-index:</strong> ${data.metrics.i10_index}
+            </p>`;
+        }
+        if (data.profiles) {
+            html += renderTranslatedLinks(data.profiles);
+        }
+        if (data.publications?.length) {
+            html += `<h3 style="margin-top: 20px;">${T('Recent Publications')}</h3><ul>`;
+            data.publications.forEach(pub => html += `<li style="margin-bottom: 10px; font-size: 0.95em;">${translateText(pub)}</li>`);
+            html += '</ul>';
+        }
+        card.innerHTML = html;
+    }
     container.appendChild(card);
   }
 
@@ -1103,15 +1125,25 @@
     (dataStore.experience || []).forEach(org => {
       const block = document.createElement('div');
       block.className = 'employer-block';
+      
+      const isUni = org.employer.toLowerCase().includes('university') || 
+                    org.employer.toLowerCase().includes('univ.') || 
+                    org.employer.toLowerCase().includes('universidad');
+      
       const rolesHTML = (org.roles || []).map(role => {
         const translatedTitle = translateTitleLike(role.title);
+        const translatedItems = (role.items || []).map(item => `<li>${translateText(item)}</li>`).join('');
+        
+        // Show detailed items for all university roles in simplified PDF
         return `
-          <div class="role role-slim">
+          <div class="role ${isUni ? '' : 'role-slim'}">
             <h4 class="role-title">${translatedTitle || ''}</h4>
             <p class="date">${translateDateText(role.date || '')}</p>
+            ${isUni ? `<ul class="role-items">${translatedItems}</ul>` : ''}
           </div>
         `;
       }).join('');
+      
       block.innerHTML = `
         <h3 class="employer-name">${translateText(org.employer || '')}</h3>
         ${org.location ? `<p class="meta">${translateText(org.location)}</p>` : ''}
@@ -1146,12 +1178,32 @@
     wrapper.appendChild(secSkills);
 
 
-    // Scientific profiles (Translated Title)
+    // Scientific profiles & Publications (Translated Title)
     const secSci = document.createElement('section');
-    secSci.innerHTML = `<h2>${T('Scientific profiles')}</h2>`;
+    secSci.innerHTML = `<h2>${T('Scientific profiles')} & ${T('Recent Publications')}</h2>`;
     const cardSci = document.createElement('div');
     cardSci.className = 'card';
-    cardSci.innerHTML = renderTranslatedLinks(dataStore.science);
+
+    const sciData = dataStore.science;
+    if (Array.isArray(sciData)) {
+        cardSci.innerHTML = renderTranslatedLinks(sciData);
+    } else {
+        let sciHtml = '';
+        if (sciData.metrics) {
+            sciHtml += `<p style="margin-bottom: 10px; font-style: italic; font-size: 0.9em;">
+                Citations: ${sciData.metrics.citations} · h-index: ${sciData.metrics.h_index}
+            </p>`;
+        }
+        if (sciData.profiles) {
+            sciHtml += renderTranslatedLinks(sciData.profiles);
+        }
+        if (sciData.publications?.length) {
+            sciHtml += `<h3 style="margin-top: 15px;">${T('Recent Publications')}</h3><ul>`;
+            sciData.publications.forEach(pub => sciHtml += `<li style="margin-bottom: 5px; font-size: 0.9em;">${translateText(pub)}</li>`);
+            sciHtml += '</ul>';
+        }
+        cardSci.innerHTML = sciHtml;
+    }
     secSci.appendChild(cardSci);
     wrapper.appendChild(secSci);
 

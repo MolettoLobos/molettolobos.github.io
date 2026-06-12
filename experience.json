@@ -1,46 +1,34 @@
 [
   {
-    "employer": "AgroSpace SpA",
-    "roles": [
-      {
-        "title": "Chief Science Officer (CSO)",
-        "date": "Aug 2018 – Present",
-        "items": [
-          "Cofounder leading scientific solutions with EO, weather stations, and ML/AI.",
-          "Winner of AIM for Climate Challenge: $5,000,000 prize (COP28)."
-        ]
-      }
-    ]
-  },
-  {
     "employer": "University of Valencia / Image Processing Laboratory - Global Change Unit",
     "roles": [
       {
-        "title": "Postdoctoral Researcher",
+        "title": "Geospatial Data Engineer & Postdoctoral Researcher",
         "date": "Aug 2025 – Jul 2026",
         "items": [
-          "Yield Forecasting Specialist, NASA Harvest",
-          "FAO & Gates Foundation project: develop applied remote-sensing products for food security, including crop mask creation and yield prediction (as part of my current role at UV).",
-          "Detect extreme climate events and assess impacts on agricultural yield at global scale.",
-          "Integrate satellite observations (S1/S2, MODIS, PlanetScope) with climate datasets (e.g., ERA5).",
-          "Extension following PhD scholarship; fixed-term research contract."
+          "Designing and maintaining automated ETL/ELT pipelines for global agricultural monitoring (NASA Harvest).",
+          "Developing cloud-native processing workflows integrating Sentinel-1/2, MODIS, and PlanetScope on AWS.",
+          "Building spatiotemporal data products for food security in collaboration with FAO and the Gates Foundation.",
+          "Optimizing database performance and geospatial queries for large-scale yield prediction models."
         ]
       },
       {
-        "title": "PhD in Remote Sensing",
+        "title": "Lead Developer - Global Crop Calendars (ESA-WorldCereal)",
         "date": "Sep 2022 – Jul 2025",
         "items": [
-          "Thesis on wheat yield prediction and climate risk using multi-source EO and reanalysis.",
-          "ESA-WorldCereal Global Crop Calendars Lead Developer; ESA-CHIME BRDF calibration team; ESA-Sen2Like collaborations; RAQRS VI & VII co-organiser.",
-          "PhD awarded Jul 2025 (Cum Laude)."
+          "Architected the master geospatial data repository for global crop calendars using multi-source EO data.",
+          "Developed automated workflows for change tracking, versioning, and metadata generation of agricultural layers.",
+          "Implemented QA/QC processes for global land cover products at field-scale.",
+          "PhD research focusing on phenology-informed frameworks and spatiotemporal data modeling."
         ]
       },
       {
-        "title": "Research Technician",
+        "title": "HPC & Infrastructure Lead",
         "date": "Jul 2021 – Sep 2022",
         "items": [
-          "Sen2Like BRDF algorithm development and harmonisation workflows.",
-          "High-performance server (ARYA) management and EO pipelines."
+          "Managed High-Performance Computing (HPC) server (ARYA) and automated EO processing pipelines.",
+          "Implemented Infrastructure as Code (IaC) principles for server configuration and pipeline deployment.",
+          "Developed BRDF normalization algorithms and harmonisation workflows for the Sen2Like virtual constellation."
         ]
       }
     ]

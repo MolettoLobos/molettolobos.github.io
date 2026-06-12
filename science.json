@@ -1,14 +1,28 @@
-[
-  {
-    "label": "Google Scholar (Over 160 citations, h-index: 6)",
-    "url": "https://scholar.google.com/citations?user=your-google-scholar-id"
+{
+  "metrics": {
+    "citations": 160,
+    "h_index": 6,
+    "i10_index": 6
   },
-  {
-    "label": "ORCID",
-    "url": "https://orcid.org/0000-0003-0609-9649"
-  },
-  {
-    "label": "Sciprofile",
-    "url": "https://sciprofiles.com/profile/MolettoLobos"
-  }
-]
+  "profiles": [
+    {
+      "label": "Google Scholar (160+ citations, h-index: 6)",
+      "url": "https://scholar.google.com/citations?user=your-google-scholar-id"
+    },
+    {
+      "label": "ORCID",
+      "url": "https://orcid.org/0000-0003-0609-9649"
+    },
+    {
+      "label": "Sciprofile",
+      "url": "https://sciprofiles.com/profile/MolettoLobos"
+    }
+  ],
+  "publications": [
+    "Tarín-Mestre, J., Franch, B., Moletto-Lobos, I. et al. (2026). Sentinel-1 and Sentinel-2 data fusion for wheat and rice yield forecasting in the Nile Delta. International Journal of Applied Earth Observation and Geoinformation 150, 105353.",
+    "Moletto-Lobos, I., Franch, B. et al. (2026). Enhancing WorldCereal crop calendars with land surface phenology and machine learning. Ecological Informatics 95, 103742.",
+    "Franch, B., Moletto-Lobos, I. et al. (2026). The yield strikes back: Enhancing the transferability of field scale wheat and barley yield models by leveraging Sentinel-1/2. IJAEOG 146.",
+    "Cyran, K., Franch, B., ... Moletto-Lobos, I. et al. (2025). Retrieving crop phenology at field-scale in the Nile Delta based on Sen2Like and PlanetScope data. IJAEOG 142.",
+    "Moletto-Lobos, I. et al. (2024). Evaluating PlanetScope and UAV Multispectral Data for Monitoring Winter Wheat and Sustainable Fertilization Practices in Mediterranean Agroecosystems. Remote Sensing 16 (23), 4474."
+  ]
+}
