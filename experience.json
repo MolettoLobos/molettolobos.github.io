@@ -6,42 +6,29 @@
         "title": "Postdoctoral Researcher",
         "date": "Aug 2025 – Jul 2026",
         "items": [
-          "Designing and maintaining automated ETL/ELT pipelines for global agricultural monitoring (NASA Harvest).",
-          "Developing cloud-native processing workflows integrating Sentinel-1/2, MODIS, and PlanetScope using HPC.",
-          "Building spatiotemporal data products for food security in collaboration with FAO and the Gates Foundation.",
-          "Optimizing database performance and geospatial queries for large-scale yield prediction models."
+          "Lead scientist developing and applying global agricultural yield forecasting models (NASA Harvest).",
+          "Integrating multi-source satellite observations (Sentinel-1/2, MODIS, PlanetScope) to study global agricultural dynamics.",
+          "Developing advanced remote sensing products for food security assessment in collaboration with FAO and the Gates Foundation.",
+          "Refining spatiotemporal models for large-scale crop yield prediction and climate impact assessment."
         ]
       },
       {
-        "title": "Lead Developer - Global Crop Calendars (ESA-WorldCereal)",
+        "title": "Scientist & Lead Developer - Global Crop Calendars (ESA-WorldCereal)",
         "date": "Sep 2022 – Jul 2025",
         "items": [
-          "Architected the master geospatial data repository for global crop calendars using multi-source EO data.",
-          "Developed automated workflows for change tracking, versioning, and metadata generation of agricultural layers.",
-          "Implemented QA/QC processes for global land cover products at field-scale.",
-          "PhD research focusing on phenology-informed frameworks and spatiotemporal data modeling."
+          "Led the scientific development of global crop calendars utilizing multi-source Earth Observation data.",
+          "Characterizing global agricultural land surface phenology and crop growth stages using machine learning.",
+          "Scientific lead for quality assessment and validation of global field-scale agricultural products.",
+          "PhD research focusing on phenology-informed frameworks for yield monitoring and climate risk."
         ]
       },
       {
-        "title": "HPC & Infrastructure Lead",
+        "title": "Remote Sensing & HPC Scientist",
         "date": "Jul 2021 – Sep 2022",
         "items": [
-          "Managed High-Performance Computing (HPC) server (ARYA) and automated EO processing pipelines.",
-          "Implemented Infrastructure as Code (IaC) principles for server configuration and pipeline deployment.",
-          "Developed BRDF normalization algorithms and harmonisation workflows for the Sen2Like virtual constellation."
-        ]
-      }
-    ]
-  },
-  {
-    "employer": "AgroSpace SpA",
-    "roles": [
-      {
-        "title": "Chief Science Officer (CSO)",
-        "date": "Aug 2018 – 2022",
-        "items": [
-          "Cofounder leading scientific solutions with EO, weather stations, and ML/AI.",
-          "Winner of AIM for Climate Challenge: $5,000,000 prize (COP28)."
+          "Leading high-performance processing of large-scale Earth Observation datasets for climate and agricultural research.",
+          "Designing advanced processing chains for satellite data harmonization and radiometric calibration.",
+          "Developed BRDF normalization algorithms and harmonization workflows for the Sen2Like virtual constellation."
         ]
       }
     ]
