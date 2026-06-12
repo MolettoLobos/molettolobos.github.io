@@ -7,7 +7,7 @@
         "date": "Aug 2025 – Jul 2026",
         "items": [
           "Designing and maintaining automated ETL/ELT pipelines for global agricultural monitoring (NASA Harvest).",
-          "Developing cloud-native processing workflows integrating Sentinel-1/2, MODIS, and PlanetScope on AWS.",
+          "Developing cloud-native processing workflows integrating Sentinel-1/2, MODIS, and PlanetScope using HPC.",
           "Building spatiotemporal data products for food security in collaboration with FAO and the Gates Foundation.",
           "Optimizing database performance and geospatial queries for large-scale yield prediction models."
         ]
