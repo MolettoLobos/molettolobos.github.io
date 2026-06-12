@@ -383,6 +383,14 @@
       </div>
     </section>
 
+    <!-- ===== Stays ===== -->
+    <section id="section-stays">
+      <h2 data-lang-key="Stays">Stays</h2>
+      <div id="stays-card" class="card big-stays-card">
+        <div id="stays-list"></div>
+      </div>
+    </section>
+
     <!-- ===== Projects ===== -->
     <section id="section-projects">
       <h2 data-lang-key="Projects">Projects</h2>
@@ -680,7 +688,7 @@
   async function loadData() {
     // Definimos todos los archivos JSON a cargar
     const filePaths = [
-      'glossary.json', 'header.json', 'education.json', 'experience.json',
+      'glossary.json', 'header.json', 'education.json', 'experience.json', 'stays.json',
       'projects.json', 'skills.json', 'science.json', 'press.json',
       'personal.json', 'copyright.json'
     ];
@@ -700,7 +708,7 @@
     const results = await Promise.all(promises);
 
     // Mapear los resultados al dataStore
-    const [glossaryData, headerData, educationData, experienceData, projectsData, skillsData, scienceData, pressData, personalData, copyrightData] = results;
+    const [glossaryData, headerData, educationData, experienceData, staysData, projectsData, skillsData, scienceData, pressData, personalData, copyrightData] = results;
 
     // 1. Asignar Glosarios primero (necesario para la traducción de la UI)
     GLOSSARY_TERMS = glossaryData.ui || {};
@@ -714,6 +722,7 @@
     dataStore.header = headerData || {};
     dataStore.education = educationData || [];
     dataStore.experience = experienceData || [];
+    dataStore.stays = staysData || [];
     dataStore.projects = projectsData || [];
     dataStore.skills = skillsData || {};
     dataStore.science = scienceData || [];
@@ -804,6 +813,23 @@
         <h3 class="employer-name">${translateText(org.employer || '')}</h3>
         ${org.location ? `<p class="meta">${translateText(org.location)}</p>` : ''}
         ${rolesHTML}
+      `;
+      list.appendChild(block);
+    });
+  }
+
+  function renderStays(data) {
+    const list = document.getElementById('stays-list');
+    if (!list) return;
+    list.innerHTML = '';
+    data.forEach(stay => {
+      const block = document.createElement('div');
+      block.className = 'edu-block';
+      block.innerHTML = `
+        <h3 class="edu-degree">${translateText(stay.institution || '')}</h3>
+        <p class="meta">${formatMetaLine(stay.location, '')}</p>
+        <p class="date">${translateDateText(stay.date || '')}</p>
+        ${stay.description ? `<p style="margin-top: 10px; font-size: 0.95em;">${translateText(stay.description)}</p>` : ''}
       `;
       list.appendChild(block);
     });
@@ -969,6 +995,7 @@
     // 1. Content that needs to be built with translated items
     renderEducation(dataStore.education);
     renderExperience(dataStore.experience);
+    renderStays(dataStore.stays);
     renderProjects(dataStore.projects);
     renderScience(dataStore.science);
     renderPress(dataStore.press);

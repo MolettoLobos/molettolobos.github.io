@@ -2,7 +2,7 @@
 "ui": {
 "es": {
 "Leadership & Team Management: Led multidisciplinary teams, coordinated international partners, and delivered EO products end-to-end.": "Liderazgo y gestión de equipos: Lideré equipos multidisciplinarios, coordiné socios internacionales y entregué productos de EO de punta a punta.",
-"Education": "Educación", "Experience": "Experiencia", "Projects": "Proyectos", "Projects Summary": "Proyectos",
+"Education": "Educación", "Experience": "Experiencia", "Stays": "Estancias", "Projects": "Proyectos", "Projects Summary": "Proyectos",
 "Language": "Idioma",
 "Click to expand": "— clic para expandir", "Skills": "Habilidades", "Technical Skills": "Habilidades Técnicas", "Skills & Leadership": "Habilidades y liderazgo",
 "Languages": "Idiomas", "Scientific profiles": "Perfiles Científicos", "In press": "En Prensa", "Recent Publications": "Publicaciones Recientes", "Citations": "Citas",
@@ -13,7 +13,7 @@
 },
 "en": {
 "Leadership & Team Management: Led multidisciplinary teams, coordinated international partners, and delivered EO products end-to-end.": "Leadership & Team Management: Led multidisciplinary teams, coordinated international partners, and delivered EO products end-to-end.",
-"Education": "Education", "Experience": "Experience", "Projects": "Projects", "Projects Summary": "Projects",
+"Education": "Education", "Experience": "Experience", "Stays": "Research Stays", "Projects": "Projects", "Projects Summary": "Projects",
 "Language": "Language",
 "Click to expand": "— click to expand", "Skills": "Skills", "Technical Skills": "Technical Skills", "Skills & Leadership": "Skills & Leadership",
 "Languages": "Languages", "Scientific profiles": "Scientific profiles", "In press": "In press", "Recent Publications": "Recent Publications", "Citations": "Citations",
@@ -146,6 +146,9 @@
 },
 "content": {
 "es": {
+"Research stay focusing on global agricultural monitoring and yield forecasting models within the NASA Harvest consortium.": "Estancia de investigación centrada en modelos globales de monitoreo agrícola y predicción de rendimiento dentro del consorcio NASA Harvest.",
+"University of Maryland": "Universidad de Maryland",
+"College Park, Maryland, USA": "College Park, Maryland, EE. UU.",
 "PhD in Remote Sensing | Spatiotemporal Data Scientist | Ag Remote Sensing | HPC & Cloud Expert": "Doctorado en Teledetección | Científico de Datos Espaciotemporales | Teledetección Agrícola | Experto en HPC y Cloud",
 "ESA-WorldCereal: Global Crop Calendars & Land Surface Phenology": "ESA-WorldCereal: Calendarios Globales de Cultivos y Fenología de la Superficie Terrestre",
 "Lead developer for global crop calendars, integrating Land Surface Phenology (LSP) and Machine Learning to characterising agricultural land conditions at scale.": "Desarrollador líder para calendarios globales de cultivos, integrando la Fenología de la Superficie Terrestre (LSP) y Machine Learning para caracterizar las condiciones de tierras agrícolas a escala.",
@@ -188,6 +191,9 @@
 "Cofounder leading scientific solutions with EO, weather stations, and ML/AI.": "Cofundador liderando soluciones científicas con EO, estaciones meteorológicas e ML/IA.",
 "Winner of AIM for Climate Challenge: $5,000,000 prize (COP28).": "Ganador del Desafío AIM for Climate: premio de $5,000,000 (COP28).",
 "Research in climate and remote sensing for food and water security projects.": "Investigación en clima y teledetección para proyectos de seguridad alimentaria e hídrica.",
+"Research stay focusing on global agricultural monitoring and yield forecasting models within the NASA Harvest consortium.": "Estancia de investigación centrada en modelos globales de monitoreo agrícola y predicción de rendimiento dentro del consorcio NASA Harvest.",
+"University of Maryland": "Universidad de Maryland",
+"College Park, Maryland, USA": "College Park, Maryland, EE. UU.",
 "PhD in Remote Sensing | Spatiotemporal Data Scientist | Ag Remote Sensing | HPC & Cloud Expert": "Doctorado en Teledetección | Científico de Datos Espaciotemporales | Teledetección Agrícola | Experto en HPC y Cloud",
 "ESA-WorldCereal: Global Crop Calendars & Land Surface Phenology": "ESA-WorldCereal: Calendarios Globales de Cultivos y Fenología de la Superficie Terrestre",
 "Lead developer for global crop calendars, integrating Land Surface Phenology (LSP) and Machine Learning to characterising agricultural land conditions at scale.": "Desarrollador líder para calendarios globales de cultivos, integrando la Fenología de la Superficie Terrestre (LSP) y Machine Learning para caracterizar las condiciones de tierras agrícolas a escala.",
