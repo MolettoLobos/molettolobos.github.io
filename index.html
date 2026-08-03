@@ -265,6 +265,7 @@
       .print-header p { margin: 0; font-size: 1em; color: #555; }
       .print-header .contact-line { font-size: 0.9em; margin-top: 4px; }
       .print-header .contact-line span { margin-right: 15px; }
+      .print-header .stats-line { font-size: 0.9em; margin-top: 4px; font-weight: 700; color: var(--accent); }
 
       .print-avatar {
         display: block !important; width: 90px !important; height: 90px !important;
@@ -1056,6 +1057,12 @@
     const emails = (dataStore.header.emails || []).join(' / ');
     const translatedSubtitle = translateText(dataStore.header.subtitle || '');
 
+    const allProjects = dataStore.projects || [];
+    const ledProjectsCount = allProjects.filter(p => p.role === 'lead').length;
+    const statsLine = T('Projects Stats Template')
+      .replace('{led}', ledProjectsCount)
+      .replace('{total}', allProjects.length);
+
     printHeaderClone.innerHTML = `
         <img class="print-avatar" src="images/your-photo-print.jpg" alt="${T('Photo')}" crossorigin="anonymous" />
         <div class="identity">
@@ -1065,6 +1072,7 @@
             ${phones ? `<span>📞 ${phones}</span>` : ''}
             ${emails ? `<span>✉️ ${emails}</span>` : ''}
           </div>
+          ${allProjects.length ? `<p class="stats-line">${statsLine}</p>` : ''}
         </div>
     `;
     wrapper.appendChild(printHeaderClone);
@@ -1100,7 +1108,14 @@
     cardExp.className = 'card';
     const listExp = document.createElement('div');
 
-    (dataStore.experience || []).forEach(org => {
+    // Two-page CV: weight Chilean experience by showing it first
+    const experienceChileFirst = [...(dataStore.experience || [])].sort((a, b) => {
+      const aChile = a.country === 'Chile' ? 0 : 1;
+      const bChile = b.country === 'Chile' ? 0 : 1;
+      return aChile - bChile;
+    });
+
+    experienceChileFirst.forEach(org => {
       const block = document.createElement('div');
       block.className = 'employer-block';
       const rolesHTML = (org.roles || []).map(role => {
