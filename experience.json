@@ -16,18 +16,15 @@
         "title": "Scientist & Lead Developer - Global Crop Calendars (ESA-WorldCereal)",
         "date": "Sep 2022 – Jul 2025",
         "items": [
-          "Led the scientific development of global crop calendars utilizing multi-source Earth Observation data.",
-          "Characterizing global agricultural land surface phenology and crop growth stages using machine learning.",
-          "Scientific lead for quality assessment and validation of global field-scale agricultural products.",
-          "PhD research focusing on phenology-informed frameworks for yield monitoring and climate risk."
+          "Led the scientific development of global crop calendars and land surface phenology using multi-source EO data and machine learning.",
+          "Scientific lead for validation of field-scale products; PhD research on phenology-informed frameworks for yield monitoring and climate risk."
         ]
       },
       {
         "title": "Remote Sensing & HPC Scientist",
         "date": "Jul 2021 – Sep 2022",
         "items": [
-          "Leading high-performance processing of large-scale Earth Observation datasets for climate and agricultural research.",
-          "Designing advanced processing chains for satellite data harmonization and radiometric calibration.",
+          "Led high-performance processing (HPC) workflows and calibration chains for large-scale Earth Observation datasets.",
           "Developed BRDF normalization algorithms and harmonization workflows for the Sen2Like virtual constellation."
         ]
       }

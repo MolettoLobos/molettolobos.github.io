@@ -295,13 +295,31 @@
       body.print-simplified #pdf-simplified {
         display: block !important;
         margin: 0 !important;
-        padding: 0.2cm 0.5cm !important; /* MÁXIMA COMPACTACIÓN: Reducido de 0.5cm 1cm */
+        padding: 0.2cm 0.5cm !important;
+        font-size: 0.93em;
+        line-height: 1.35;
       }
 
       /* Asegura que el header compacto del clon se vea */
       body.print-simplified #pdf-simplified .print-header {
         display: flex !important;
-        margin-bottom: 6mm !important;
+        align-items: center !important;
+        margin-bottom: 3mm !important;
+      }
+
+      body.print-simplified #pdf-simplified .print-avatar {
+        width: 72px !important;
+        height: 72px !important;
+        margin-right: 12px !important;
+      }
+
+      body.print-simplified #pdf-simplified .print-header h1 {
+        font-size: 1.6em !important;
+        margin: 0 0 2px !important;
+      }
+
+      body.print-simplified #pdf-simplified .print-header p {
+        font-size: 0.92em !important;
       }
 
       /* Ajustes del clon */
@@ -313,18 +331,62 @@
       }
 
       body.print-simplified #pdf-simplified section {
-        page-break-inside: avoid;
-        margin: 4px 0 6px !important; /* MÁXIMA COMPACTACIÓN: Reducido de 6px 0 10px */
+        break-inside: auto !important;
+        page-break-inside: auto !important;
+        margin: 2px 0 4px !important;
+      }
+
+      body.print-simplified #pdf-simplified .employer-block {
+        break-inside: auto !important;
+        page-break-inside: auto !important;
+        padding: 4px 0 !important;
+      }
+
+      body.print-simplified #pdf-simplified .edu-block,
+      body.print-simplified #pdf-simplified .role {
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+      }
+
+      body.print-simplified #pdf-simplified .edu-block {
+        padding: 4px 0 !important;
       }
 
       body.print-simplified #pdf-simplified .card {
         border: none !important;
-        padding: 8px 10px !important;   /* MÁXIMA COMPACTACIÓN: Reducido de 10px 12px */
-        margin-bottom: 4px !important;  /* MÁXIMA COMPACTACIÓN: Reducido de 6px */
+        padding: 4px 8px !important;
+        margin-bottom: 2px !important;
       }
 
       body.print-simplified #pdf-simplified h2 {
-        margin: 6px 0 4px !important;
+        margin: 4px 0 2px !important;
+        font-size: 1.15em !important;
+      }
+
+      body.print-simplified #pdf-simplified h3 {
+        margin: 3px 0 1px !important;
+        font-size: 1em !important;
+      }
+
+      body.print-simplified #pdf-simplified h4 {
+        margin: 2px 0 1px !important;
+        font-size: 0.95em !important;
+      }
+
+      body.print-simplified #pdf-simplified ul {
+        margin: 2px 0 0 14px !important;
+      }
+
+      body.print-simplified #pdf-simplified ul li {
+        margin: 1px 0 !important;
+      }
+
+      body.print-simplified #pdf-simplified .role {
+        margin-bottom: 4px !important;
+      }
+
+      body.print-simplified #pdf-simplified .date {
+        margin-bottom: 3px !important;
       }
     }
   </style>
@@ -1079,6 +1141,20 @@
           }, 1500);
         });
 
+        if (window.location.search.includes('simplified')) {
+          buildSimplifiedDOM();
+          const root = document.getElementById('pdf-simplified');
+          const elsToHide = [
+            document.querySelector('.container'),
+            document.querySelector('footer'),
+            document.querySelector('.header-wrapper'),
+            document.getElementById('print-header')
+          ];
+          elsToHide.forEach(el => { if (el) el.style.display = 'none'; });
+          root.style.display = 'block';
+          document.body.classList.add('print-simplified');
+        }
+
     } catch (error) {
         // ERROR FATAL: El error se propaga desde loadData() aquí.
         const errorMsg = error.message || 'Error desconocido durante la carga.';
@@ -1205,9 +1281,9 @@
     wrapper.appendChild(secSkills);
 
 
-    // Scientific profiles & Publications (Translated Title)
+    // Scientific profiles (Translated Title, publications omitted in simplified PDF)
     const secSci = document.createElement('section');
-    secSci.innerHTML = `<h2>${T('Scientific profiles')} & ${T('Recent Publications')}</h2>`;
+    secSci.innerHTML = `<h2>${T('Scientific profiles')}</h2>`;
     const cardSci = document.createElement('div');
     cardSci.className = 'card';
 
@@ -1223,11 +1299,6 @@
         }
         if (sciData.profiles) {
             sciHtml += renderTranslatedLinks(sciData.profiles);
-        }
-        if (sciData.publications?.length) {
-            sciHtml += `<h3 style="margin-top: 15px;">${T('Recent Publications')}</h3><ul>`;
-            sciData.publications.forEach(pub => sciHtml += `<li style="margin-bottom: 5px; font-size: 0.9em;">${translateText(pub)}</li>`);
-            sciHtml += '</ul>';
         }
         cardSci.innerHTML = sciHtml;
     }
