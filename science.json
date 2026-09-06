@@ -1,12 +1,12 @@
 {
   "metrics": {
-    "citations": 160,
-    "h_index": 6,
-    "i10_index": 6
+    "citations": "185+",
+    "h_index": 7,
+    "i10_index": 7
   },
   "profiles": [
     {
-      "label": "Google Scholar (160+ citations, h-index: 6)",
+      "label": "Google Scholar (185+ citations, h-index: 7)",
       "url": "https://scholar.google.com/citations?user=your-google-scholar-id"
     },
     {

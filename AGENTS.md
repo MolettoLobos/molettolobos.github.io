@@ -31,3 +31,9 @@ If you add or edit human-readable text in any JSON content file, also update `gl
 - Preserve the current data shape unless you are also updating the render logic
 - Test language changes by switching the selector in the page and checking `Skills`, `Experience`, and PDF output
 - Be careful with punctuation changes in source JSON: translation matching depends on exact strings
+
+## Branch & Change Management Rules
+
+- **Do NOT merge branches**: Each branch (`europe`, `chile`, vacancy-specific branches, etc.) serves distinct objectives and tailored CV profiles. Never merge branches unless explicitly requested by the user.
+- **Consult before major changes**: Always ask and consult the user before making major changes, structural alterations, or branch operations.
+
