@@ -1,31 +1,32 @@
 {
   "technical_skills": [
     {
-      "category": "Data Engineering & Cloud",
+      "category": "AI & Crop Yield Modelling",
       "items": [
-        "PostgreSQL / PostGIS (Advanced)",
-        "AWS (S3, Lambda, RDS, EC2, VPC)",
-        "Automated ETL/ELT Pipelines",
-        "Infrastructure as Code (IaC) & CI/CD",
-        "HPC Management (ARYA, Polaris)"
+        "Ag Remote Sensing & Spatiotemporal Deep Learning",
+        "Crop Phenology & Yield Modelling (GDD-normalised indices)",
+        "Python (Expert: PyTorch, Dask, Xarray)",
+        "Digital Agriculture & Food Security Analysis"
       ]
     },
     {
       "category": "Geospatial & Remote Sensing",
       "items": [
         "Earth Observation (Sentinel, MODIS, Planet)",
-        "Ag Remote Sensing & Spatiotemporal Deep Learning",
         "OGC APIs & Cloud-Native Formats (Zarr, COG, GeoParquet)",
-        "Digital Agriculture & Food Security Analysis"
+        "PostgreSQL / PostGIS (Advanced)",
+        "SQL & Database Design"
       ]
     },
     {
-      "category": "Languages & Tools",
+      "category": "HPC, Cloud & Engineering",
       "items": [
-        "Python (Expert: PyTorch, Dask, Xarray)",
-        "SQL & Database Design",
-        "Linux/Bash & Git",
-        "Docker & Containerization"
+        "HPC Management (ARYA, Polaris)",
+        "AWS (S3, Lambda, RDS, EC2, VPC)",
+        "Automated ETL/ELT Pipelines",
+        "Infrastructure as Code (IaC) & CI/CD",
+        "Docker & Containerization",
+        "Linux/Bash & Git"
       ]
     }
   ],

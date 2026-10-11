@@ -1,7 +1,32 @@
 {
   "name": "Italo Moletto-Lobos",
-  "subtitle": "PhD in Remote Sensing | Spatiotemporal Data Scientist | Ag Remote Sensing | HPC & Cloud Expert",
-  "phones": ["+34644087357"],
-  "emails": ["italo.moletto@uv.es", "italo.moletto.lobos@gmail.com"],
-  "linkedin": "https://www.linkedin.com/in/italo-moletto-lobos-4b711019a"
+  "subtitle": "Remote Sensing Scientist · AI-powered Crop Monitoring & Yield Forecasting",
+  "phones": [
+    "+34644087357"
+  ],
+  "emails": [
+    "italo.moletto@uv.es",
+    "italo.moletto.lobos@gmail.com"
+  ],
+  "linkedin": "https://www.linkedin.com/in/italo-moletto-lobos-4b711019a",
+  "summary": "PhD in Remote Sensing with 10 years of research in agricultural monitoring. I build machine-learning and phenology-informed models that turn multi-source satellite and weather data into crop yield forecasts and climate-risk assessments, from field-scale winter cereals in Mediterranean Europe to global systems for NASA Harvest and ESA WorldCereal.",
+  "highlights": [
+    {
+      "value": "10 yrs",
+      "label": "Agricultural monitoring & EO research"
+    },
+    {
+      "value": "NASA Harvest",
+      "label": "Global crop yield forecasting"
+    },
+    {
+      "value": "ESA WorldCereal",
+      "label": "Lead developer, global crop calendars"
+    },
+    {
+      "value": "185+",
+      "label": "Citations · h-index 7"
+    }
+  ],
+  "scholar": "https://scholar.google.com/citations?user=kMu7PVUAAAAJ"
 }

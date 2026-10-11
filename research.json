@@ -1,0 +1,39 @@
+[
+  {
+    "image": "images/research/worldcereal-calendars.jpg",
+    "alt": "Global maps of start and end of season for summer and winter crops",
+    "tag": "Global crop calendars",
+    "title": "Enhancing WorldCereal crop calendars with land surface phenology and machine learning",
+    "result": "Global start- and end-of-season calendars for 11 crops from MODIS phenology, ERA5-Land climate and XGBoost, with explicit winter-cereal dormancy. R² 0.90–0.94 against reference calendars.",
+    "citation": "Moletto-Lobos et al. (2026) · Ecological Informatics 95",
+    "url": "https://doi.org/10.1016/j.ecoinf.2026.103742",
+    "featured": true
+  },
+  {
+    "image": "images/research/wheat-phenology-gdd.jpg",
+    "alt": "Winter wheat NDVI time series with phenological stages and growing degree days",
+    "tag": "Crop phenology",
+    "title": "Tracking winter wheat development in thermal time",
+    "result": "PlanetScope NDVI and growing degree days resolve sowing, tillering, grain filling and senescence, and the effect of fertilisation and irrigation, in a Mediterranean wheat trial.",
+    "citation": "Moletto-Lobos et al. (2024) · Remote Sensing 16(23), 4474",
+    "url": "https://doi.org/10.3390/rs16234474"
+  },
+  {
+    "image": "images/research/nile-delta-phenology.jpg",
+    "alt": "Study area in the Nile Delta with monitored fields and climate diagram",
+    "tag": "Smallholder agriculture",
+    "title": "Field-scale crop phenology in the Nile Delta from Sen2Like and PlanetScope",
+    "result": "Harmonised Landsat–Sentinel-2 data detected 91% of crop seasons across six years of wheat, maize, rice and clover fields.",
+    "citation": "Cyran, Franch, …, Moletto-Lobos et al. (2025) · IJAEOG 142",
+    "url": "https://doi.org/10.1016/j.jag.2025.104716"
+  },
+  {
+    "image": "images/research/wheat-field-trial.jpg",
+    "alt": "Location of the wheat trial in Spain and drone image of the experimental plots",
+    "tag": "Yield & sustainable fertilisation",
+    "title": "Satellite and drone monitoring of winter wheat yield and grain quality",
+    "result": "Eleven fertiliser treatments monitored with PlanetScope and UAV multispectral data. PlanetScope predicted canopy cover (R² 0.68) and yield (R² 0.54); the two platforms proved complementary.",
+    "citation": "Moletto-Lobos et al. (2024) · Remote Sensing 16(23), 4474",
+    "url": "https://doi.org/10.3390/rs16234474"
+  }
+]
