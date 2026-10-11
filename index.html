@@ -714,7 +714,7 @@
   let GLOSSARY_TERMS = {};
   let DATA_GLOSSARY_TRANSLATIONS = {};
   let TITLES_GLOSSARY = {};
-  const DATA_VERSION = '2026-10-11-3';
+  const DATA_VERSION = '2026-10-11-4';
   const DATE_TRANSLATIONS = {
     en: {
       Jan: 'Jan', Feb: 'Feb', Mar: 'Mar', Apr: 'Apr', May: 'May', Jun: 'Jun',
@@ -1299,6 +1299,16 @@
     renderUI();
   }
 
+  // El navegador usa document.title como nombre del PDF; algunos portales (p. ej. JRC) limitan a 50 caracteres
+  function printWithShortFilename() {
+    const originalTitle = document.title;
+    document.title = dataStore.header?.pdf_filename || 'Moletto-Lobos_CV';
+    const restore = () => { document.title = originalTitle; window.removeEventListener('afterprint', restore); };
+    window.addEventListener('afterprint', restore);
+    window.print();
+    setTimeout(restore, 1500);
+  }
+
   function setupReveal() {
     const targets = document.querySelectorAll('.container section, .research-card, .highlight');
     if (!('IntersectionObserver' in window)) return;
@@ -1348,7 +1358,7 @@
         // 3. PDF Download (standard print)
         const pdfBtn = document.getElementById('btn-pdf');
         pdfBtn.addEventListener('click', () => {
-          window.print();
+          printWithShortFilename();
         });
 
         // 4. PDF Download (simplified print)
@@ -1372,7 +1382,7 @@
           root.style.display = 'block';
           document.body.classList.add('print-simplified');
 
-          window.print();
+          printWithShortFilename();
 
           // Limpieza y restauración
           const cleanup = () => {
