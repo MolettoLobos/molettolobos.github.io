@@ -1,6 +1,7 @@
 {
 "ui": {
 "es": {
+"Profile": "Perfil", "Research highlights": "Investigación destacada", "Read the paper": "Leer el artículo", "Download CV": "Descargar CV",
 "Leadership & Team Management: Led multidisciplinary teams, coordinated international partners, and delivered EO products end-to-end.": "Liderazgo y gestión de equipos: Lideré equipos multidisciplinarios, coordiné socios internacionales y entregué productos de EO de punta a punta.",
 "Education": "Educación", "Experience": "Experiencia", "Projects": "Proyectos", "Projects Summary": "Proyectos",
 "Language": "Idioma",
@@ -12,6 +13,7 @@
 "CV Loading": "Cargando datos del CV..."
 },
 "en": {
+"Profile": "Profile", "Research highlights": "Research highlights", "Read the paper": "Read the paper", "Download CV": "Download CV",
 "Leadership & Team Management: Led multidisciplinary teams, coordinated international partners, and delivered EO products end-to-end.": "Leadership & Team Management: Led multidisciplinary teams, coordinated international partners, and delivered EO products end-to-end.",
 "Education": "Education", "Experience": "Experience", "Projects": "Projects", "Projects Summary": "Projects",
 "Language": "Language",
@@ -23,6 +25,7 @@
 "CV Loading": "Loading CV data..."
 },
 "it": {
+"Profile": "Profilo", "Research highlights": "Ricerca in evidenza", "Read the paper": "Leggi l'articolo", "Download CV": "Scarica CV",
 "Leadership & Team Management: Led multidisciplinary teams, coordinated international partners, and delivered EO products end-to-end.": "Leadership e gestione dei team: ho guidato team multidisciplinari, coordinato partner internazionali e consegnato prodotti EO end-to-end.",
 "Education": "Formazione", "Experience": "Esperienza", "Projects": "Progetti", "Projects Summary": "Progetti",
 "Language": "Lingua",
@@ -34,6 +37,7 @@
 "CV Loading": "Caricamento dati CV..."
 },
 "fr": {
+"Profile": "Profil", "Research highlights": "Recherche phare", "Read the paper": "Lire l'article", "Download CV": "Télécharger le CV",
 "Leadership & Team Management: Led multidisciplinary teams, coordinated international partners, and delivered EO products end-to-end.": "Leadership et gestion d’équipe : j’ai dirigé des équipes pluridisciplinaires, coordonné des partenaires internationaux et livré des produits EO de bout en bout.",
 "Education": "Formation", "Experience": "Expérience", "Projects": "Projets", "Projects Summary": "Projets",
 "Language": "Langue",
@@ -45,6 +49,7 @@
 "CV Loading": "Chargement des données CV..."
 },
 "de": {
+"Profile": "Profil", "Research highlights": "Forschungshighlights", "Read the paper": "Artikel lesen", "Download CV": "CV herunterladen",
 "Leadership & Team Management: Led multidisciplinary teams, coordinated international partners, and delivered EO products end-to-end.": "Führung & Teammanagement: Leitung multidisziplinärer Teams, Koordination internationaler Partner und End-to-End-Lieferung von EO-Produkten.",
 "Education": "Ausbildung", "Experience": "Erfahrung", "Projects": "Projekte", "Projects Summary": "Projekte",
 "Language": "Sprache",
@@ -56,6 +61,7 @@
 "CV Loading": "Lade CV-Daten..."
 },
 "pt": {
+"Profile": "Perfil", "Research highlights": "Destaques de pesquisa", "Read the paper": "Ler o artigo", "Download CV": "Baixar CV",
 "Leadership & Team Management: Led multidisciplinary teams, coordinated international partners, and delivered EO products end-to-end.": "Liderança e gestão de equipes: liderei equipes multidisciplinares, coordenei parceiros internacionais e entreguei produtos EO ponta a ponta.",
 "Education": "Formação", "Experience": "Experiência", "Projects": "Projetos", "Projects Summary": "Projetos",
 "Language": "Idioma",
@@ -67,6 +73,7 @@
 "CV Loading": "Carregando dados do CV..."
 },
 "ru": {
+"Profile": "Профиль", "Research highlights": "Ключевые исследования", "Read the paper": "Читать статью", "Download CV": "Скачать CV",
 "Leadership & Team Management: Led multidisciplinary teams, coordinated international partners, and delivered EO products end-to-end.": "Лидерство и управление командой: руководил междисциплинарными командами, координировал международных партнеров и обеспечивал поставку EO-продуктов end-to-end.",
 "Education": "Образование", "Experience": "Опыт", "Projects": "Проекты", "Projects Summary": "Проекты",
 "Language": "Язык",
@@ -78,6 +85,7 @@
 "CV Loading": "Загрузка данных CV..."
 },
 "uk": {
+"Profile": "Профіль", "Research highlights": "Ключові дослідження", "Read the paper": "Читати статтю", "Download CV": "Завантажити CV",
 "Leadership & Team Management: Led multidisciplinary teams, coordinated international partners, and delivered EO products end-to-end.": "Лідерство та управління командами: керував міждисциплінарними командами, координував міжнародних партнерів і забезпечував доставку EO-продуктів end-to-end.",
 "Education": "Освіта", "Experience": "Досвід", "Projects": "Проєкти", "Projects Summary": "Проєкти",
 "Language": "Мова",
@@ -89,6 +97,7 @@
 "CV Loading": "Завантаження даних CV..."
 },
 "nl": {
+"Profile": "Profiel", "Research highlights": "Onderzoekshoogtepunten", "Read the paper": "Lees het artikel", "Download CV": "CV downloaden",
 "Leadership & Team Management: Led multidisciplinary teams, coordinated international partners, and delivered EO products end-to-end.": "Leiderschap en teammanagement: multidisciplinaire teams geleid, internationale partners gecoördineerd en EO-producten end-to-end opgeleverd.",
 "Education": "Opleiding", "Experience": "Ervaring", "Projects": "Projecten", "Projects Summary": "Projecten",
 "Language": "Taal",
@@ -100,6 +109,7 @@
 "CV Loading": "CV-gegevens laden..."
 },
 "sv": {
+"Profile": "Profil", "Research highlights": "Forskningshöjdpunkter", "Read the paper": "Läs artikeln", "Download CV": "Ladda ner CV",
 "Leadership & Team Management: Led multidisciplinary teams, coordinated international partners, and delivered EO products end-to-end.": "Ledarskap och teamledning: ledde multidisciplinära team, samordnade internationella partners och levererade EO-produkter end-to-end.",
 "Education": "Utbildning", "Experience": "Erfarenhet", "Projects": "Projekt", "Projects Summary": "Projecten",
 "Language": "Språk",
@@ -111,6 +121,7 @@
 "CV Loading": "Laddar CV-data..."
 },
 "pl": {
+"Profile": "Profil", "Research highlights": "Najważniejsze badania", "Read the paper": "Przeczytaj artykuł", "Download CV": "Pobierz CV",
 "Leadership & Team Management: Led multidisciplinary teams, coordinated international partners, and delivered EO products end-to-end.": "Przywództwo i zarządzanie zespołem: prowadziłem zespoły interdyscyplinarne, koordynowałem partnerów międzynarodowych i dostarczałem produkty EO end-to-end.",
 "Education": "Edukacja", "Experience": "Doświadczenie", "Projects": "Projekty", "Projects Summary": "Projekty",
 "Language": "Język",
@@ -122,6 +133,7 @@
 "CV Loading": "Ładowanie danych CV..."
 },
 "ja": {
+"Profile": "プロフィール", "Research highlights": "研究ハイライト", "Read the paper": "論文を読む", "Download CV": "CVをダウンロード",
 "Leadership & Team Management: Led multidisciplinary teams, coordinated international partners, and delivered EO products end-to-end.": "リーダーシップとチームマネジメント: 学際的チームを率い、国際パートナーを調整し、EO製品をエンドツーエンドで提供。",
 "Education": "学歴", "Experience": "職務経歴", "Projects": "プロジェクト", "Projects Summary": "プロジェクト",
 "Language": "言語",
@@ -133,6 +145,7 @@
 "CV Loading": "CVデータをロード中..."
 },
 "ko": {
+"Profile": "프로필", "Research highlights": "주요 연구", "Read the paper": "논문 보기", "Download CV": "CV 다운로드",
 "Leadership & Team Management: Led multidisciplinary teams, coordinated international partners, and delivered EO products end-to-end.": "리더십 및 팀 관리: 학제적 팀을 이끌고 국제 파트너를 조정했으며 EO 제품을 엔드투엔드로 제공.",
 "Education": "학력", "Experience": "경력", "Projects": "프로젝트", "Projects Summary": "프로젝트",
 "Language": "언어",
@@ -146,6 +159,7 @@
 },
 "content": {
 "es": {
+"Global maps of start and end of season for summer and winter crops": "Mapas globales de inicio y fin de temporada para cultivos de verano e invierno", "Global crop calendars": "Calendarios globales de cultivos", "Enhancing WorldCereal crop calendars with land surface phenology and machine learning": "Mejora de los calendarios de cultivos de WorldCereal con fenología de la superficie terrestre y machine learning", "Global start- and end-of-season calendars for 11 crops from MODIS phenology, ERA5-Land climate and XGBoost, with explicit winter-cereal dormancy. R² 0.90–0.94 against reference calendars.": "Calendarios globales de inicio y fin de temporada para 11 cultivos a partir de fenología MODIS, clima ERA5-Land y XGBoost, con modelado explícito de la dormancia de los cereales de invierno. R² 0,90–0,94 frente a calendarios de referencia.", "Winter wheat NDVI time series with phenological stages and growing degree days": "Serie temporal de NDVI del trigo de invierno con etapas fenológicas y grados-día de crecimiento", "Crop phenology": "Fenología de cultivos", "Tracking winter wheat development in thermal time": "Seguimiento del desarrollo del trigo de invierno en tiempo térmico", "PlanetScope NDVI and growing degree days resolve sowing, tillering, grain filling and senescence, and the effect of fertilisation and irrigation, in a Mediterranean wheat trial.": "El NDVI de PlanetScope y los grados-día de crecimiento identifican siembra, ahijado, llenado de grano y senescencia, así como el efecto de la fertilización y el riego, en un ensayo de trigo mediterráneo.", "Study area in the Nile Delta with monitored fields and climate diagram": "Zona de estudio en el delta del Nilo con parcelas monitoreadas y diagrama climático", "Smallholder agriculture": "Agricultura de pequeños productores", "Field-scale crop phenology in the Nile Delta from Sen2Like and PlanetScope": "Fenología de cultivos a escala de parcela en el delta del Nilo con Sen2Like y PlanetScope", "Harmonised Landsat–Sentinel-2 data detected 91% of crop seasons across six years of wheat, maize, rice and clover fields.": "Los datos armonizados Landsat–Sentinel-2 detectaron el 91% de las temporadas de cultivo en seis años de parcelas de trigo, maíz, arroz y trébol.", "Location of the wheat trial in Spain and drone image of the experimental plots": "Ubicación del ensayo de trigo en España e imagen de dron de las parcelas experimentales", "Yield & sustainable fertilisation": "Rendimiento y fertilización sostenible", "Satellite and drone monitoring of winter wheat yield and grain quality": "Monitoreo satelital y con dron del rendimiento y la calidad del grano de trigo de invierno", "Eleven fertiliser treatments monitored with PlanetScope and UAV multispectral data. PlanetScope predicted canopy cover (R² 0.68) and yield (R² 0.54); the two platforms proved complementary.": "Once tratamientos de fertilización monitoreados con PlanetScope y datos multiespectrales de UAV. PlanetScope predijo la cobertura del cultivo (R² 0,68) y el rendimiento (R² 0,54); ambas plataformas resultaron complementarias.", "PhD in Remote Sensing and co-founder of AgroSpace. I turn multi-sensor Earth observation into operational products for food and water security, from yield forecasting for NASA Harvest and global crop calendars for ESA WorldCereal to petabyte-scale HPC and cloud pipelines.": "Doctor en Teledetección y cofundador de AgroSpace. Convierto la observación de la Tierra multisensor en productos operativos para la seguridad alimentaria e hídrica, desde el pronóstico de rendimiento para NASA Harvest y los calendarios globales de cultivos de ESA WorldCereal hasta pipelines HPC y cloud a escala de petabytes.", "$5M": "USD 5M", "AIM for Climate prize (COP28), AgroSpace": "Premio AIM for Climate (COP28), AgroSpace", "Yield forecasting specialist": "Especialista en pronóstico de rendimiento", "Lead developer, global crop calendars": "Desarrollador principal, calendarios globales de cultivos", "Citations · h-index 6": "Citas · índice h 6",
 "PhD in Remote Sensing | Earth System Data Engineer | GeoAI | HPC & Cloud Expert": "Doctorado en Teledetección | Ingeniero experto en observación de la tierra | GeoIA | Experto en HPC y computación en la nube",
 "University of Valencia": "Universidad de Valencia", "University of Chile": "Universidad de Chile", "University of Valencia / Image Processing Laboratory - Global Change Unit": "Universidad de Valencia / Laboratorio de Procesamiento de Imágenes - Unidad de Cambio Global",
 "University of Chile / Laboratory for Analysis of the Biosphere (LAB)": "Universidad de Chile / Laboratorio para el Análisis de la Biosfera (LAB)", "Univ. of Chile / Center for Climate and Resilience Research (CR2)": "Univ. de Chile / Centro de Ciencia del Clima y la Resiliencia (CR2)", "University of Aysén / Lab. of Geosciences": "Universidad de Aysén / Laboratorio de Geociencias",
@@ -303,6 +317,7 @@
 "Technical staff on interdisciplinary research about socio-environmental conflicts in forest territories.": "Technical staff on interdisciplinary research about socio-environmental conflicts in forest territories."
 },
 "it": {
+"Global maps of start and end of season for summer and winter crops": "Mappe globali di inizio e fine stagione per colture estive e invernali", "Global crop calendars": "Calendari colturali globali", "Enhancing WorldCereal crop calendars with land surface phenology and machine learning": "Miglioramento dei calendari colturali WorldCereal con fenologia della superficie terrestre e machine learning", "Global start- and end-of-season calendars for 11 crops from MODIS phenology, ERA5-Land climate and XGBoost, with explicit winter-cereal dormancy. R² 0.90–0.94 against reference calendars.": "Calendari globali di inizio e fine stagione per 11 colture da fenologia MODIS, clima ERA5-Land e XGBoost, con modellazione esplicita della dormienza dei cereali invernali. R² 0,90–0,94 rispetto ai calendari di riferimento.", "Winter wheat NDVI time series with phenological stages and growing degree days": "Serie temporale NDVI del frumento invernale con fasi fenologiche e gradi-giorno", "Crop phenology": "Fenologia delle colture", "Tracking winter wheat development in thermal time": "Monitoraggio dello sviluppo del frumento invernale in tempo termico", "PlanetScope NDVI and growing degree days resolve sowing, tillering, grain filling and senescence, and the effect of fertilisation and irrigation, in a Mediterranean wheat trial.": "L'NDVI di PlanetScope e i gradi-giorno di crescita individuano semina, accestimento, riempimento della granella e senescenza, oltre all'effetto di fertilizzazione e irrigazione, in una prova di frumento mediterranea.", "Study area in the Nile Delta with monitored fields and climate diagram": "Area di studio nel delta del Nilo con campi monitorati e diagramma climatico", "Smallholder agriculture": "Agricoltura di piccola scala", "Field-scale crop phenology in the Nile Delta from Sen2Like and PlanetScope": "Fenologia delle colture a scala di campo nel delta del Nilo con Sen2Like e PlanetScope", "Harmonised Landsat–Sentinel-2 data detected 91% of crop seasons across six years of wheat, maize, rice and clover fields.": "I dati armonizzati Landsat–Sentinel-2 hanno rilevato il 91% delle stagioni colturali in sei anni di campi di frumento, mais, riso e trifoglio.", "Location of the wheat trial in Spain and drone image of the experimental plots": "Localizzazione della prova di frumento in Spagna e immagine da drone delle parcelle sperimentali", "Yield & sustainable fertilisation": "Resa e fertilizzazione sostenibile", "Satellite and drone monitoring of winter wheat yield and grain quality": "Monitoraggio da satellite e drone della resa e della qualità della granella del frumento invernale", "Eleven fertiliser treatments monitored with PlanetScope and UAV multispectral data. PlanetScope predicted canopy cover (R² 0.68) and yield (R² 0.54); the two platforms proved complementary.": "Undici trattamenti di fertilizzazione monitorati con PlanetScope e dati multispettrali da UAV. PlanetScope ha previsto la copertura (R² 0,68) e la resa (R² 0,54); le due piattaforme si sono rivelate complementari.", "PhD in Remote Sensing and co-founder of AgroSpace. I turn multi-sensor Earth observation into operational products for food and water security, from yield forecasting for NASA Harvest and global crop calendars for ESA WorldCereal to petabyte-scale HPC and cloud pipelines.": "Dottorato in Telerilevamento e co-fondatore di AgroSpace. Trasformo l'osservazione della Terra multi-sensore in prodotti operativi per la sicurezza alimentare e idrica, dalla previsione delle rese per NASA Harvest e dai calendari colturali globali di ESA WorldCereal fino a pipeline HPC e cloud su scala di petabyte.", "$5M": "5M $", "AIM for Climate prize (COP28), AgroSpace": "Premio AIM for Climate (COP28), AgroSpace", "Yield forecasting specialist": "Specialista in previsione delle rese", "Lead developer, global crop calendars": "Sviluppatore principale, calendari colturali globali", "Citations · h-index 6": "Citazioni · indice h 6",
 "PhD in Remote Sensing | Earth System Data Engineer | GeoAI | HPC & Cloud Expert": "Dottorato in Telerilevamento | Ingegnere dei Dati del Sistema Terra | GeoIA | Esperto in HPC e cloud",
 "University of Valencia": "Università di Valencia", "University of Chile": "Università del Cile", "University of Valencia / Image Processing Laboratory - Global Change Unit": "Università di Valencia / Laboratorio di Elaborazione delle Immagini - Unità di Cambiamento Globale",
 "University of Chile / Laboratory for Analysis of the Biosphere (LAB)": "Università del Cile / Laboratorio per l'Analisi della Biosfera (LAB)", "Univ. of Chile / Center for Climate and Resilience Research (CR2)": "Univ. del Cile / Centro di Ricerca su Clima e Resilienza (CR2)", "University of Aysén / Lab. of Geosciences": "Università di Aysén / Laboratorio di Geoscienze",
