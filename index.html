@@ -3,21 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Italo Moletto Lobos - CV</title>
+  <title>Italo Moletto-Lobos — AI Crop Monitoring & Yield Forecasting</title>
+  <meta name="description" content="Remote sensing scientist building machine-learning and phenology-informed models for crop monitoring, yield forecasting and climate-risk assessment (NASA Harvest, ESA WorldCereal)." />
+  <meta property="og:title" content="Italo Moletto-Lobos — AI Crop Monitoring & Yield Forecasting" />
+  <meta property="og:description" content="PhD in Remote Sensing. Machine learning, crop phenology and multi-source EO for agricultural monitoring and yield forecasting." />
+  <meta property="og:type" content="profile" />
+  <meta property="og:image" content="images/your-photo-print.jpg" />
 
   <!-- Fonts & Icons -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
 
   <style>
     :root {
-      --primary: #2c3e50;
-      --accent: #3498db;
-      --bg: #f5f7fa;
-      --text: #2c2c2c;
+      --primary: #12372a;
+      --accent: #1f7a52;
+      --accent-2: #e0a526;
+      --accent-soft: #e6f2ea;
+      --bg: #f6f5ef;
+      --text: #1d2421;
+      --muted: #5b6660;
+      --line: #e4e2d8;
       --card-bg: #ffffff;
-      --shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-      --radius: 12px;
+      --shadow: 0 4px 14px rgba(18, 55, 42, 0.06);
+      --radius: 14px;
     }
 
     /* Ajustes base para clones PDF */
@@ -36,14 +45,30 @@
       background: var(--bg);
       color: var(--text);
       margin: 0;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, .highlight-value {
+      font-family: 'Fraunces', Georgia, serif;
+      letter-spacing: -0.01em;
     }
 
     h2 {
-      font-size: 1.8em;
-      border-left: 5px solid var(--accent);
-      padding-left: 15px;
-      margin: 0 0 25px;
+      font-size: 2em;
+      font-weight: 600;
+      margin: 0 0 28px;
       color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    h2::before {
+      content: "";
+      width: 28px; height: 4px;
+      border-radius: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      flex: none;
     }
 
     a { color: var(--accent); text-decoration: none; }
@@ -52,149 +77,313 @@
     ul { padding-left: 20px; }
     ul li { margin-bottom: 6px; }
 
-    /* ===== HEADER */
+    /* ===== HERO */
     .header-wrapper {
       position: relative;
-      text-align: center;
-      padding: 60px 20px 100px;
       color: white;
+      padding: 72px 24px 64px;
       background:
-        linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-        /* RUTA CORREGIDA: Apuntando a la carpeta 'images/' */
-        url('images/header-footer-bg.png') center/cover no-repeat;
+        linear-gradient(115deg, rgba(10, 38, 29, 0.94) 0%, rgba(10, 38, 29, 0.78) 45%, rgba(10, 38, 29, 0.35) 100%),
+        url('images/header-footer-bg.jpg') center/cover no-repeat;
     }
+    .hero-inner {
+      max-width: 1040px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+    header { position: relative; }
+    header h1 { font-size: 3.4em; font-weight: 600; line-height: 1.05; margin: 0 0 14px; }
+    header .hero-subtitle {
+      font-size: 1.25em;
+      margin: 0 0 26px;
+      color: #d8eadf;
+      max-width: 640px;
+    }
+    header .hero-subtitle strong { color: var(--accent-2); font-weight: 600; }
 
-    header {
-      position: relative;
-    }
-    header h1 { font-size: 2.8em; margin: 0 0 10px; }
-    header p { font-size: 1.2em; opacity: 0.85; }
-
-    .contact-info {
-      margin-top: 25px;
-      font-size: 0.95em;
-    }
-    .contact-info span, .contact-info a {
-      margin: 0 12px;
+    .contact-info { display: flex; flex-wrap: wrap; gap: 10px; }
+    .contact-info a, .contact-info span, .contact-info button {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.28);
+      background: rgba(255,255,255,0.08);
       color: white;
+      font: inherit;
+      font-size: 0.9em;
+      text-decoration: none;
+      backdrop-filter: blur(4px);
+      transition: background .2s, border-color .2s;
     }
+    .contact-info a:hover { background: rgba(255,255,255,0.18); text-decoration: none; }
+    .contact-info .cta {
+      background: var(--accent-2);
+      border-color: var(--accent-2);
+      color: #1d1a10;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .contact-info .cta:hover { background: #f0b92e; }
 
     .lang-selector {
       position: absolute;
-      top: 10px;
-      right: 10px;
+      top: 16px;
+      right: 20px;
+      z-index: 2;
+    }
+    .lang-selector select {
+      padding: 5px 8px;
+      border-radius: 6px;
+      border: none;
+      color: var(--primary);
     }
 
-    /* Profile */
-    .profile-wrapper {
-      position: absolute;
-      bottom: -70px;
-      left: 50%;
-      transform: translateX(-50%);
-    }
+    .profile-wrapper { flex: none; }
     .profile-pic {
-      width: 140px; height: 140px;
+      width: 190px; height: 190px;
       border-radius: 50%;
-      border: 5px solid white;
+      border: 4px solid rgba(255,255,255,0.9);
       object-fit: cover;
       background: white;
-      box-shadow: var(--shadow);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+      display: block;
     }
 
     /* ===== CONTAINER */
     .container {
-      max-width: 1000px;
-      margin: 120px auto 0;
-      padding: 40px 20px;
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 64px 24px 24px;
     }
-    section { margin-bottom: 60px; }
+    section { margin-bottom: 72px; }
 
     .card {
       background: var(--card-bg);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
+      border: 1px solid var(--line);
       padding: 25px 30px;
       margin-bottom: 25px;
     }
-    .card h3 { margin: 0 0 6px; font-size: 1.25em; }
+    .card h3 { margin: 0 0 6px; font-size: 1.2em; }
 
     /* Loader */
     #loading-overlay {
         position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-        background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(2px);
+        background: rgba(246, 245, 239, 0.95); backdrop-filter: blur(2px);
         display: flex; justify-content: center; align-items: center;
         flex-direction: column; z-index: 1000;
         transition: opacity 0.3s ease-in-out;
     }
     .spinner {
-        border: 4px solid #f3f3f3; border-top: 4px solid var(--accent);
+        border: 4px solid #e4e2d8; border-top: 4px solid var(--accent);
         border-radius: 50%; width: 40px; height: 40px;
         animation: spin 1s linear infinite;
     }
     @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
 
+    /* ===== PROFILE & HIGHLIGHTS */
+    .profile-summary {
+      font-size: 1.2em;
+      line-height: 1.7;
+      color: var(--primary);
+      margin: 0 0 30px;
+      max-width: 860px;
+    }
+    .highlights {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .highlight {
+      background: var(--card-bg);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    .highlight::after {
+      content: "";
+      position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+      background: linear-gradient(180deg, var(--accent), var(--accent-2));
+    }
+    .highlight-value { font-size: 1.6em; font-weight: 600; color: var(--primary); line-height: 1.15; }
+    .highlight-label { font-size: .88em; color: var(--muted); margin-top: 8px; line-height: 1.4; }
 
-    /* ===== BIG CARDS (Education/Experience/Projects) */
+    /* ===== RESEARCH HIGHLIGHTS */
+    .research-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .research-card {
+      background: var(--card-bg);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow);
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .research-card:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(18, 55, 42, 0.14); }
+    .research-figure {
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+      aspect-ratio: 16 / 10;
+      padding: 10px;
+      display: flex;
+    }
+    .research-figure img { width: 100%; height: 100%; object-fit: contain; display: block; }
+    .research-body { padding: 18px 20px 20px; display: flex; flex-direction: column; flex: 1; }
+    .research-tag {
+      align-self: flex-start;
+      font-size: .72em; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-soft);
+      padding: 4px 10px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+    }
+    .research-title { font-size: 1.05em; line-height: 1.35; margin: 0 0 8px; color: var(--primary); }
+    .research-result { font-size: .92em; color: var(--text); margin: 0 0 14px; flex: 1; }
+    .research-cite { font-size: .8em; color: var(--muted); margin: 0 0 10px; }
+    .research-link { font-weight: 600; font-size: .9em; }
+
+    .research-card.featured { grid-column: 1 / -1; flex-direction: row; }
+    .research-card.featured .research-figure {
+      flex: 1.6; aspect-ratio: auto; border-bottom: 0; border-right: 1px solid var(--line);
+    }
+    .research-card.featured .research-body { flex: 1; padding: 28px; justify-content: center; }
+    .research-card.featured .research-title { font-size: 1.4em; font-family: 'Fraunces', Georgia, serif; font-weight: 600; }
+    .research-card.featured .research-result { flex: none; font-size: 1em; }
+
+    /* ===== EXPERIENCE TIMELINE / BIG CARDS */
     .big-card { padding: 28px 32px; }
     .edu-block, .employer-block, .project-block {
       padding: 16px 0;
-      border-top: 1px solid #e8edf2;
+      border-top: 1px solid var(--line);
       break-inside: avoid; page-break-inside: avoid;
     }
-    .edu-block:first-child, .employer-block:first-child, .project-block:first-child { border-top: 0; padding-top: 0; }
+    .edu-block:first-child, .employer-block:first-child { border-top: 0; padding-top: 0; }
 
-    .edu-degree, .employer-name, .project-title { font-weight: 800; margin: 0 0 6px; }
-    .meta { color: #555; margin: 0 0 6px; }
-    .date { color: #777; font-size: .9em; margin-bottom: 8px; }
+    .edu-degree, .employer-name, .project-title { font-weight: 700; margin: 0 0 6px; color: var(--primary); }
+    .meta { color: var(--muted); margin: 0 0 6px; }
+    .date { color: var(--muted); font-size: .88em; margin-bottom: 8px; font-variant-numeric: tabular-nums; }
     .edu-block ul, .role ul { margin: 6px 0 0 18px; }
 
-    /* Projects */
-    .big-projects-card { padding: 22px 28px; }
-    .projects-details > summary {
-      list-style: none;
-      cursor: pointer;
-      font-weight: 700;
-      display: flex;
-      gap: 6px;
-      margin-bottom: 12px;
+    @media screen {
+      #experience-list .employer-block { border-top: 0; padding: 0 0 8px 28px; position: relative; }
+      #experience-list .employer-block::before {
+        content: ""; position: absolute; left: 6px; top: 8px; bottom: 0;
+        width: 2px; background: var(--line);
+      }
+      #experience-list .employer-block::after {
+        content: ""; position: absolute; left: 0; top: 4px;
+        width: 14px; height: 14px; border-radius: 50%;
+        background: var(--card-bg); border: 3px solid var(--accent);
+        box-sizing: border-box;
+      }
+      #experience-list .employer-block:first-child::after { background: var(--accent); }
+      #experience-list .employer-block:last-child::before { display: none; }
+      #experience-list .role { margin: 10px 0 18px; }
+      #experience-list .role-title { margin: 0 0 2px; color: var(--accent); font-size: 1em; }
     }
-    .projects-summary-hint { font-weight: 400; color: #666; font-size: .9em; }
-    .projects-details[open] .projects-summary-hint { display: none; }
-    .project-sub { font-size: .95em; color: #555; margin: 0 0 6px; }
-    .project-sub .date { color: #666; }
+
+    /* ===== PROJECTS */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+    .project-grid .project-block {
+      background: var(--card-bg);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 16px 18px;
+    }
+    .project-title { font-size: 1em; line-height: 1.35; }
+    .project-sub { font-size: .85em; color: var(--muted); margin: 0 0 8px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+    .project-sub .date { margin: 0; }
+    .project-sub .code {
+      background: var(--accent-soft); color: var(--accent);
+      padding: 2px 8px; border-radius: 999px; font-size: .9em;
+    }
+    .project-desc { font-size: .92em; margin: 0; }
+
+    /* ===== SKILLS */
+    .skill-group { margin-bottom: 18px; }
+    .skill-group:last-child { margin-bottom: 0; }
+    .skill-group h3 { font-size: 1em; margin: 0 0 10px; color: var(--primary); }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 0; }
+    .chips li {
+      margin: 0;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--primary);
+      font-size: .88em;
+    }
+
+    /* ===== REVEAL ON SCROLL */
+    @media screen and (prefers-reduced-motion: no-preference) {
+      .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+      .reveal.visible { opacity: 1; transform: none; }
+    }
 
     /* ===== FOOTER */
     footer {
       text-align: center;
-      padding: 26px 0 32px;
+      padding: 36px 0 40px;
       font-size: 0.9em;
-      color: white;
+      color: #d8eadf;
       background:
-        linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-        /* RUTA CORREGIDA: Apuntando a la carpeta 'images/' */
-        url('images/header-footer-bg.png') center/cover no-repeat;
+        linear-gradient(rgba(10, 38, 29, 0.9), rgba(10, 38, 29, 0.9)),
+        url('images/header-footer-bg.jpg') center/cover no-repeat;
     }
     footer .print-btn {
       background: white;
       color: var(--primary);
       border: none;
-      border-radius: var(--radius);
-      padding: 8px 16px;
+      border-radius: 999px;
+      padding: 9px 18px;
       font-size: 0.95em;
       cursor: pointer;
-      box-shadow: var(--shadow);
       transition: background 0.2s, color 0.2s;
     }
-    footer .print-btn:hover { background: var(--accent); color: white; }
+    footer .print-btn:hover { background: var(--accent-2); color: #1d1a10; }
+
+    /* ===== TABLET */
+    @media (max-width: 900px) {
+      .research-grid { grid-template-columns: repeat(2, 1fr); }
+      .research-card.featured { flex-direction: column; }
+      .research-card.featured .research-figure { border-right: 0; border-bottom: 1px solid var(--line); aspect-ratio: 16 / 10; }
+    }
 
     /* ===== MOBILE */
     @media (max-width: 768px) {
-      header h1 { font-size: 2em; }
-      .contact-info span, .contact-info a { display: block; margin: 5px 0; }
-      .profile-pic { width: 100px; height: 100px; }
-      .container { margin-top: 100px; padding: 30px 15px; }
+      .header-wrapper { padding: 64px 16px 40px; }
+      .hero-inner { grid-template-columns: 1fr; gap: 20px; text-align: center; justify-items: center; }
+      header h1 { font-size: 2.3em; }
+      header .hero-subtitle { font-size: 1.05em; }
+      .contact-info { justify-content: center; }
+      .contact-info a, .contact-info span { overflow-wrap: anywhere; }
+      .profile-pic { width: 128px; height: 128px; }
+      .container { padding: 44px 16px 16px; }
+      section { margin-bottom: 52px; }
+      h2 { font-size: 1.6em; }
+      .card, .big-card { padding: 20px 18px; }
+      .highlights { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+      .highlight { padding: 16px 14px 16px 18px; }
+      .highlight-value { font-size: 1.3em; }
+      .research-grid, .project-grid { grid-template-columns: 1fr; }
+      .research-card.featured .research-body { padding: 18px 20px 20px; }
       footer { font-size: 0.8em; }
-      .lang-selector { position: relative; top: -20px; right: 0; margin-bottom: -40px; }
+      a, li { overflow-wrap: anywhere; }
     }
 
     /* ===== PRINT (normal) */
@@ -205,7 +394,11 @@
       * { box-shadow: none !important; }
 
       /* Ocultar lo que no va al PDF */
-      .header-wrapper, footer, .print-btn, .contact-info a, .lang-selector { display: none !important; }
+      .header-wrapper, footer, .print-btn, .contact-info a, .lang-selector, #section-research { display: none !important; }
+      .reveal { opacity: 1 !important; transform: none !important; }
+      .project-grid { display: block !important; }
+      .project-grid .project-block { border: 0 !important; border-top: 1px solid var(--line) !important; border-radius: 0 !important; padding: 8px 0 !important; }
+      .highlight { padding: 10px 12px !important; }
 
       /* Contenedor */
       .container {
@@ -296,13 +489,31 @@
       body.print-simplified #pdf-simplified {
         display: block !important;
         margin: 0 !important;
-        padding: 0.2cm 0.5cm !important; /* MÁXIMA COMPACTACIÓN: Reducido de 0.5cm 1cm */
+        padding: 0.2cm 0.5cm !important;
+        font-size: 0.9em;
+        line-height: 1.3;
       }
 
       /* Asegura que el header compacto del clon se vea */
       body.print-simplified #pdf-simplified .print-header {
         display: flex !important;
-        margin-bottom: 6mm !important;
+        align-items: center !important;
+        margin-bottom: 3mm !important;
+      }
+
+      body.print-simplified #pdf-simplified .print-avatar {
+        width: 72px !important;
+        height: 72px !important;
+        margin-right: 12px !important;
+      }
+
+      body.print-simplified #pdf-simplified .print-header h1 {
+        font-size: 1.6em !important;
+        margin: 0 0 2px !important;
+      }
+
+      body.print-simplified #pdf-simplified .print-header p {
+        font-size: 0.92em !important;
       }
 
       /* Ajustes del clon */
@@ -314,18 +525,62 @@
       }
 
       body.print-simplified #pdf-simplified section {
-        page-break-inside: avoid;
-        margin: 4px 0 6px !important; /* MÁXIMA COMPACTACIÓN: Reducido de 6px 0 10px */
+        break-inside: auto !important;
+        page-break-inside: auto !important;
+        margin: 2px 0 4px !important;
+      }
+
+      body.print-simplified #pdf-simplified .employer-block {
+        break-inside: auto !important;
+        page-break-inside: auto !important;
+        padding: 4px 0 !important;
+      }
+
+      body.print-simplified #pdf-simplified .edu-block,
+      body.print-simplified #pdf-simplified .role {
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+      }
+
+      body.print-simplified #pdf-simplified .edu-block {
+        padding: 4px 0 !important;
       }
 
       body.print-simplified #pdf-simplified .card {
         border: none !important;
-        padding: 8px 10px !important;   /* MÁXIMA COMPACTACIÓN: Reducido de 10px 12px */
-        margin-bottom: 4px !important;  /* MÁXIMA COMPACTACIÓN: Reducido de 6px */
+        padding: 4px 8px !important;
+        margin-bottom: 2px !important;
       }
 
       body.print-simplified #pdf-simplified h2 {
-        margin: 6px 0 4px !important;
+        margin: 4px 0 2px !important;
+        font-size: 1.15em !important;
+      }
+
+      body.print-simplified #pdf-simplified h3 {
+        margin: 3px 0 1px !important;
+        font-size: 1em !important;
+      }
+
+      body.print-simplified #pdf-simplified h4 {
+        margin: 2px 0 1px !important;
+        font-size: 0.95em !important;
+      }
+
+      body.print-simplified #pdf-simplified ul {
+        margin: 2px 0 0 14px !important;
+      }
+
+      body.print-simplified #pdf-simplified ul li {
+        margin: 1px 0 !important;
+      }
+
+      body.print-simplified #pdf-simplified .role {
+        margin-bottom: 4px !important;
+      }
+
+      body.print-simplified #pdf-simplified .date {
+        margin-bottom: 3px !important;
       }
     }
   </style>
@@ -341,39 +596,44 @@
   <div id="print-header" class="print-header" aria-hidden="true"></div>
 
   <div class="header-wrapper">
-    <header id="header">
-        <div class="lang-selector">
-            <label for="lang-select" data-lang-key="Language" style="font-size:0.85em; color: rgba(255,255,255,0.7);">Language:</label>
-            <select id="lang-select" style="padding: 5px 8px; border-radius: 6px; color: var(--primary); border:none;">
-                <option value="en">English</option>
-                <option value="es">Español</option>
-                <option value="it">Italiano</option>
-                <option value="fr">Français</option>
-                <option value="de">Deutsch</option>
-                <option value="pt">Português</option>
-                <option value="ru">Русский</option>
-                <option value="uk">Українська</option>
-                <option value="nl">Nederlands</option>
-                <option value="sv">Svenska</option>
-                <option value="pl">Polski</option>
-                <option value="ja">日本語</option>
-                <option value="ko">한국어</option>
-            </select>
-        </div>
-    </header>
-    <div class="profile-wrapper">
-      <!-- RUTA CORREGIDA: Apuntando a la carpeta 'images/' -->
-      <img class="profile-pic" src="images/your-photo.jpg" alt="Italo Moletto" crossorigin="anonymous" />
+    <div class="lang-selector">
+      <label for="lang-select" data-lang-key="Language" style="font-size:0.85em; color: rgba(255,255,255,0.7);">Language:</label>
+      <select id="lang-select">
+        <option value="en">English</option>
+        <option value="es">Español</option>
+        <option value="it">Italiano</option>
+        <option value="fr">Français</option>
+        <option value="de">Deutsch</option>
+        <option value="pt">Português</option>
+        <option value="ru">Русский</option>
+        <option value="uk">Українська</option>
+        <option value="nl">Nederlands</option>
+        <option value="sv">Svenska</option>
+        <option value="pl">Polski</option>
+        <option value="ja">日本語</option>
+        <option value="ko">한국어</option>
+      </select>
+    </div>
+    <div class="hero-inner">
+      <div class="profile-wrapper">
+        <img class="profile-pic" src="images/your-photo.jpg" alt="Italo Moletto" crossorigin="anonymous" />
+      </div>
+      <header id="header"></header>
     </div>
   </div>
 
   <div class="container" style="display:none;">
-    <!-- ===== Education ===== -->
-    <section id="section-education">
-      <h2 data-lang-key="Education">Education</h2>
-      <div id="education-card" class="card big-edu-card">
-        <div id="education-list"></div>
-      </div>
+    <!-- ===== Profile ===== -->
+    <section id="section-profile">
+      <h2 data-lang-key="Profile">Profile</h2>
+      <p id="profile-summary" class="profile-summary"></p>
+      <div id="highlights" class="highlights"></div>
+    </section>
+
+    <!-- ===== Research highlights ===== -->
+    <section id="section-research">
+      <h2 data-lang-key="Research highlights">Research highlights</h2>
+      <div id="research-list" class="research-grid"></div>
     </section>
 
     <!-- ===== Experience ===== -->
@@ -384,18 +644,26 @@
       </div>
     </section>
 
+    <!-- ===== Education ===== -->
+    <section id="section-education">
+      <h2 data-lang-key="Education">Education</h2>
+      <div id="education-card" class="card big-edu-card">
+        <div id="education-list"></div>
+      </div>
+    </section>
+
+    <!-- ===== Stays ===== -->
+    <section id="section-stays">
+      <h2 data-lang-key="Stays">Stays</h2>
+      <div id="stays-card" class="card big-stays-card">
+        <div id="stays-list"></div>
+      </div>
+    </section>
+
     <!-- ===== Projects ===== -->
     <section id="section-projects">
       <h2 data-lang-key="Projects">Projects</h2>
-      <div id="projects-card" class="card big-projects-card">
-        <details id="projects-details" class="projects-details">
-          <summary class="projects-summary">
-            <span id="projects-summary-text" data-lang-key="Projects Summary">Projects</span>
-            <span class="projects-summary-hint" data-lang-key="Click to expand">— click to expand</span>
-          </summary>
-          <div id="project-list"></div>
-        </details>
-      </div>
+      <div id="project-list" class="project-grid"></div>
     </section>
 
     <!-- ===== Skills ===== -->
@@ -446,7 +714,7 @@
   let GLOSSARY_TERMS = {};
   let DATA_GLOSSARY_TRANSLATIONS = {};
   let TITLES_GLOSSARY = {};
-  const DATA_VERSION = '2026-05-05-1';
+  const DATA_VERSION = '2026-10-11-3';
   const DATE_TRANSLATIONS = {
     en: {
       Jan: 'Jan', Feb: 'Feb', Mar: 'Mar', Apr: 'Apr', May: 'May', Jun: 'Jun',
@@ -681,16 +949,20 @@
   async function loadData() {
     // Definimos todos los archivos JSON a cargar
     const filePaths = [
-      'glossary.json', 'header.json', 'education.json', 'experience.json',
+      'glossary.json', 'header.json', 'education.json', 'experience.json', 'stays.json',
       'projects.json', 'skills.json', 'science.json', 'press.json',
-      'personal.json', 'copyright.json'
+      'personal.json', 'copyright.json', 'research.json'
     ];
+
+    // Archivos opcionales: si faltan en una rama, la página carga igual sin esa sección
+    const optionalFiles = new Set(['stays.json', 'research.json', 'copyright.json']);
 
     // Nueva lógica de carga robusta
     const fetchAndMap = async (path) => {
         try {
             return await fetchJson(path);
         } catch (error) {
+            if (optionalFiles.has(path)) return null;
             // Error de red o error de sintaxis JSON
             console.error(`Error procesando archivo ${path}:`, error);
             throw new Error(`Fallo de procesamiento: ${path}. Detalles: ${error.message}`);
@@ -701,7 +973,7 @@
     const results = await Promise.all(promises);
 
     // Mapear los resultados al dataStore
-    const [glossaryData, headerData, educationData, experienceData, projectsData, skillsData, scienceData, pressData, personalData, copyrightData] = results;
+    const [glossaryData, headerData, educationData, experienceData, staysData, projectsData, skillsData, scienceData, pressData, personalData, copyrightData, researchData] = results;
 
     // 1. Asignar Glosarios primero (necesario para la traducción de la UI)
     GLOSSARY_TERMS = glossaryData.ui || {};
@@ -715,12 +987,14 @@
     dataStore.header = headerData || {};
     dataStore.education = educationData || [];
     dataStore.experience = experienceData || [];
+    dataStore.stays = staysData || [];
     dataStore.projects = projectsData || [];
     dataStore.skills = skillsData || {};
     dataStore.science = scienceData || [];
     dataStore.press = pressData || [];
     dataStore.personal = personalData || {};
-    dataStore.copyrightText = copyrightData.text || "© 2025 Italo Moletto Lobos — Remote Sensing & AI";
+    dataStore.research = researchData || [];
+    dataStore.copyrightText = copyrightData?.text || "© 2026 Italo Moletto Lobos — Remote Sensing & AI";
   }
 
 
@@ -746,24 +1020,38 @@
       </div>
     `;
 
-    // Header en pantalla (limpieza previa)
-    const existingContent = header.querySelector('.contact-info');
-    if (existingContent) {
-        header.querySelector('h1')?.remove();
-        header.querySelector('p:not(.lang-selector p)')?.remove();
-        existingContent.remove();
-    }
-
-    // Header pantalla (append to existing lang-selector wrapper)
-    header.insertAdjacentHTML('beforeend', `
+    // Header en pantalla
+    header.innerHTML = `
       <h1>${data.name || ''}</h1>
-      <p>${translatedSubtitle || ''}</p>
+      <p class="hero-subtitle">${translatedSubtitle || ''}</p>
       <div class="contact-info">
-        ${phones ? `<span><i class="fas fa-phone"></i> ${phones}</span>` : ''}
-        ${emails ? `<span><i class="fas fa-envelope"></i> ${emails}</span>` : ''}
+        ${(data.emails || []).map(email => `<a href="mailto:${email}"><i class="fas fa-envelope"></i> ${email}</a>`).join('')}
+        ${(data.phones || []).map(phone => `<a href="tel:${phone}"><i class="fas fa-phone"></i> ${phone}</a>`).join('')}
         ${data.linkedin ? `<a href="${data.linkedin}" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a>` : ''}
+        ${data.scholar ? `<a href="${data.scholar}" target="_blank" rel="noopener"><i class="fas fa-graduation-cap"></i> Google Scholar</a>` : ''}
+        <button type="button" class="cta" data-action="download-cv"><i class="fas fa-file-arrow-down"></i> ${T('Download CV')}</button>
       </div>
-    `);
+    `;
+  }
+
+  function toggleSection(id, visible) {
+    const section = document.getElementById(id);
+    if (section) section.style.display = visible ? '' : 'none';
+  }
+
+  function renderProfile(data) {
+    toggleSection('section-profile', Boolean(data.summary || data.highlights?.length));
+    const summary = document.getElementById('profile-summary');
+    if (summary) summary.textContent = translateText(data.summary || '');
+    const highlights = document.getElementById('highlights');
+    if (highlights) {
+      highlights.innerHTML = (data.highlights || []).map(h => `
+        <div class="highlight">
+          <div class="highlight-value">${translateText(h.value)}</div>
+          <div class="highlight-label">${translateText(h.label)}</div>
+        </div>
+      `).join('');
+    }
   }
 
   function renderEducation(data) {
@@ -810,8 +1098,45 @@
     });
   }
 
+  function renderResearch(data) {
+    const list = document.getElementById('research-list');
+    if (!list) return;
+    toggleSection('section-research', data.length > 0);
+    list.innerHTML = data.map(item => `
+      <article class="research-card${item.featured ? ' featured' : ''}">
+        <a class="research-figure" href="${item.url}" target="_blank" rel="noopener">
+          <img src="${item.image}" alt="${translateText(item.alt || '')}" loading="lazy" />
+        </a>
+        <div class="research-body">
+          <span class="research-tag">${translateText(item.tag || '')}</span>
+          <h3 class="research-title">${translateText(item.title || '')}</h3>
+          <p class="research-result">${translateText(item.result || '')}</p>
+          <p class="research-cite">${item.citation || ''}</p>
+          <a class="research-link" href="${item.url}" target="_blank" rel="noopener">${T('Read the paper')} →</a>
+        </div>
+      </article>
+    `).join('');
+  }
+
+  function renderStays(data) {
+    const list = document.getElementById('stays-list');
+    if (!list) return;
+    toggleSection('section-stays', data.length > 0);
+    list.innerHTML = '';
+    data.forEach(stay => {
+      const block = document.createElement('div');
+      block.className = 'edu-block';
+      block.innerHTML = `
+        <h3 class="edu-degree">${translateText(stay.institution || '')}</h3>
+        <p class="meta">${formatMetaLine(stay.location, '')}</p>
+        <p class="date">${translateDateText(stay.date || '')}</p>
+        ${stay.description ? `<p style="margin-top: 10px; font-size: 0.95em;">${translateText(stay.description)}</p>` : ''}
+      `;
+      list.appendChild(block);
+    });
+  }
+
   function renderProjects(data) {
-    const details = document.getElementById('projects-details');
     const list = document.getElementById('project-list');
     list.innerHTML = '';
 
@@ -823,31 +1148,21 @@
       if (project.employer) metaBits.push(translateText(project.employer));
       if (project.country)  metaBits.push(translateText(project.country));
       const meta = metaBits.length ? `<span class="meta">${metaBits.join(' · ')}</span>` : '';
-      const code = project.code ? `<span class="code"><strong>${project.code}</strong></span>` : '';
+      const code = project.code ? `<span class="code">${project.code}</span>` : '';
 
       const description = project.description ? `<p class="project-desc">${translateText(project.description)}</p>` : '';
 
       block.innerHTML = `
         <h3 class="project-title">${translatedProjectTitle || ''}</h3>
         <div class="project-sub">
+          ${code}
           ${project.date ? `<span class="date">${translateDateText(project.date)}</span>` : ''}
-          ${meta}${code ? ` · ${code}` : ''}
+          ${meta}
         </div>
         ${description}
       `;
       list.appendChild(block);
     });
-
-    // Toggle logic for print (still needed, but outside loop)
-    const openForPrint = () => details.setAttribute('open', 'open');
-    const closeAfterPrint = () => details.removeAttribute('open');
-    if (window.matchMedia) {
-      window.matchMedia('print').addEventListener('change', e => {
-        if (e.matches) openForPrint(); else closeAfterPrint();
-      });
-    }
-    window.addEventListener('beforeprint', openForPrint);
-    window.addEventListener('afterprint', closeAfterPrint);
   }
 
   function renderSkills(data) {
@@ -857,15 +1172,20 @@
     card.className = 'card';
     let html = '';
 
+    (data.technical_skills || []).forEach(group => {
+      html += `<div class="skill-group"><h3>${translateText(group.category)}</h3><ul class="chips">`;
+      (group.items || []).forEach(skill => html += `<li>${translateText(skill)}</li>`);
+      html += '</ul></div>';
+    });
     if (data.technical?.length) {
-      html += `<h3>${T('Skills & Leadership')}</h3><ul>`;
+      html += `<div class="skill-group"><h3>${T('Skills & Leadership')}</h3><ul>`;
       data.technical.forEach(skill => html += `<li>${translateText(skill)}</li>`);
-      html += '</ul>';
+      html += '</ul></div>';
     }
     if (data.languages?.length) {
-      html += `<h3>${T('Languages')}</h3><ul>`;
+      html += `<div class="skill-group"><h3>${T('Languages')}</h3><ul class="chips">`;
       data.languages.forEach(lang => html += `<li>${translateText(lang)}</li>`);
-      html += '</ul>';
+      html += '</ul></div>';
     }
     card.innerHTML = html || `<p>${T('No skills listed')}</p>`;
     container.appendChild(card);
@@ -873,10 +1193,32 @@
 
   function renderScience(data) {
     const container = document.getElementById('science-list');
+    if (!container) return;
     container.innerHTML = '';
     const card = document.createElement('div');
     card.className = 'card';
-    card.innerHTML = renderTranslatedLinks(data);
+
+    if (Array.isArray(data)) {
+        card.innerHTML = renderTranslatedLinks(data);
+    } else {
+        let html = '';
+        if (data.metrics) {
+            html += `<p style="margin-bottom: 15px; font-style: italic; font-size: 0.9em; color: #555;">
+                <strong>${T('Citations')}:</strong> ${data.metrics.citations} · 
+                <strong>h-index:</strong> ${data.metrics.h_index} · 
+                <strong>i10-index:</strong> ${data.metrics.i10_index}
+            </p>`;
+        }
+        if (data.profiles) {
+            html += renderTranslatedLinks(data.profiles);
+        }
+        if (data.publications?.length) {
+            html += `<h3 style="margin-top: 20px;">${T('Recent Publications')}</h3><ul>`;
+            data.publications.forEach(pub => html += `<li style="margin-bottom: 10px; font-size: 0.95em;">${translateText(pub)}</li>`);
+            html += '</ul>';
+        }
+        card.innerHTML = html;
+    }
     container.appendChild(card);
   }
 
@@ -887,6 +1229,13 @@
     card.className = 'card';
     card.innerHTML = renderTranslatedLinks(data);
     container.appendChild(card);
+  }
+
+  function renderPersonalData(personal = {}) {
+    return `
+      ${personal.nationality ? `<p><strong>${T('Nationality Label')}:</strong> ${translateText(personal.nationality)}</p>` : ''}
+      ${personal.birthdate ? `<p><strong>${T('Born date Label')}:</strong> ${translateText(personal.birthdate) || translateDateText(personal.birthdate)}</p>` : ''}
+    `;
   }
 
   /**
@@ -918,10 +1267,7 @@
     if (dataStore.personal) {
       const container = document.getElementById('personal-data');
       if (container) {
-          container.innerHTML = `
-            <p><strong>${T('Nationality Label')}:</strong> ${translateText(dataStore.personal.nationality || '')}</p>
-            <p><strong>${T('Born date Label')}:</strong> ${translateText(dataStore.personal.birthdate || '') || translateDateText(dataStore.personal.birthdate || '')}</p>
-          `;
+          container.innerHTML = renderPersonalData(dataStore.personal);
       }
     }
 
@@ -930,14 +1276,9 @@
         renderSkills(dataStore.skills);
     }
 
-    // 6. Projects Summary text (needs count)
-    const summaryText = document.getElementById('projects-summary-text');
-    if (dataStore.projects) {
-        summaryText.textContent = `${T('Projects Summary')} (${dataStore.projects.length})`;
-    }
-
     // 7. Header (Rerendered for print header and screen header content)
     renderHeader(dataStore.header);
+    renderProfile(dataStore.header);
   }
 
   /**
@@ -946,14 +1287,33 @@
    */
   function renderContent() {
     // 1. Content that needs to be built with translated items
+    renderResearch(dataStore.research);
     renderEducation(dataStore.education);
     renderExperience(dataStore.experience);
+    renderStays(dataStore.stays);
     renderProjects(dataStore.projects);
     renderScience(dataStore.science);
     renderPress(dataStore.press);
 
     // 2. UI Rendering (Static labels and dynamic content that uses T())
     renderUI();
+  }
+
+  function setupReveal() {
+    const targets = document.querySelectorAll('.container section, .research-card, .highlight');
+    if (!('IntersectionObserver' in window)) return;
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    targets.forEach(el => {
+      el.classList.add('reveal');
+      observer.observe(el);
+    });
   }
 
 
@@ -976,6 +1336,7 @@
 
         // 1. Initial Content and UI Rendering
         renderContent();
+        setupReveal();
 
         // 2. Language change listener
         langSelect.addEventListener('change', (e) => {
@@ -1031,6 +1392,24 @@
           }, 1500);
         });
 
+        document.getElementById('header').addEventListener('click', (e) => {
+          if (e.target.closest('[data-action="download-cv"]')) pdfSimplifiedBtn.click();
+        });
+
+        if (window.location.search.includes('simplified')) {
+          buildSimplifiedDOM();
+          const root = document.getElementById('pdf-simplified');
+          const elsToHide = [
+            document.querySelector('.container'),
+            document.querySelector('footer'),
+            document.querySelector('.header-wrapper'),
+            document.getElementById('print-header')
+          ];
+          elsToHide.forEach(el => { if (el) el.style.display = 'none'; });
+          root.style.display = 'block';
+          document.body.classList.add('print-simplified');
+        }
+
     } catch (error) {
         // ERROR FATAL: El error se propaga desde loadData() aquí.
         const errorMsg = error.message || 'Error desconocido durante la carga.';
@@ -1057,10 +1436,11 @@
     const emails = (dataStore.header.emails || []).join(' / ');
     const translatedSubtitle = translateText(dataStore.header.subtitle || '');
 
+    // Línea de proyectos dirigidos: solo si los proyectos vienen etiquetados con `role`
     const allProjects = dataStore.projects || [];
-    const ledProjectsCount = allProjects.filter(p => p.role === 'lead').length;
+    const hasProjectRoles = allProjects.some(p => p.role);
     const statsLine = T('Projects Stats Template')
-      .replace('{led}', ledProjectsCount)
+      .replace('{led}', allProjects.filter(p => p.role === 'lead').length)
       .replace('{total}', allProjects.length);
 
     printHeaderClone.innerHTML = `
@@ -1072,10 +1452,19 @@
             ${phones ? `<span>📞 ${phones}</span>` : ''}
             ${emails ? `<span>✉️ ${emails}</span>` : ''}
           </div>
-          ${allProjects.length ? `<p class="stats-line">${statsLine}</p>` : ''}
+          ${hasProjectRoles ? `<p class="stats-line">${statsLine}</p>` : ''}
         </div>
     `;
     wrapper.appendChild(printHeaderClone);
+
+    // Profile summary
+    if (dataStore.header.summary) {
+      const summaryEl = document.createElement('p');
+      summaryEl.className = 'profile-summary';
+      summaryEl.style.cssText = 'font-size: 0.95em; margin: 0 0 6px;';
+      summaryEl.textContent = translateText(dataStore.header.summary);
+      wrapper.appendChild(summaryEl);
+    }
 
     // Education (Translated Title and content)
     const secEdu = document.createElement('section');
@@ -1099,7 +1488,6 @@
     });
     cardEdu.appendChild(listEdu);
     secEdu.appendChild(cardEdu);
-    wrapper.appendChild(secEdu);
 
     // Experience (Translated Title, slim roles, translated content)
     const secExp = document.createElement('section');
@@ -1108,25 +1496,34 @@
     cardExp.className = 'card';
     const listExp = document.createElement('div');
 
-    // Two-page CV: weight Chilean experience by showing it first
-    const experienceChileFirst = [...(dataStore.experience || [])].sort((a, b) => {
-      const aChile = a.country === 'Chile' ? 0 : 1;
-      const bChile = b.country === 'Chile' ? 0 : 1;
-      return aChile - bChile;
-    });
+    // PDF de dos páginas: si la rama define `pdf_priority_country`, esa experiencia va primero
+    const priorityCountry = dataStore.header.pdf_priority_country;
+    const experienceOrdered = priorityCountry
+      ? [...(dataStore.experience || [])].sort((a, b) => (a.country === priorityCountry ? 0 : 1) - (b.country === priorityCountry ? 0 : 1))
+      : (dataStore.experience || []);
 
-    experienceChileFirst.forEach(org => {
+    experienceOrdered.forEach(org => {
       const block = document.createElement('div');
       block.className = 'employer-block';
+      
+      const isUni = org.employer.toLowerCase().includes('university') || 
+                    org.employer.toLowerCase().includes('univ.') || 
+                    org.employer.toLowerCase().includes('universidad');
+      
       const rolesHTML = (org.roles || []).map(role => {
         const translatedTitle = translateTitleLike(role.title);
+        const translatedItems = (role.items || []).map(item => `<li>${translateText(item)}</li>`).join('');
+        
+        // Show detailed items for all university roles in simplified PDF
         return `
-          <div class="role role-slim">
+          <div class="role ${isUni ? '' : 'role-slim'}">
             <h4 class="role-title">${translatedTitle || ''}</h4>
             <p class="date">${translateDateText(role.date || '')}</p>
+            ${isUni ? `<ul class="role-items">${translatedItems}</ul>` : ''}
           </div>
         `;
       }).join('');
+      
       block.innerHTML = `
         <h3 class="employer-name">${translateText(org.employer || '')}</h3>
         ${org.location ? `<p class="meta">${translateText(org.location)}</p>` : ''}
@@ -1137,6 +1534,7 @@
     cardExp.appendChild(listExp);
     secExp.appendChild(cardExp);
     wrapper.appendChild(secExp);
+    wrapper.appendChild(secEdu);
 
     // Skills (Translated Titles and content)
     const secSkills = document.createElement('section');
@@ -1145,15 +1543,16 @@
     cardSkills.className = 'card';
 
     let skillsHTML = '';
+    (dataStore.skills?.technical_skills || []).forEach(group => {
+      skillsHTML += `<p><strong>${translateText(group.category)}:</strong> ${(group.items || []).map(translateText).join(' · ')}</p>`;
+    });
     if (dataStore.skills?.technical?.length) {
       skillsHTML += `<h3>${T('Skills & Leadership')}</h3><ul>`;
       dataStore.skills.technical.forEach(s => skillsHTML += `<li>${translateText(s)}</li>`);
       skillsHTML += '</ul>';
     }
     if (dataStore.skills?.languages?.length) {
-      skillsHTML += `<h3>${T('Languages')}</h3><ul>`;
-      dataStore.skills.languages.forEach(l => skillsHTML += `<li>${translateText(l)}</li>`);
-      skillsHTML += '</ul>';
+      skillsHTML += `<p><strong>${T('Languages')}:</strong> ${dataStore.skills.languages.map(translateText).join(' · ')}</p>`;
     }
 
     cardSkills.innerHTML = skillsHTML || `<p>${T('No skills listed')}</p>`;
@@ -1161,12 +1560,27 @@
     wrapper.appendChild(secSkills);
 
 
-    // Scientific profiles (Translated Title)
+    // Scientific profiles (Translated Title, publications omitted in simplified PDF)
     const secSci = document.createElement('section');
     secSci.innerHTML = `<h2>${T('Scientific profiles')}</h2>`;
     const cardSci = document.createElement('div');
     cardSci.className = 'card';
-    cardSci.innerHTML = renderTranslatedLinks(dataStore.science);
+
+    const sciData = dataStore.science;
+    if (Array.isArray(sciData)) {
+        cardSci.innerHTML = renderTranslatedLinks(sciData);
+    } else {
+        let sciHtml = '';
+        if (sciData.metrics) {
+            sciHtml += `<p style="margin-bottom: 10px; font-style: italic; font-size: 0.9em;">
+                Citations: ${sciData.metrics.citations} · h-index: ${sciData.metrics.h_index}
+            </p>`;
+        }
+        if (sciData.profiles) {
+            sciHtml += renderTranslatedLinks(sciData.profiles);
+        }
+        cardSci.innerHTML = sciHtml;
+    }
     secSci.appendChild(cardSci);
     wrapper.appendChild(secSci);
 
@@ -1176,10 +1590,7 @@
     secPD.innerHTML = `<h2>${T('Personal Data')}</h2>`;
     const cardPD = document.createElement('div');
     cardPD.className = 'card';
-    cardPD.innerHTML = `
-      <p><strong>${T('Nationality Label')}:</strong> ${translateText(dataStore.personal?.nationality || '')}</p>
-      <p><strong>${T('Born date Label')}:</strong> ${translateText(dataStore.personal?.birthdate || '') || translateDateText(dataStore.personal?.birthdate || '')}</p>
-    `;
+    cardPD.innerHTML = renderPersonalData(dataStore.personal);
     secPD.appendChild(cardPD);
     wrapper.appendChild(secPD);
 
