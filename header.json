@@ -1,7 +1,33 @@
 {
   "name": "Italo Moletto Lobos",
   "subtitle": "PhD in Remote Sensing | Earth System Data Engineer | GeoAI | HPC & Cloud Expert",
-  "phones": ["+34644087357", "+56985051611"],
-  "emails": ["italo.moletto@uv.es", "italo@agrospace.cl"],
-  "linkedin": "https://www.linkedin.com/in/italo-moletto-lobos-4b711019a"
+  "phones": [
+    "+34644087357",
+    "+56985051611"
+  ],
+  "emails": [
+    "italo.moletto@uv.es",
+    "italo@agrospace.cl"
+  ],
+  "linkedin": "https://www.linkedin.com/in/italo-moletto-lobos-4b711019a",
+  "summary": "PhD in Remote Sensing and co-founder of AgroSpace. I turn multi-sensor Earth observation into operational products for food and water security, from yield forecasting for NASA Harvest and global crop calendars for ESA WorldCereal to petabyte-scale HPC and cloud pipelines.",
+  "highlights": [
+    {
+      "value": "$5M",
+      "label": "AIM for Climate prize (COP28), AgroSpace"
+    },
+    {
+      "value": "NASA Harvest",
+      "label": "Yield forecasting specialist"
+    },
+    {
+      "value": "ESA WorldCereal",
+      "label": "Lead developer, global crop calendars"
+    },
+    {
+      "value": "160+",
+      "label": "Citations · h-index 6"
+    }
+  ],
+  "scholar": "https://scholar.google.com/citations?user=kMu7PVUAAAAJ"
 }
