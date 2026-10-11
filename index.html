@@ -458,6 +458,7 @@
       .print-header p { margin: 0; font-size: 1em; color: #555; }
       .print-header .contact-line { font-size: 0.9em; margin-top: 4px; }
       .print-header .contact-line span { margin-right: 15px; }
+      .print-header .stats-line { font-size: 0.9em; margin-top: 4px; font-weight: 700; color: var(--accent); }
 
       .print-avatar {
         display: block !important; width: 90px !important; height: 90px !important;
@@ -953,11 +954,15 @@
       'personal.json', 'copyright.json', 'research.json'
     ];
 
+    // Archivos opcionales: si faltan en una rama, la página carga igual sin esa sección
+    const optionalFiles = new Set(['stays.json', 'research.json', 'copyright.json']);
+
     // Nueva lógica de carga robusta
     const fetchAndMap = async (path) => {
         try {
             return await fetchJson(path);
         } catch (error) {
+            if (optionalFiles.has(path)) return null;
             // Error de red o error de sintaxis JSON
             console.error(`Error procesando archivo ${path}:`, error);
             throw new Error(`Fallo de procesamiento: ${path}. Detalles: ${error.message}`);
@@ -989,7 +994,7 @@
     dataStore.press = pressData || [];
     dataStore.personal = personalData || {};
     dataStore.research = researchData || [];
-    dataStore.copyrightText = copyrightData.text || "© 2026 Italo Moletto Lobos — Remote Sensing & AI";
+    dataStore.copyrightText = copyrightData?.text || "© 2026 Italo Moletto Lobos — Remote Sensing & AI";
   }
 
 
@@ -1029,7 +1034,13 @@
     `;
   }
 
+  function toggleSection(id, visible) {
+    const section = document.getElementById(id);
+    if (section) section.style.display = visible ? '' : 'none';
+  }
+
   function renderProfile(data) {
+    toggleSection('section-profile', Boolean(data.summary || data.highlights?.length));
     const summary = document.getElementById('profile-summary');
     if (summary) summary.textContent = translateText(data.summary || '');
     const highlights = document.getElementById('highlights');
@@ -1090,6 +1101,7 @@
   function renderResearch(data) {
     const list = document.getElementById('research-list');
     if (!list) return;
+    toggleSection('section-research', data.length > 0);
     list.innerHTML = data.map(item => `
       <article class="research-card${item.featured ? ' featured' : ''}">
         <a class="research-figure" href="${item.url}" target="_blank" rel="noopener">
@@ -1109,6 +1121,7 @@
   function renderStays(data) {
     const list = document.getElementById('stays-list');
     if (!list) return;
+    toggleSection('section-stays', data.length > 0);
     list.innerHTML = '';
     data.forEach(stay => {
       const block = document.createElement('div');
@@ -1164,6 +1177,11 @@
       (group.items || []).forEach(skill => html += `<li>${translateText(skill)}</li>`);
       html += '</ul></div>';
     });
+    if (data.technical?.length) {
+      html += `<div class="skill-group"><h3>${T('Skills & Leadership')}</h3><ul>`;
+      data.technical.forEach(skill => html += `<li>${translateText(skill)}</li>`);
+      html += '</ul></div>';
+    }
     if (data.languages?.length) {
       html += `<div class="skill-group"><h3>${T('Languages')}</h3><ul class="chips">`;
       data.languages.forEach(lang => html += `<li>${translateText(lang)}</li>`);
@@ -1418,6 +1436,13 @@
     const emails = (dataStore.header.emails || []).join(' / ');
     const translatedSubtitle = translateText(dataStore.header.subtitle || '');
 
+    // Línea de proyectos dirigidos: solo si los proyectos vienen etiquetados con `role`
+    const allProjects = dataStore.projects || [];
+    const hasProjectRoles = allProjects.some(p => p.role);
+    const statsLine = T('Projects Stats Template')
+      .replace('{led}', allProjects.filter(p => p.role === 'lead').length)
+      .replace('{total}', allProjects.length);
+
     printHeaderClone.innerHTML = `
         <img class="print-avatar" src="images/your-photo-print.jpg" alt="${T('Photo')}" crossorigin="anonymous" />
         <div class="identity">
@@ -1427,6 +1452,7 @@
             ${phones ? `<span>📞 ${phones}</span>` : ''}
             ${emails ? `<span>✉️ ${emails}</span>` : ''}
           </div>
+          ${hasProjectRoles ? `<p class="stats-line">${statsLine}</p>` : ''}
         </div>
     `;
     wrapper.appendChild(printHeaderClone);
@@ -1470,7 +1496,13 @@
     cardExp.className = 'card';
     const listExp = document.createElement('div');
 
-    (dataStore.experience || []).forEach(org => {
+    // PDF de dos páginas: si la rama define `pdf_priority_country`, esa experiencia va primero
+    const priorityCountry = dataStore.header.pdf_priority_country;
+    const experienceOrdered = priorityCountry
+      ? [...(dataStore.experience || [])].sort((a, b) => (a.country === priorityCountry ? 0 : 1) - (b.country === priorityCountry ? 0 : 1))
+      : (dataStore.experience || []);
+
+    experienceOrdered.forEach(org => {
       const block = document.createElement('div');
       block.className = 'employer-block';
       
@@ -1514,6 +1546,11 @@
     (dataStore.skills?.technical_skills || []).forEach(group => {
       skillsHTML += `<p><strong>${translateText(group.category)}:</strong> ${(group.items || []).map(translateText).join(' · ')}</p>`;
     });
+    if (dataStore.skills?.technical?.length) {
+      skillsHTML += `<h3>${T('Skills & Leadership')}</h3><ul>`;
+      dataStore.skills.technical.forEach(s => skillsHTML += `<li>${translateText(s)}</li>`);
+      skillsHTML += '</ul>';
+    }
     if (dataStore.skills?.languages?.length) {
       skillsHTML += `<p><strong>${T('Languages')}:</strong> ${dataStore.skills.languages.map(translateText).join(' · ')}</p>`;
     }
