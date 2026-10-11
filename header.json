@@ -1,6 +1,6 @@
 {
   "name": "Italo Moletto-Lobos",
-  "subtitle": "Geospatial Data Engineer | Cloud & HPC Architect | PostGIS & Remote Sensing Specialist",
+  "subtitle": "Remote Sensing Data Engineer · Operational Satellite Data Pipelines, PostgreSQL & Cloud",
   "phones": [
     "+34644087357"
   ],
@@ -9,23 +9,23 @@
     "italo.moletto.lobos@gmail.com"
   ],
   "linkedin": "https://www.linkedin.com/in/italo-moletto-lobos-4b711019a",
-  "summary": "PhD in Remote Sensing and geospatial data engineer. I design automated ETL/ELT pipelines and cloud-native workflows on AWS, PostGIS and HPC that turn Sentinel-1/2, MODIS and PlanetScope data into agricultural monitoring products for NASA Harvest, ESA WorldCereal, FAO and the Gates Foundation.",
+  "summary": "PhD in Remote Sensing and data engineer who builds and runs operational satellite data pipelines: automated ingestion into PostgreSQL/PostGIS, cloud workflows on Azure, AWS and HPC, production monitoring with Jira, and tested, containerised code with CI/CD. My pipelines feed NASA Harvest yield forecasts in seven countries and ESA WorldCereal global crop calendars, backed by 10 years of climate-focused Earth observation research.",
   "highlights": [
     {
       "value": "10 yrs",
-      "label": "Geospatial & EO data engineering"
+      "label": "Satellite data processing & engineering"
     },
     {
       "value": "NASA Harvest",
-      "label": "Automated pipelines for global agricultural monitoring"
+      "label": "Operational pipelines, forecasts in 7 countries"
     },
     {
       "value": "ESA WorldCereal",
       "label": "Master geospatial repository for global crop calendars"
     },
     {
-      "value": "160+",
-      "label": "Citations · h-index 6"
+      "value": "185+",
+      "label": "Citations · h-index 7"
     }
   ],
   "scholar": "https://scholar.google.com/citations?user=kMu7PVUAAAAJ"

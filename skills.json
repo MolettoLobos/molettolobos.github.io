@@ -4,9 +4,12 @@
       "category": "Data Engineering & Cloud",
       "items": [
         "PostgreSQL / PostGIS (Advanced)",
+        "Microsoft Azure",
         "AWS (S3, Lambda, RDS, EC2, VPC)",
         "Automated ETL/ELT Pipelines",
-        "Infrastructure as Code (IaC) & CI/CD",
+        "Production Pipeline Monitoring & Issue Triage (Jira)",
+        "Automated Testing & CI/CD",
+        "Infrastructure as Code (IaC)",
         "HPC Management (ARYA, Polaris)"
       ]
     },
@@ -14,7 +17,7 @@
       "category": "Geospatial & Remote Sensing",
       "items": [
         "Earth Observation (Sentinel, MODIS, Planet)",
-        "Ag Remote Sensing & Spatiotemporal Deep Learning",
+        "Machine Learning for EO (Gradient Boosting)",
         "OGC APIs & Cloud-Native Formats (Zarr, COG, GeoParquet)",
         "Digital Agriculture & Food Security Analysis"
       ]
@@ -33,6 +36,7 @@
     "Spanish (Native)",
     "English (C1/Fluency)",
     "Italian (B2/Fluent)",
+    "Ukrainian (A2)",
     "Korean (A2)"
   ]
 }
