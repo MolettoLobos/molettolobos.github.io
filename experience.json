@@ -6,10 +6,10 @@
         "title": "Postdoctoral Researcher",
         "date": "Aug 2025 – Present",
         "items": [
-          "Lead scientist developing and applying global agricultural yield forecasting models (NASA Harvest).",
-          "Integrating multi-source satellite observations (Sentinel-1/2, MODIS, PlanetScope) to study global agricultural dynamics.",
-          "Developing remote sensing products for the ADAPT-Africa project, funded by the Gates Foundation.",
-          "Refining spatiotemporal models for large-scale crop yield prediction and climate impact assessment."
+          "Lead scientist for in-season crop yield forecasting with the ARYA model (NASA Harvest) in the USA, Spain, Italy, Ukraine, Russia, Kenya and Zimbabwe, with errors of around 15%.",
+          "Gradient-boosting yield models driven by multi-source satellite data (Sentinel-1/2, MODIS, PlanetScope) and agro-meteorological data (ERA5, ERA5-Land, AgERA5, CHIRPS, weather stations).",
+          "ADAPT-Africa (Gates Foundation): low-resolution crop type mapping and subnational yield modelling with ARYA to support food security.",
+          "Present results to ESA, FAO and national ministries."
         ]
       },
       {
@@ -17,6 +17,7 @@
         "date": "Sep 2022 – Jul 2025",
         "items": [
           "Led the scientific development of global crop calendars and land surface phenology using multi-source EO data and machine learning.",
+          "Field-scale wheat and barley yield models for Spain using Sentinel-1/2 and growing degree days, designed to transfer across sites and seasons.",
           "Scientific lead for validation of field-scale products; PhD research on phenology-informed frameworks for yield monitoring and climate risk."
         ]
       },

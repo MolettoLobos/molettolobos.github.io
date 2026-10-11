@@ -3,8 +3,10 @@
     {
       "category": "AI & Crop Yield Modelling",
       "items": [
-        "Ag Remote Sensing & Spatiotemporal Deep Learning",
+        "Gradient Boosting (XGBoost) for Yield Forecasting",
         "Crop Phenology & Yield Modelling (GDD-normalised indices)",
+        "Crop Growth Modelling (SAFY)",
+        "Agro-meteorological Data (ERA5, ERA5-Land, AgERA5, CHIRPS)",
         "Python (Expert: PyTorch, Dask, Xarray)",
         "Digital Agriculture & Food Security Analysis"
       ]

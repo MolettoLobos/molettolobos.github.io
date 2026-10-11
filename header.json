@@ -9,15 +9,15 @@
     "italo.moletto.lobos@gmail.com"
   ],
   "linkedin": "https://www.linkedin.com/in/italo-moletto-lobos-4b711019a",
-  "summary": "PhD in Remote Sensing with 10 years of research in agricultural monitoring. I build machine-learning and phenology-informed models that turn multi-source satellite and weather data into crop yield forecasts and climate-risk assessments, from field-scale winter cereals in Mediterranean Europe to global systems for NASA Harvest and ESA WorldCereal.",
+  "summary": "PhD in Remote Sensing with 10 years of research in agricultural monitoring. I build machine-learning and phenology-informed models that turn multi-source satellite and agro-meteorological data into in-season crop yield forecasts and climate-risk assessments, from field-scale winter cereals in Mediterranean Europe to subnational forecasts in seven countries for NASA Harvest.",
   "highlights": [
     {
       "value": "10 yrs",
       "label": "Agricultural monitoring & EO research"
     },
     {
-      "value": "NASA Harvest",
-      "label": "Global crop yield forecasting"
+      "value": "7 countries",
+      "label": "In-season yield forecasts (NASA Harvest)"
     },
     {
       "value": "ESA WorldCereal",
