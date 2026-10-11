@@ -14,7 +14,7 @@
       "category": "Geospatial & Remote Sensing",
       "items": [
         "Earth Observation (Sentinel, MODIS, Planet)",
-        "Ag Remote Sensing & Spatiotemporal Deep Learning",
+        "Machine Learning for EO (Gradient Boosting)",
         "OGC APIs & Cloud-Native Formats (Zarr, COG, GeoParquet)",
         "Digital Agriculture & Food Security Analysis"
       ]
