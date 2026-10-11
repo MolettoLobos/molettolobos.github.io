@@ -19,21 +19,21 @@
     "url": "https://doi.org/10.3390/rs16234474"
   },
   {
-    "image": "images/research/nile-delta-phenology.jpg",
-    "alt": "Study area in the Nile Delta with monitored fields and climate diagram",
-    "tag": "Smallholder agriculture",
-    "title": "Field-scale crop phenology in the Nile Delta from Sen2Like and PlanetScope",
-    "result": "Harmonised Landsat–Sentinel-2 data detected 91% of crop seasons across six years of wheat, maize, rice and clover fields.",
-    "citation": "Cyran, Franch, …, Moletto-Lobos et al. (2025) · IJAEOG 142",
-    "url": "https://doi.org/10.1016/j.jag.2025.104716"
+    "image": "images/research/spain-yield-transferability.jpg",
+    "alt": "Map of Spain with Köppen-Geiger climate classes and wheat and barley calibration and validation parcels",
+    "tag": "Transferable yield models",
+    "title": "The yield strikes back: Enhancing the transferability of field scale wheat and barley yield models by leveraging Sentinel-1/2",
+    "result": "Field-scale wheat and barley yield models normalised in thermal time (growing degree days) and driven by optical and radar indices, tested across Spanish regions and seasons. SWIR (B11) indices gave the best and most stable performance.",
+    "citation": "Franch, Moletto-Lobos et al. (2026) · IJAEOG 146, 105140",
+    "url": "https://doi.org/10.1016/j.jag.2026.105140"
   },
   {
-    "image": "images/research/wheat-field-trial.jpg",
-    "alt": "Location of the wheat trial in Spain and drone image of the experimental plots",
-    "tag": "Yield & sustainable fertilisation",
-    "title": "Satellite and drone monitoring of winter wheat yield and grain quality",
-    "result": "Eleven fertiliser treatments monitored with PlanetScope and UAV multispectral data. PlanetScope predicted canopy cover (R² 0.68) and yield (R² 0.54); the two platforms proved complementary.",
-    "citation": "Moletto-Lobos et al. (2024) · Remote Sensing 16(23), 4474",
-    "url": "https://doi.org/10.3390/rs16234474"
+    "image": "images/research/sen2like-brdf.jpg",
+    "alt": "Directional differences of Sen2Like bands over Belgium after BRDF corrections",
+    "tag": "Data harmonisation",
+    "title": "Sen2Like: Paving the Way towards Harmonization and Fusion of Optical Data",
+    "result": "Copernicus software that harmonises and fuses Landsat 8/9 with Sentinel-2 into analysis-ready data through co-registration, atmospheric and BRDF corrections, including the HABA BRDF normalisation developed at the University of Valencia.",
+    "citation": "Saunier, Pflug, Moletto-Lobos, Franch et al. (2022) · Remote Sensing 14(16), 3855",
+    "url": "https://doi.org/10.3390/rs14163855"
   }
 ]
